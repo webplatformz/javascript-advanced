@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>.: Zuehlke Demo :.</title>
+
+    <meta name="description" content="A DEMO Presentation with a zuehlke Template and the reveal.js presentation framework">
+    <meta name="author" content="Type your name here">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+
+    <link rel="icon" href="images/favicon.png" type="image/png" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" href="css/theme/zuehlke.css" id="theme">
+
+    <link rel="stylesheet" href="css/presentation.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+        if (window.location.search.match(/print-pdf/gi)) {
+            var defaultStylesheet = createStylesheetLink('css/print/pdf.css'),
+                zuehlkeStylesheet = createStylesheetLink('css/print/pdf-zuehlke.css');
+
+            document.getElementsByTagName('head')[0].appendChild(defaultStylesheet);
+            document.getElementsByTagName('head')[0].appendChild(zuehlkeStylesheet);
+        }
+
+        function createStylesheetLink(href) {
+            var link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = href;
+
+            return link;
+        }
+    </script>
+
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <span id="zuehlke-header" class="zuehlke-header hide"></span>
+            <section>
+                <div class="zuehlke-center" style="margin-top: 30px;">
+                    <div class="zuehlke-zuerfel"></div>
+                    <div style="margin-top: 40px; font-weight: bold; letter-spacing: 0.2em;">WELCOME TO THE DEMO</div>
+                    <div style="margin-top: 10px; font-size: 0.6em">Isabel Züger &amp; Ben Millo</div>
+                </div>
+            </section>
+
+            <section data-state='orange'>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash page to start a chapter</div>
+                    <div class="zuehlke-splash-subtitle">with subtitle</div>
+                </div>
+            </section>
+            <section data-background="images/presentation/lake_large.jpg">
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+
+            <section data-title="First Page with Header" class='left'>
+                <h2>Lorem ipsum</h2>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.
+                </p>
+                <p>
+                    <pre>
+                        <code data-trim contenteditable>
+                            &lt;section data-title="First Page with Header" class='left'&gt;
+                        </code>
+                    </pre>
+                </p>
+                <p>
+                    presentation.css:
+                    <pre>
+                        <code data-trim contenteditable>
+                            span#zuehlke-header:before { content: "Demo - "; font-weight: normal; color: #dddddd; }
+                        </code>
+                    </pre>
+                </p>
+            </section>
+            <section>
+                <h2>Print your presentation</h2>
+                <p>This is easy: use the suffix
+                    <a href="?print-pdf">?print-pdf</a>&nbsp;in the address bar to enter print mode</p>
+            </section>
+
+            <section data-title="Simple Page with speaker notes">
+                <h2>Speaker notes</h2>
+                <p>
+                    Press 's' on the keyboard
+                </p>
+                <aside class="notes">
+                    Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
+                </aside>
+            </section>
+
+            <section data-title="Image with shadow">
+                <p>Image with nice shadow effect:</p>
+                <p>
+                    <img src="images/presentation/wtf.gif" class="shadow" />
+                </p>
+                <pre>
+                    <code data-trim contenteditable>
+                        <img src="images/presentation/wtf.gif" class="shadow" />
+                    </code>
+                </pre>
+            </section>
+
+            <section data-title="Example of pie chart" data-state="chart">
+                <h2>Destkop vs. Phone vs. Tablet</h2>
+                <canvas height="400px" width="900px" id="desktopMobileDistributionChart"></canvas>
+                <p>
+                    see presentation.js for code and help yourself with
+                    <a href="http://www.chartjs.org/" target="_blank">chartjs
+                    </a>
+
+                </p>
+            </section>
+
+            <section data-title="Example of bar cahrt" data-state="chart">
+                <h2>Mobile Devices</h2>
+                <canvas class="left" height="400px" width="750px" id="mobileDeviceChart"></canvas>
+
+                <div class="left" style="text-align: left;">
+                    <p style="padding:0;">Apple 71%</p>
+                    <p style="padding:0;">Samsung 18%</p>
+                    <p style="padding:0;">HTC 2%</p>
+                    <p style="padding:0;">Sony 1.5%</p>
+                    <p style="padding:0;">Nokia 0.8%</p>
+                </div>
+            </section>
+
+            <!-- Example of nested vertical slides -->
+            <section>
+                <section>
+                    <h2>Vertical Slides</h2>
+                    <p>
+                        Slides can be nested inside of other slides, try pressing
+                        <a href="#" class="navigate-down">down</a>.
+                    </p>
+                    <a href="#" class="image navigate-down">
+                        <img width="178" height="238" src="images/arrow.png" alt="Down arrow">
+                    </a>
+                </section>
+                <section>
+                    <h2>Basement Level 1</h2>
+                    <p>Press down or up to navigate.</p>
+                </section>
+                <section>
+                    <h2>Basement Level 2</h2>
+                    <p>That's it, time to go back up.</p>
+                    <a href="#/2" class="image">
+                        <img width="178" height="238" src="images/arrow.png" alt="Up arrow" style="-webkit-transform: rotate(180deg);">
+                    </a>
+                </section>
+            </section>
+            <section>
+                <h2>Point of View</h2>
+                <p>
+                    Press
+                    <strong>ESC</strong>to enter the slide overview.
+                </p>
+                <p>
+                    Hold down alt and click on any element to zoom in on it using
+                    <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
+                </p>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=0>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=1>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=3>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=4>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">Splash with full bg image</div>
+                </div>
+            </section>
+            <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=5>
+                <div class="zuehlke-center">
+                    <div class="zuehlke-splash-title">THE END</div>
+                </div>
+            </section>
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+        // Full list of configuration options available here:
+         // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+            transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+            // Parallax scrolling
+            // parallaxBackgroundImage: 'images/presentation/sidney_night.jpg',
+            // parallaxBackgroundSize: '5241px 1116px',
+
+            // Optional libraries used to extend on reveal.js
+            dependencies: [{
+                src: 'lib/js/classList.js',
+                condition: function() {
+                    return !document.body.classList;
+                }
+            }, {
+                src: 'plugin/markdown/marked.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/markdown/markdown.js',
+                condition: function() {
+                    return !!document.querySelector('[data-markdown]');
+                }
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/zoom-js/zoom.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true,
+                condition: function() {
+                    return !!document.body.classList;
+                }
+            }, {
+                src: 'plugin/zuehlke/zuehlke.js',
+                condition: function() {
+                    return true;
+                }
+            }, {
+                src: 'plugin/chart/chart.js',
+                async: false,
+                condition: function() {
+                    return true;
+                }
+            }, {
+                src: 'js/presentation.js',
+                async: false,
+                condition: function() {
+                    return true;
+                }
+            }]
+        });
+    </script>
+
+</body>
+
+</html>

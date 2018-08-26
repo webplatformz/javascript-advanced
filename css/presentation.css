@@ -1,0 +1,20 @@
+html.bg-dornier body {
+    background: url("../images/presentation/lake_large.jpg");
+}
+span.zuehlke-header:before {
+    content: "Demo - ";
+    font-weight: normal;
+    color: #dddddd;
+}
+
+html.zuehlke-bg-parallax body {
+    background-image: url("../images/presentation/sidney_night.jpg");
+}
+
+/* Style for print parallax */
+body.print-pdf section.zuehlke-bg-parallax{
+    /*Make sure paralax background is visible when print mode is active*/
+    background: url("../../images/presentation/sidney_night.jpg");
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+}

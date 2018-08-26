@@ -1,0 +1,42 @@
+div.zuehlke-center {
+    
+    left: 0;
+
+}
+
+span.zuehlke-header.print{
+    left: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+
+/*********************************************
+ * ZUEHLKE SPLASH
+ *********************************************/
+
+.reveal .slides section {
+    padding-left: 40px !important;
+    padding-right: 0px !important;
+}
+
+section.orange {
+
+    background-color: #FE6100;
+
+}
+
+section.zuehlke-bg div.zuehlke-splash-title {
+
+    font-size: 1.5em;
+
+    background-color: #FFFFFF;
+
+    padding: 20px;
+
+    display: inline-block;
+
+    color: #555555;
+
+    text-transform: uppercase;
+
+}
