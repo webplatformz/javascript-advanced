@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8">
 
-    <title>.: Zuehlke Demo :.</title>
+    <title>.: Practically oriented JavaScript patterns :.</title>
 
-    <meta name="description" content="A DEMO Presentation with a zuehlke Template and the reveal.js presentation framework">
-    <meta name="author" content="Type your name here">
+    <meta name="description" content="Practically oriented JavaScript patterns">
+    <meta name="author" content="Christian Kohler, Stefan Reichhart, Patrick Walter">
 
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -56,12 +56,283 @@
 
         <!-- Any section element inside of this container is displayed as a slide -->
         <div class="slides">
+            <section data-title="Overview" class='left'>
+                <h2>Overview</h2>
+                <ul>
+                    <li>Functional Programming: Basics</li>
+                    <li>Functional Operators: Quick Recap</li>
+                    <li>Upcoming Features: Preview</li>
+                    <li>Reactive</li>
+                    <li>Immutability</li>
+                    <li>Redux</li>
+                </ul>
+            </section>
+            <section data-title="Functional Programming" class='left'>
+                <section data-title="Function" class='left'>
+                    <h2>Function</h2>
+                    <p>
+                        <cite>
+                            A function is a process which takes some input, called arguments, and produces some output called a return value
+                        ​</cite>
+                    </p>
+                    <h2>Purpose</h2>
+                    <ul>
+                        <li>A function maps input values to output values. (mapping)​</li>
+                        <li>A function may perform a sequence of steps. (procedure)</li>
+                        <li>A function may communicate with other parts of the system (i/o)</li>
+                    </ul>
+                </section>
+                <section data-title="High Order Function" class='left'>
+                    <h2>High Order Function</h2>
+                    <p>
+                        A function which takes a function as an argument, returns a function, or both
+                    </p>
+                </section>
+                <section data-title="Pure Function" class='left'>
+                    <h2>A function is pure if …</h2>
+                    <ul>
+                        <li>… given the same input, will always return the same output.​</li>
+                        <li>… produces no side effects.​</li>
+                    </ul>
+                </section>
+                <section data-title="Pure Function" class='left'>
+                    <h2>A pure function …</h2>
+                    <ul>
+                        <li>… does not rely on any external mutable state.​</li>
+                        <li>… does not mutate external state.​</li>
+                    </ul>
+                    <p>
+                        <cite>
+                            A dead giveaway that a function is impure is if it makes sense to call it without using its return value. For pure functions, that’s a noop.
+                        </cite>
+                    </p>
+                </section>
+                <section data-title="Properties & Aspects" class='left'>
+                    <h2>Properties & Aspects (1)</h2>
+                    <ul>
+                        <li>deterministic, predictable</li>​
+                        <li>completely independent of outside state​</li>​
+                        <li>immune to bugs related to shared mutable state​</li>​
+                    </ul>
+                </section>
+                <section data-title="Properties & Aspects" class='left'>
+                    <h2>Properties & Aspects (2)</h2>
+                    <ul>
+                        <li>great candidates for parallel processing​</li>​
+                        <li>easy to move around, refactor and reorganize​</li>​
+                        <li>flexible and adaptable to future changes​</li>​
+                    </ul>
+                </section>
+                <section data-title="Properties & Aspects" class='left'>
+                    <h2>Properties & Aspects (3)</h2>
+                    <ul>
+                        <li>referentially transparent = any call to a pure function can be replaced with its resulting value without changing the meaning of the program​</li>​
+                    </ul>
+                </section>
+                <section data-title="Properties & Aspects" class='left'>
+                    <p>
+                        <cite>
+                            using shared state being reliant on sequences which vary depending on indeterministic factors, the output is impossible to predict, and therefore impossible to test properly
+                        </cite>
+                    </p>
+                    <p>
+                        <cite>
+                            non-determinism = parallel processing + mutable state
+                        </cite>
+                        <br>
+                        <author>--- Martin Odersky​</author>
+                    </p>
+                </section>
+            </section>
+            <section data-title="Functional Operators" class='left'>
+                <section data-title="Functional Operators: Quick Recap" class='left'>
+                    <h2>Functional Operators: Quick Recap</h2>
+                    <ul>
+                        <li>filter()</li>
+                        <li>find()</li>
+                        <li>some()</li>
+                        <li>every()</li>
+                        <li>map()</li>
+                        <li>flatMap()</li>
+                        <li>reduce()</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - filter()" class='left'>
+                    <h2>filter()</h2>
+                    <pre><code>array.filter(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 1</a>
+                </section>
+                <section data-title="Functional Operators - filter() - wrap up" class='left'>
+                    <h2>Wrap-Up: filter()</h2>
+                    <ul>
+                        <li>Returns a new array</li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - find()" class='left'>
+                    <h2>find()</h2>
+                    <pre><code>array.find(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 2</a>
+                </section>
+                <section data-title="Functional Operators - find() - wrap up" class='left'>
+                    <h2>Wrap-Up: find()</h2>
+                    <ul>
+                        <li>Returns the first match (only)</li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - some()" class='left'>
+                    <h2>some()</h2>
+                    <pre><code>array.some(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 3</a>
+                </section>
+                <section data-title="Functional Operators - some() - wrap up" class='left'>
+                    <h2>Wrap-Up: some()</h2>
+                    <ul>
+                        <li>Strange naming for <i>match-any</i></li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - every()" class='left'>
+                    <h2>every()</h2>
+                    <pre><code>array.every(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 4</a>
+                </section>
+                <section data-title="Functional Operators - every() - wrap up" class='left'>
+                    <h2>Wrap-Up: every()</h2>
+                    <ul>
+                        <li>Strange naming for <i>match-all</i></li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - map()" class='left'>
+                    <h2>map()</h2>
+                    <pre><code>array.map(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 5</a>
+                </section>
+                <section data-title="Functional Operators - map() - wrap up" class='left'>
+                    <h2>Wrap-Up: map()</h2>
+                    <ul>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - flatMap()" class='left'>
+                    <h2>flatMap()</h2>
+                    <pre><code>array.flatMap(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 6</a>
+                </section>
+                <section data-title="Functional Operators - flatMap() - wrap up" class='left'>
+                    <h2>Wrap-Up: flatMap()</h2>
+                    <ul>
+                        <li>Not yet supported -> shim</li>
+                        <li>Only for very special use-cases</li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - reduce()" class='left'>
+                    <h2>reduce()</h2>
+                    <pre><code>array.reduce(callback(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
+                    <p>
+                        <b>callback</b> - the function used for testing<br>
+                        &nbsp;&nbsp;<b>accumulator</b> - the result of the reducer<br>
+                        &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                        &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                        &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                        <b>initialValue?</b> - the value to start the reduction with<br>
+                    </p>
+                    <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 7</a>
+                </section>
+                <section data-title="Functional Operators - reduce() - wrap up" class='left'>
+                    <h2>Wrap-Up: reduce()</h2>
+                    <ul>
+                        <li>Many different use cases: collect, aggregate, tally, grouping</li>
+                        <li>Very little code to write</li>
+                        <li>Still simple to use</li>
+                    </ul>
+                </section>
+                <section data-title="Functional Operators - wrap up" class='left'>
+                    <h2>Wrap-Up:</h2>
+                    <ul>
+                        <li>Very powerful</li>
+                        <li>Very little code to write</li>
+                        <li>Very simple to write tests for</li>
+                        <li>Very simple to use</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section data-title="Upcoming Features: Preview" class='left'>
+            </section>
+
+            <section data-title="Reactive" class='left'>
+            </section>
+
+            <section data-title="Immutability" class='left'>
+            </section>
+
+            <section data-title="Redux" class='left'>
+            </section>
+
+
+
+
+
+
+
             <span id="zuehlke-header" class="zuehlke-header hide"></span>
             <section>
                 <div class="zuehlke-center" style="margin-top: 30px;">
                     <div class="zuehlke-zuerfel"></div>
-                    <div style="margin-top: 40px; font-weight: bold; letter-spacing: 0.2em;">WELCOME TO THE DEMO</div>
-                    <div style="margin-top: 10px; font-size: 0.6em">Isabel Züger &amp; Ben Millo</div>
+                    <div style="margin-top: 40px; font-weight: bold; letter-spacing: 0.2em;">Practically oriented JavaScript patterns</div>
+                    <div style="margin-top: 10px; font-size: 0.6em">Christian Kohler &amp; Stefan Reichhart &amp; Patrick Walter</div>
                 </div>
             </section>
 
@@ -93,7 +364,7 @@
                     presentation.css:
                     <pre>
                         <code data-trim contenteditable>
-                            span#zuehlke-header:before { content: "Demo - "; font-weight: normal; color: #dddddd; }
+                            span#zuehlke-header:before { content: ""; font-weight: normal; color: #dddddd; }
                         </code>
                     </pre>
                 </p>
