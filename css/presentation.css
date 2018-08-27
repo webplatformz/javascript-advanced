@@ -27,3 +27,8 @@ body.print-pdf section.zuehlke-bg-parallax{
 .slides cite:after {
     content: "\"";
 }
+
+.half {
+    width: 45%;
+    float: left;
+}
