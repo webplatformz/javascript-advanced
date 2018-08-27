@@ -54,8 +54,20 @@
 
 <div class="reveal">
 
-    <!-- Any section element inside of this container is displayed as a slide -->
+
     <div class="slides">
+        <span id="zuehlke-header" class="zuehlke-header hide"></span>
+        <section>
+            <div class="zuehlke-center" style="margin-top: 30px;">
+                <div class="zuehlke-zuerfel"></div>
+                <div style="margin-top: 40px; font-weight: bold; letter-spacing: 0.2em;">Practically oriented JavaScript
+                    patterns
+                </div>
+                <div style="margin-top: 10px; font-size: 0.6em">
+                    Christian Kohler &amp; Patrick Walter &amp; Stefan Reichhart
+                </div>
+            </div>
+        </section>
         <section data-title="Overview" class='left'>
             <h2>Overview</h2>
             <ul>
@@ -68,7 +80,7 @@
             </ul>
         </section>
         <section data-title="Functional Programming" class='left'>
-            <section data-title="Function" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Function</h2>
                 <p>
                     A function is a process which takes some input, called arguments, and produces some output called a
@@ -78,49 +90,49 @@
                     <code>fn(in) => out</code>
                 </p>
             </section>
-            <section data-title="Function" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Purpose</h2>
                 <p>(mapping) A function maps input values to output values.​</p>
                 <p>(procedure) A function may perform a sequence of steps.</p>
                 <p>(i/o) A function may communicate with other parts of the system.</p>
             </section>
-            <section data-title="High Order Function" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>High Order Function</h2>
                 <p>A function which takes a function as an argument, returns a function, or both.</p>
             </section>
-            <section data-title="Pure Function" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>A function is pure if …</h2>
                 <p>… given the same input, will always return the same output.​</p>
                 <p>… produces no side effects.​</p>
             </section>
-            <section data-title="Pure Function" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>A pure function …</h2>
                 <p>… does not rely on any external mutable state.​</p>
                 <p>… does not mutate external state.​</p>
                 <p>A dead giveaway that a function is impure is if it makes sense to call it without using its return
                     value. For pure functions, that’s a noop.</p>
             </section>
-            <section data-title="Properties & Aspects" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Properties & Aspects (1)</h2>
                 <p>deterministic</p>
                 <p>predictable</p>
                 <p>completely independent of outside state​</p>
                 <p>immune to bugs related to shared mutable state​</p>​
             </section>
-            <section data-title="Properties & Aspects" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Properties & Aspects (2)</h2>
                 <p>great candidates for parallel processing</p>
                 <p>easy to move around, refactor and reorganize</p>
                 <p>flexible and adaptable to future changes​</p>
                 <p>very easy + safe to reuse (no state, no side-effects)​</p>​
             </section>
-            <section data-title="Properties & Aspects" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Properties & Aspects (3)</h2>
                 <p>referentially transparent</p>
                 <p>= any call to a pure function can be replaced with its resulting value without changing the meaning
                     of the program​</p>
             </section>
-            <section data-title="Properties & Aspects" class='left'>
+            <section data-title="Functional Programming" class='left'>
                 <h2>Famous Citations ...</h2>
                 <p><cite>... using shared state being reliant on sequences which vary depending on indeterministic
                     factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
@@ -141,7 +153,7 @@
                 <p class="half">flatMap()</p>
                 <p class="half">reduce()</p>
             </section>
-            <section data-title="Functional Operators - filter()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>filter()</h2>
                 <pre><code>array.filter(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -153,13 +165,13 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 1</a>
             </section>
-            <section data-title="Functional Operators - filter() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: filter()</h2>
                 <p>Returns a new array</p>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - find()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>find()</h2>
                 <pre><code>array.find(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -171,13 +183,13 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 2</a>
             </section>
-            <section data-title="Functional Operators - find() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: find()</h2>
                 <p>Returns the first match (only)</p>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - some()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>some()</h2>
                 <pre><code>array.some(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -189,13 +201,13 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 3</a>
             </section>
-            <section data-title="Functional Operators - some() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: some()</h2>
                 <p>Strange naming for <i>match-any</i></p>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - every()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>every()</h2>
                 <pre><code>array.every(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -207,13 +219,13 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 4</a>
             </section>
-            <section data-title="Functional Operators - every() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: every()</h2>
                 <p>Strange naming for <i>match-all</i></p>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - map()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>map()</h2>
                 <pre><code>array.map(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -225,12 +237,12 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 5</a>
             </section>
-            <section data-title="Functional Operators - map() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: map()</h2>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - flatMap()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>flatMap()</h2>
                 <pre><code>array.flatMap(callback(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
@@ -242,14 +254,14 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 6</a>
             </section>
-            <section data-title="Functional Operators - flatMap() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: flatMap()</h2>
                 <p>Not yet supported -> shim</p>
                 <p>Only for very special use-cases</p>
                 <p>Very little code to write</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Functional Operators - reduce()" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>reduce()</h2>
                 <pre><code>array.reduce(callback(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
                 <p>
@@ -262,20 +274,20 @@
                 </p>
                 <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 7</a>
             </section>
-            <section data-title="Functional Operators - reduce() - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up: reduce()</h2>
                 <p>Many different use cases: collect, aggregate, tally, grouping</p>
                 <p>Very little code to write</p>
                 <p>Still simple to use</p>
             </section>
-            <section data-title="Functional Operators - wrap up" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Wrap-Up:</h2>
                 <p>Very powerful</p>
                 <p>Very little code to write</p>
                 <p>Very simple to write tests for</p>
                 <p>Very simple to use</p>
             </section>
-            <section data-title="Other helpful array functions" class='left'>
+            <section data-title="Array Functions" class='left'>
                 <h2>Other helpful array functions ...</h2>
                 <p>reduceRight(fn, initialValue)</p>
                 <p>findIndex(fn)</p>
@@ -285,7 +297,7 @@
             </section>
         </section>
         <section  data-title="Upcoming Features" class='left'>
-            <section data-title="Upcoming Features: Preview" class='left'>
+            <section data-title="Upcoming Features" class='left'>
                 <h2>Upcoming Features: Preview</h2>
                 <p>Array + Object destruction</p>
                 <p>(Native) Observables</p>
@@ -293,7 +305,7 @@
                 <p>Paddings</p>
                 <p>Multi-byte String</p>
             </section>
-            <section data-title="Upcoming Features: Destruction" class='left'>
+            <section data-title="UpUpcoming Features" class='left'>
                 <h2>Array destruction</h2>
                 <pre><code>let array1 = [1,2,3];
 let array2 = [4,5,6];
@@ -307,12 +319,12 @@ let merged = [...obj1, ...obj2];
                 <p><strike>lodash.js</strike>, <strike>underscore.js</strike>, <strike>$.extend()</strike>, <strike>Object.extend()</strike>,
                     <strike>forEach(fnCopyProperties)</strike>...</p>
             </section>
-            <section data-title="Upcoming Features: Observables" class='left'>
+            <section data-title="Upcoming Features" class='left'>
                 <h2>Observables (RxJs)</h2>
                 <pre><code>observable.observe(fnObserver)</code></pre>
                 <p>More on Observables (RxJs) later in this workshop ...</p>
             </section>
-            <section data-title="Upcoming Features: Async Functions" class='left'>
+            <section data-title="Upcoming Features" class='left'>
                 <h2>Async Functions</h2>
                 <pre><code>
 async someAsyncCode() {
@@ -325,13 +337,13 @@ async someAsyncCode() {
                 <p><strike>nested observables</strike>, <strike>nested Promises</strike>, <strike>nested
                     listeners</strike>, ...</p>
             </section>
-            <section data-title="Upcoming Features: Paddings" class='left'>
+            <section data-title="Upcoming Features" class='left'>
                 <h2>Paddings</h2>
                 <pre><code>"1".padStart(4, "0"); // 0001
 "2".padEnd(4, "0"); // 2000</code></pre>
                 <p><strike>do it yourself again</strike></p>
             </section>
-            <section data-title="Upcoming Features: Multi-byte Strings" class='left'>
+            <section data-title="Upcoming Features" class='left'>
                 <h2>Multi-byte Strings</h2>
                 <pre><code>// ⚠ ️Notice ...
 let string = '❤️❤️❤heart'; // 👈🏼 emojis !
