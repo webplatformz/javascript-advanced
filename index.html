@@ -73,6 +73,7 @@
             <ul>
                 <li>Functional Programming: Basics</li>
                 <li>Array Functions: Quick Recap</li>
+                <li>Recent Features: Overview</li>
                 <li>Upcoming Features: Preview</li>
                 <li>Reactive</li>
                 <li>Immutability</li>
@@ -99,6 +100,7 @@
             <section data-title="Functional Programming" class='left'>
                 <h2>High Order Function</h2>
                 <p>A function which takes a function as an argument, returns a function, or both.</p>
+                <a href="" target="_blank">Codepen (TODO)</a>
             </section>
             <section data-title="Functional Programming" class='left'>
                 <h2>A function is pure if …</h2>
@@ -111,6 +113,7 @@
                 <p>… does not mutate external state.​</p>
                 <p>A dead giveaway that a function is impure is if it makes sense to call it without using its return
                     value. For pure functions, that’s a noop.</p>
+                <a href="" target="_blank">Codepen (TODO)</a>
             </section>
             <section data-title="Functional Programming" class='left'>
                 <h2>Properties & Aspects (1)</h2>
@@ -155,7 +158,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>filter()</h2>
-                <pre><code>array.filter(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.filter(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -173,7 +176,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>find()</h2>
-                <pre><code>array.find(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.find(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -191,7 +194,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>some()</h2>
-                <pre><code>array.some(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.some(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -209,7 +212,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>every()</h2>
-                <pre><code>array.every(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.every(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -227,7 +230,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>map()</h2>
-                <pre><code>array.map(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.map(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -244,7 +247,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>flatMap()</h2>
-                <pre><code>array.flatMap(callback(currentValue, index?, array?), thisArg?)</code></pre>
+                <pre><code>array.flatMap(fn(currentValue, index?, array?), thisArg?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
@@ -263,7 +266,7 @@
             </section>
             <section data-title="Array Functions" class='left'>
                 <h2>reduce()</h2>
-                <pre><code>array.reduce(callback(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
+                <pre><code>array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
                     &nbsp;&nbsp;<b>accumulator</b> - the result of the reducer<br>
@@ -296,16 +299,15 @@
                 <p><em>Check out and get familiar with the full array API !</em></p>
             </section>
         </section>
-        <section data-title="Upcoming Features" class='left'>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Upcoming Features: Preview</h2>
+        <section data-title="Recent Features" class='left'>
+            <section data-title="Recent Features" class='left'>
+                <h2>Recent Features: Overview</h2>
                 <p>Array + Object destruction</p>
-                <p>(Native) Observables</p>
                 <p>Async Functions</p>
-                <p>Paddings</p>
-                <p>Multi-byte String</p>
+                <p>String API: Paddings, Trimming, Multi-byte String</p>
+                <p>...</p>
             </section>
-            <section data-title="UpUpcoming Features" class='left'>
+            <section data-title="Recent Features" class='left'>
                 <h2>Array destruction</h2>
                 <pre><code>let array1 = [1,2,3];
 let array2 = [4,5,6];
@@ -314,37 +316,45 @@ let merged = [...array1, ...array2];
                 <h2>Object destruction</h2>
                 <pre><code>let obj1 = {a:1, b:2, c:3};
 let obj2 = {d:4, e:5, f:6};
-let merged = [...obj1, ...obj2];
+let merged = {...obj1, ...obj2};
 // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                 <p><strike>lodash.js</strike>, <strike>underscore.js</strike>, <strike>$.extend()</strike>, <strike>Object.extend()</strike>,
                     <strike>forEach(fnCopyProperties)</strike>...</p>
-            </section>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Observables (RxJs)</h2>
-                <pre><code>observable.observe(fnObserver)</code></pre>
-                <p>More on Observables (RxJs) later in this workshop ...</p>
+                <a href="" target="_blank">Codepen (TODO)</a>
             </section>
             <section data-title="Upcoming Features" class='left'>
                 <h2>Async Functions</h2>
-                <pre><code>
-async someAsyncCode() {
+                <pre><code>async someAsyncCode() {
+
     let animal = await db.save(createAnimal());
     console.log("Sucessfully saved: " + animal);
+
     let loaded = await db.load(animal.id);
     console.log("Sucessfully loaded: " + loaded);
+
 }
 </code></pre>
                 <p><strike>nested observables</strike>, <strike>nested Promises</strike>, <strike>nested
                     listeners</strike>, ...</p>
             </section>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Paddings</h2>
+            <section data-title="Recent Features" class='left'>
+                <h2>String API: Paddings</h2>
                 <pre><code>"1".padStart(4, "0"); // 0001
 "2".padEnd(4, "0"); // 2000</code></pre>
                 <p><strike>do it yourself again</strike></p>
             </section>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Multi-byte Strings</h2>
+            <section data-title="Recent Features" class='left'>
+                <h2>String API: Trimming</h2>
+                <pre><code>" abc ".trimLeft(); // "abc "
+" abc ".trimRight(); // " abc"
+" abc ".trim(); // "abc"</code></pre>
+                <p><strike>do it yourself again</strike></p>
+                <pre><code>" abc ".replace(/^\s+/g, ''); // "abc "
+" abc ".replace(/\s+$/g, ''); // " abc"
+" abc ".replace(/^\s+/g, '').replace(/\s+$/g, ''); // "abc"</code></pre>
+            </section>
+            <section data-title="Recent Features" class='left'>
+                <h2>String API: Multi-byte Strings</h2>
                 <pre><code>// ⚠ ️Notice ...
 let string = '❤️❤️❤heart'; // 👈🏼 emojis !
 console.log(string == '\u2764\uFE0F\u2764\uFE0F\u2764heart');
@@ -354,12 +364,24 @@ console.log('❤️' == '\u2764\uFE0F');</code></pre>
                 <p>possibilities vs consequences</p>
             </section>
         </section>
+        <section data-title="Upcoming Features" class='left'>
+            <section data-title="Upcoming Features" class='left'>
+                <h2>Upcoming Features: Preview</h2>
+                <p>(Native) Observables</p>
+            </section>
+            <section data-title="Upcoming Features" class='left'>
+                <h2>Native Observables (RxJs)</h2>
+                <pre><code>observable.observe(fnObserver)</code></pre>
+                <p>More on Observables (RxJs) later in this workshop ...</p>
+            </section>
+        </section>
         <section data-title="Reactive" class='left'>
         </section>
         <section data-title="Immutability" class='left'>
             <section>
                 <h2>Immutability</h2>
                 <p>An immutable object is an object whose state cannot be modified after it is created.</p>
+                <a href="" target="_blank">Codepen (TODO)</a>
             </section>
             <section data-title="Immutability" class='left'>
                 <h2>Problems with mutable state:</h2>
@@ -417,12 +439,11 @@ console.log(animals === shallowCopy); // false</code></pre>
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
             </section>
-
             <section>
                 <h2>Be aware though</h2>
                 <p>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</p>
                 <p>Not suitable for more complex (deep) objects</p>
-                <a href="" target="_blank">Exercise - todo 1) without convenience, 1) with convenience, 1) deep copy</a>
+                <a href="" target="_blank">Exercise - todo  1) debug some really shitty code that looks good, 1) without convenience, 1) with convenience, 1) deep copy</a>
             </section>
             <section>
                 <h2>Disadvantage</h2>
