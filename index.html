@@ -371,7 +371,7 @@ console.log('❤️' == '\u2764\uFE0F');</code></pre>
 let sortedAnimals = animals.sort();
 console.log(animals === sortedAnimals); // false</code></pre>
             </section>
-            <section>
+            <section data-title="Immutability" class='left'>
                 <h2>Not so trivial example</h2>
                 <pre><code>
 let data = [ 1, 2, 3, 4 ];
@@ -382,7 +382,13 @@ for (let index = 0; index < data.length; index++) {
 console.log(counter === 10); // true, but always true ?</code></pre>
             </section>
             <section data-title="Immutability" class='left'>
-                <h2>Objects, Arrays - Object.assign()</h2>
+                <h2>Don't do that (any more)</h2>
+                <p><strike>jQuery or any other library</strike> -> not necessary</p>
+                <p><strike>for-loop & hasOwnProperty()</strike> -> error prone, bloat-code</p>
+                <p><strike>array.slice()</strike> -> wrong intention</p>
+            </section>
+            <section data-title="Immutability" class='left'>
+                <h2>Objects - Object.assign()</h2>
                 <pre><code>let animal = {
     name: "Homer",
     age: 2,
@@ -391,6 +397,10 @@ console.log(counter === 10); // true, but always true ?</code></pre>
 };
 let shallowCopy = Object.assign({}, animal);
 console.log(animal === shallowCopy); // false</code></pre>
+                <h2>Arrays - [].concat()</h2>
+                <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+let shallowCopy = [].concat(animals);
+console.log(animals === shallowCopy); // false</code></pre>
             </section>
             <section>
                 <h2>Objects, Arrays - Destructors</h2>
@@ -403,18 +413,30 @@ console.log(animal === shallowCopy); // false</code></pre>
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
             </section>
+
             <section>
-                <h2>Be aware</h2>
-                <p>{ ...oldObj }, Object.assign(), $.extend(), ... are flat shallow copies</p>
+                <h2>Be aware though</h2>
+                <p>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</p>
                 <p>Not suitable for more complex (deep) objects</p>
+                <a href="" target="_blank">Exercise - todo 1) without convenience, 1) with convenience, 1) deep copy</a>
             </section>
             <section>
-                <h2>Advantage - Disadvantage</h2>
-                <p>- Very tiny performance overhead</p>
-                <p>+ concurrency safe (multi-threading, asynchronicity, ...)</p>
-                <p>+ No expensive state tracking <strike>Object.observe(obj, fn)</strike></p>
-                <p>+ different/functional application design</p>
-                <p>+ It's a simple pattern. You can assume everything immutable</p>
+                <h2>Disadvantage</h2>
+                <p>Very tiny performance overhead (object creation)</p>
+                <p>Requires a lot of discipline (mutating state is so easy)</p>
+            </section>
+            <section>
+                <h2>Advantage</h2>
+                <p>Concurrency safe (multi-threading, asynchronicity, ...)</p>
+                <p>No expensive synchronization between threads</p>
+                <p>No expensive state tracking <strike>Object.observe(obj, fn)</strike></p>
+                <p>Better code quality</p>
+            </section>
+            <section>
+                <h2>Conclusion</h2>
+                <p>Different, more functional-style application design</p>
+                <p>You can assume everything immutable</p>
+                <p>It's a very simple pattern !</p>
             </section>
             <section>
                 <h2>Immutability</h2>
