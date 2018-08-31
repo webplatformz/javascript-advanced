@@ -1,711 +1,84 @@
 <!doctype html>
-<html lang="en">
-
+<html>
 <head>
     <meta charset="utf-8">
-
-    <title>.: Practically oriented JavaScript patterns :.</title>
-
-    <meta name="description" content="Practically oriented JavaScript patterns">
-    <meta name="author" content="Christian Kohler, Stefan Reichhart, Patrick Walter">
-
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="icon" href="img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="css/theme/zuehlke-index.css">
 
-    <link rel="icon" href="images/favicon.png" type="image/png"/>
-    <link rel="shortcut icon" href="favicon.ico"/>
-    <link rel="stylesheet" href="css/theme/zuehlke.css" id="theme">
-
-    <link rel="stylesheet" href="css/presentation.css" id="theme">
-
-    <!-- For syntax highlighting -->
-    <link rel="stylesheet" href="lib/css/zenburn.css">
-
-    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
-    <script>
-        if (window.location.search.match(/print-pdf/gi)) {
-            var defaultStylesheet = createStylesheetLink('css/print/pdf.css'),
-                zuehlkeStylesheet = createStylesheetLink('css/print/pdf-zuehlke.css');
-
-            document.getElementsByTagName('head')[0].appendChild(defaultStylesheet);
-            document.getElementsByTagName('head')[0].appendChild(zuehlkeStylesheet);
-        }
-
-        function createStylesheetLink(href) {
-            var link = document.createElement('link');
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = href;
-
-            return link;
-        }
-    </script>
-
-    <!--[if lt IE 9]>
-    <script src="lib/js/html5shiv.js"></script>
-    <![endif]-->
+    <title>Practically oriented JavaScript patterns - Overview</title>
 </head>
-
 <body>
+<header>
+    <h1>Practically oriented JavaScript patterns</h1>
+    <h2><span class="nowrap">Christian Kohler</span> &amp; <span class="nowrap">Patrick Walther</span> &amp; <span class="nowrap">Stefan Reichhart</span></h2>
+</header>
 
-<div class="reveal">
-
-
-    <div class="slides">
-        <span id="zuehlke-header" class="zuehlke-header hide"></span>
-        <section>
-            <div class="zuehlke-center" style="margin-top: 30px;">
-                <div class="zuehlke-zuerfel"></div>
-                <div style="margin-top: 40px; font-weight: bold; letter-spacing: 0.2em;">Practically oriented JavaScript
-                    patterns
-                </div>
-                <div style="margin-top: 10px; font-size: 0.6em">
-                    Christian Kohler &amp; Patrick Walter &amp; Stefan Reichhart
-                </div>
-            </div>
-        </section>
-        <section data-title="Overview" class='left'>
-            <h2>Overview</h2>
-            <ul>
-                <li>Functional Programming: Basics</li>
-                <li>Array Functions: Quick Recap</li>
-                <li>Recent Features: Overview</li>
-                <li>Upcoming Features: Preview</li>
-                <li>Reactive</li>
-                <li>Immutability</li>
-                <li>Redux</li>
-            </ul>
-        </section>
-        <section data-title="Functional Programming" class='left'>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Function</h2>
-                <p>
-                    A function is a process which takes some input, called arguments, and produces some output called a
-                    return value
-                </p>
-                <p>
-                    <code>fn(in) => out</code>
-                </p>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Purpose</h2>
-                <p>(mapping) A function maps input values to output values.​</p>
-                <p>(procedure) A function may perform a sequence of steps.</p>
-                <p>(i/o) A function may communicate with other parts of the system.</p>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>High Order Function</h2>
-                <p>A function which takes a function as an argument, returns a function, or both.</p>
-                <a href="" target="_blank">Codepen (TODO)</a>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>A function is pure if …</h2>
-                <p>… given the same input, will always return the same output.​</p>
-                <p>… produces no side effects.​</p>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>A pure function …</h2>
-                <p>… does not rely on any external mutable state.​</p>
-                <p>… does not mutate external state.​</p>
-                <p>A dead giveaway that a function is impure is if it makes sense to call it without using its return
-                    value. For pure functions, that’s a noop.</p>
-                <a href="" target="_blank">Codepen (TODO)</a>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Properties & Aspects (1)</h2>
-                <p>deterministic</p>
-                <p>predictable</p>
-                <p>completely independent of outside state​</p>
-                <p>immune to bugs related to shared mutable state​</p>​
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Properties & Aspects (2)</h2>
-                <p>great candidates for parallel processing</p>
-                <p>easy to move around, refactor and reorganize</p>
-                <p>flexible and adaptable to future changes​</p>
-                <p>very easy + safe to reuse (no state, no side-effects)​</p>​
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Properties & Aspects (3)</h2>
-                <p>referentially transparent</p>
-                <p>= any call to a pure function can be replaced with its resulting value without changing the meaning
-                    of the program​</p>
-            </section>
-            <section data-title="Functional Programming" class='left'>
-                <h2>Famous Citations ...</h2>
-                <p><cite>... using shared state being reliant on sequences which vary depending on indeterministic
-                    factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
-                </p>
-                <p><cite>non-determinism = parallel processing + mutable state</cite><br>
-                    <author>--- Martin Odersky​</author>
-                </p>
-            </section>
-        </section>
-        <section data-title="Array Functions" class='left'>
-            <section data-title="Array Functions: Quick Recap" class='left'>
-                <h2>Array Functions: Quick Recap</h2>
-                <p class="half">filter()</p>
-                <p class="half">find()</p>
-                <p class="half">some()</p>
-                <p class="half">every()</p>
-                <p class="half">map()</p>
-                <p class="half">flatMap()</p>
-                <p class="half">reduce()</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>filter()</h2>
-                <pre><code>array.filter(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 1</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: filter()</h2>
-                <p>Returns a new array</p>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>find()</h2>
-                <pre><code>array.find(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 2</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: find()</h2>
-                <p>Returns the first match (only)</p>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>some()</h2>
-                <pre><code>array.some(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 3</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: some()</h2>
-                <p>Strange naming for <i>match-any</i></p>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>every()</h2>
-                <pre><code>array.every(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 4</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: every()</h2>
-                <p>Strange naming for <i>match-all</i></p>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>map()</h2>
-                <pre><code>array.map(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 5</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: map()</h2>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>flatMap()</h2>
-                <pre><code>array.flatMap(fn(currentValue, index?, array?), thisArg?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 6</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: flatMap()</h2>
-                <p>Not yet supported -> shim</p>
-                <p>Only for very special use-cases</p>
-                <p>Very little code to write</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>reduce()</h2>
-                <pre><code>array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
-                <p>
-                    <b>callback</b> - the function used for testing<br>
-                    &nbsp;&nbsp;<b>accumulator</b> - the result of the reducer<br>
-                    &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                    &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                    &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                    <b>initialValue?</b> - the value to start the reduction with<br>
-                </p>
-                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 7</a>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up: reduce()</h2>
-                <p>Many different use cases: collect, aggregate, tally, grouping</p>
-                <p>Very little code to write</p>
-                <p>Still simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Wrap-Up:</h2>
-                <p>Very powerful</p>
-                <p>Very little code to write</p>
-                <p>Very simple to write tests for</p>
-                <p>Very simple to use</p>
-            </section>
-            <section data-title="Array Functions" class='left'>
-                <h2>Other helpful array functions ...</h2>
-                <p>reduceRight(fn, initialValue)</p>
-                <p>findIndex(fn)</p>
-                <p>sort(fn)</p>
-                <p>...</p>
-                <p><em>Check out and get familiar with the full array API !</em></p>
-            </section>
-        </section>
-        <section data-title="Recent Features" class='left'>
-            <section data-title="Recent Features" class='left'>
-                <h2>Recent Features: Overview</h2>
-                <p>Array + Object destruction</p>
-                <p>Async Functions</p>
-                <p>String API: Paddings, Trimming, Multi-byte String</p>
-                <p>...</p>
-            </section>
-            <section data-title="Recent Features" class='left'>
-                <h2>Array destruction</h2>
-                <pre><code>let array1 = [1,2,3];
-let array2 = [4,5,6];
-let merged = [...array1, ...array2];
-// [1,2,3,4,5,6]</code></pre>
-                <h2>Object destruction</h2>
-                <pre><code>let obj1 = {a:1, b:2, c:3};
-let obj2 = {d:4, e:5, f:6};
-let merged = {...obj1, ...obj2};
-// {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
-                <p><strike>lodash.js</strike>, <strike>underscore.js</strike>, <strike>$.extend()</strike>, <strike>Object.extend()</strike>,
-                    <strike>forEach(fnCopyProperties)</strike>...</p>
-                <a href="" target="_blank">Codepen (TODO)</a>
-            </section>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Async Functions</h2>
-                <pre><code>async someAsyncCode() {
-
-    let animal = await db.save(createAnimal());
-    console.log("Sucessfully saved: " + animal);
-
-    let loaded = await db.load(animal.id);
-    console.log("Sucessfully loaded: " + loaded);
-
-}
-</code></pre>
-                <p><strike>nested observables</strike>, <strike>nested Promises</strike>, <strike>nested
-                    listeners</strike>, ...</p>
-            </section>
-            <section data-title="Recent Features" class='left'>
-                <h2>String API: Paddings</h2>
-                <pre><code>"1".padStart(4, "0"); // 0001
-"2".padEnd(4, "0"); // 2000</code></pre>
-                <p><strike>do it yourself again</strike></p>
-            </section>
-            <section data-title="Recent Features" class='left'>
-                <h2>String API: Trimming</h2>
-                <pre><code>" abc ".trimLeft(); // "abc "
-" abc ".trimRight(); // " abc"
-" abc ".trim(); // "abc"</code></pre>
-                <p><strike>do it yourself again</strike></p>
-                <pre><code>" abc ".replace(/^\s+/g, ''); // "abc "
-" abc ".replace(/\s+$/g, ''); // " abc"
-" abc ".replace(/^\s+/g, '').replace(/\s+$/g, ''); // "abc"</code></pre>
-            </section>
-            <section data-title="Recent Features" class='left'>
-                <h2>String API: Multi-byte Strings</h2>
-                <pre><code>// ⚠ ️Notice ...
-let string = '❤️❤️❤heart'; // 👈🏼 emojis !
-console.log(string == '\u2764\uFE0F\u2764\uFE0F\u2764heart');
-console.log(string.length == 10); // true ;)
-console.log('❤️' == '\u2764\uFE0F');</code></pre>
-                <p>encoding gets slightly bit more complicated ;)</p>
-                <p>possibilities vs consequences</p>
-            </section>
-        </section>
-        <section data-title="Upcoming Features" class='left'>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Upcoming Features: Preview</h2>
-                <p>(Native) Observables</p>
-            </section>
-            <section data-title="Upcoming Features" class='left'>
-                <h2>Native Observables (RxJs)</h2>
-                <pre><code>observable.observe(fnObserver)</code></pre>
-                <p>More on Observables (RxJs) later in this workshop ...</p>
-            </section>
-        </section>
-        <section data-title="Reactive" class='left'>
-        </section>
-        <section data-title="Immutability" class='left'>
-            <section>
-                <h2>Immutability</h2>
-                <p>An immutable object is an object whose state cannot be modified after it is created.</p>
-                <a href="" target="_blank">Codepen (TODO)</a>
-            </section>
-            <section data-title="Immutability" class='left'>
-                <h2>Problems with mutable state:</h2>
-                <p>Tracking mutations in code is tiresome</p>
-                <p>Code is hard(er) to read and error prone</p>
-                <p>Code is hard(er) to test and debug</p>
-                <p>It's most likely not multi-thread safe</p>
-                <p>Tracking changes and unwanted side-effects in objects is difficult and very expensive</p>
-            </section>
-            <section data-title="Immutability" class='left'>
-                <h2>Trivial example</h2>
-                <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
-let sortedAnimals = animals.sort();
-console.log(animals === sortedAnimals); // false</code></pre>
-            </section>
-            <section data-title="Immutability" class='left'>
-                <h2>Not so trivial example</h2>
-                <pre><code>
-let data = [ 1, 2, 3, 4 ];
-let sum = 0;
-for (let index = 0; index < data.length; index++) {
-  sum += data[index];
-}
-console.log(counter === 10); // true, but always true ?</code></pre>
-            </section>
-            <section data-title="Immutability" class='left'>
-                <h2>Don't do that (any more)</h2>
-                <p><strike>jQuery or any other library</strike> -> not necessary</p>
-                <p><strike>for-loop & hasOwnProperty()</strike> -> error prone, bloat-code</p>
-                <p><strike>array.slice()</strike> -> wrong intention</p>
-            </section>
-            <section data-title="Immutability" class='left'>
-                <h2>Objects - Object.assign()</h2>
-                <pre><code>let animal = {
-    name: "Homer",
-    age: 2,
-    type: "hamster",
-    legs: 4
-};
-let shallowCopy = Object.assign({}, animal);
-console.log(animal === shallowCopy); // false</code></pre>
-                <h2>Arrays - [].concat()</h2>
-                <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
-let shallowCopy = [].concat(animals);
-console.log(animals === shallowCopy); // false</code></pre>
-            </section>
-            <section>
-                <h2>Objects, Arrays - Destructors</h2>
-                <pre><code>let animal = {
-    name: "Homer",
-    age: 2,
-    type: "hamster",
-    legs: 4
-};
-let shallowCopy = { ...animal };
-console.log(animal === shallowCopy); // false</code></pre>
-            </section>
-            <section>
-                <h2>Be aware though</h2>
-                <p>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</p>
-                <p>Not suitable for more complex (deep) objects</p>
-                <a href="" target="_blank">Exercise - todo  1) debug some really shitty code that looks good, 1) without convenience, 1) with convenience, 1) deep copy</a>
-            </section>
-            <section>
-                <h2>Disadvantage</h2>
-                <p>Very tiny performance overhead (object creation)</p>
-                <p>Requires a lot of discipline (mutating state is so easy)</p>
-            </section>
-            <section>
-                <h2>Advantage</h2>
-                <p>Concurrency safe (multi-threading, asynchronicity, ...)</p>
-                <p>No expensive synchronization between threads</p>
-                <p>No expensive state tracking <strike>Object.observe(obj, fn)</strike></p>
-                <p>Better code quality</p>
-            </section>
-            <section>
-                <h2>Conclusion</h2>
-                <p>Different, more functional-style application design</p>
-                <p>You can assume everything immutable</p>
-                <p>It's a very simple pattern !</p>
-            </section>
-            <section>
-                <h2>Immutability</h2>
-                <p>Immutability.js</p>
-                <p>Redux</p>
-            </section>
-        </section>
-        <section data-title="Redux" class='left'>
-        </section>
-        <section data-title="Discussion" class='left'>
-        </section>
-
-
-        <section data-state='orange'>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash page to start a chapter</div>
-                <div class="zuehlke-splash-subtitle">with subtitle</div>
-            </div>
-        </section>
-        <section data-background="images/presentation/lake_large.jpg">
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-
-        <section data-title="First Page with Header" class='left'>
-            <h2>Lorem ipsum</h2>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore
-                magna aliqua.
-            </p>
-            <p>
-            <pre>
-                        <code data-trim contenteditable>
-                            &lt;section data-title="First Page with Header" class='left'&gt;
-                        </code>
-                    </pre>
-            </p>
-            <p>
-                presentation.css:
-            <pre>
-                        <code data-trim contenteditable>
-                            span#zuehlke-header:before { content: ""; font-weight: normal; color: #dddddd; }
-                        </code>
-                    </pre>
-            </p>
-        </section>
-        <section>
-            <h2>Print your presentation</h2>
-            <p>This is easy: use the suffix
-                <a href="?print-pdf">?print-pdf</a>&nbsp;in the address bar to enter print mode</p>
-        </section>
-
-        <section data-title="Simple Page with speaker notes">
-            <h2>Speaker notes</h2>
-            <p>
-                Press 's' on the keyboard
-            </p>
-            <aside class="notes">
-                Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open
-                the speaker notes window (hit 's' on your keyboard).
-            </aside>
-        </section>
-
-        <section data-title="Image with shadow">
-            <p>Image with nice shadow effect:</p>
-            <p>
-                <img src="images/presentation/wtf.gif" class="shadow"/>
-            </p>
-            <pre>
-                    <code data-trim contenteditable>
-                        <img src="images/presentation/wtf.gif" class="shadow"/>
-                    </code>
-                </pre>
-        </section>
-
-        <section data-title="Example of pie chart" data-state="chart">
-            <h2>Destkop vs. Phone vs. Tablet</h2>
-            <canvas height="400px" width="900px" id="desktopMobileDistributionChart"></canvas>
-            <p>
-                see presentation.js for code and help yourself with
-                <a href="http://www.chartjs.org/" target="_blank">chartjs
-                </a>
-
-            </p>
-        </section>
-
-        <section data-title="Example of bar cahrt" data-state="chart">
-            <h2>Mobile Devices</h2>
-            <canvas class="left" height="400px" width="750px" id="mobileDeviceChart"></canvas>
-
-            <div class="left" style="text-align: left;">
-                <p style="padding:0;">Apple 71%</p>
-                <p style="padding:0;">Samsung 18%</p>
-                <p style="padding:0;">HTC 2%</p>
-                <p style="padding:0;">Sony 1.5%</p>
-                <p style="padding:0;">Nokia 0.8%</p>
-            </div>
-        </section>
-
-        <!-- Example of nested vertical slides -->
-        <section>
-            <section>
-                <h2>Vertical Slides</h2>
-                <p>
-                    Slides can be nested inside of other slides, try pressing
-                    <a href="#" class="navigate-down">down</a>.
-                </p>
-                <a href="#" class="image navigate-down">
-                    <img width="178" height="238" src="images/arrow.png" alt="Down arrow">
-                </a>
-            </section>
-            <section>
-                <h2>Basement Level 1</h2>
-                <p>Press down or up to navigate.</p>
-            </section>
-            <section>
-                <h2>Basement Level 2</h2>
-                <p>That's it, time to go back up.</p>
-                <a href="#/2" class="image">
-                    <img width="178" height="238" src="images/arrow.png" alt="Up arrow"
-                         style="-webkit-transform: rotate(180deg);">
-                </a>
-            </section>
-        </section>
-        <section>
-            <h2>Point of View</h2>
-            <p>
-                Press
-                <strong>ESC</strong>to enter the slide overview.
-            </p>
-            <p>
-                Hold down alt and click on any element to zoom in on it using
-                <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-            </p>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=0>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=1>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=2>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=3>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=4>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">Splash with full bg image</div>
-            </div>
-        </section>
-        <section data-transition="linear" data-state="zuehlke-bg-parallax" data-parallax-step=5>
-            <div class="zuehlke-center">
-                <div class="zuehlke-splash-title">THE END</div>
-            </div>
-        </section>
-    </div>
-
-</div>
-
-<script src="lib/js/head.min.js"></script>
-<script src="js/reveal.min.js"></script>
-
-<script>
-    // Full list of configuration options available here:
-    // https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        controls: true,
-        progress: true,
-        history: true,
-        center: true,
-
-        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
-
-        // Parallax scrolling
-        // parallaxBackgroundImage: 'images/presentation/sidney_night.jpg',
-        // parallaxBackgroundSize: '5241px 1116px',
-
-        // Optional libraries used to extend on reveal.js
-        dependencies: [{
-            src: 'lib/js/classList.js',
-            condition: function () {
-                return !document.body.classList;
-            }
-        }, {
-            src: 'plugin/markdown/marked.js',
-            condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/markdown/markdown.js',
-            condition: function () {
-                return !!document.querySelector('[data-markdown]');
-            }
-        }, {
-            src: 'plugin/highlight/highlight.js',
-            async: true,
-            callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
-        }, {
-            src: 'plugin/zoom-js/zoom.js',
-            async: true,
-            condition: function () {
-                return !!document.body.classList;
-            }
-        }, {
-            src: 'plugin/notes/notes.js',
-            async: true,
-            condition: function () {
-                return !!document.body.classList;
-            }
-        }, {
-            src: 'plugin/zuehlke/zuehlke.js',
-            condition: function () {
-                return true;
-            }
-        }, {
-            src: 'plugin/chart/chart.js',
-            async: false,
-            condition: function () {
-                return true;
-            }
-        }, {
-            src: 'js/presentation.js',
-            async: false,
-            condition: function () {
-                return true;
-            }
-        }]
-    });
-</script>
-
+<section>
+    <a href="slides/01_Intro.html" target="_blank">
+        <h2>01 Intro</h2>
+        <ul>
+            <li>Agenda</li>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/02_Functional_Programming.html" target="_blank">
+        <h2>02 Functional Programming</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/03_Array_Functions.html" target="_blank">
+        <h2>03 Array Functions</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/04_Recent_Features.html" target="_blank">
+        <h2>04 Recent Features</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/05_Upcoming_Features.html" target="_blank">
+        <h2>05 Upcoming Features</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/06_Reactive.html" target="_blank">
+        <h2>06 Reactive</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/07_Immutability.html" target="_blank">
+        <h2>07 Immutability</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
+<section>
+    <a href="slides/08_Redux.html" target="_blank">
+        <h2>08 Redux</h2>
+        <ul>
+            <li>TODO</li>
+        </ul>
+    </a>
+</section>
 </body>
-
 </html>

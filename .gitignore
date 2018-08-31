@@ -1,8 +1,9 @@
-.DS_Store
-.svn
-log/*.log
-tmp/**
-node_modules/
-.sass-cache
-.idea/
-package-lock.json
+# macOS
+**/.DS_Store
+
+# IntelliJ
+.idea
+**/*.iml
+
+# Node
+node_modules

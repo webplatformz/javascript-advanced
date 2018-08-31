@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>03 Basics | Array Functions</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Array Functions <br />
+            03 Basics</h1>
+        </section>
+        <section>
+            <h2>Array Functions: Quick Recap</h2>
+            <p class="half">filter()</p>
+            <p class="half">find()</p>
+            <p class="half">some()</p>
+            <p class="half">every()</p>
+            <p class="half">map()</p>
+            <p class="half">flatMap()</p>
+            <p class="half">reduce()</p>
+        </section>
+        <section>
+            <h2>filter()</h2>
+            <pre><code>array.filter(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 1</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: filter()</h2>
+            <p>Returns a new array</p>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>find()</h2>
+            <pre><code>array.find(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 2</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: find()</h2>
+            <p>Returns the first match (only)</p>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>some()</h2>
+            <pre><code>array.some(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 3</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: some()</h2>
+            <p>Strange naming for <i>match-any</i></p>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>every()</h2>
+            <pre><code>array.every(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 4</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: every()</h2>
+            <p>Strange naming for <i>match-all</i></p>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>map()</h2>
+            <pre><code>array.map(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 5</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: map()</h2>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>flatMap()</h2>
+            <pre><code>array.flatMap(fn(currentValue, index?, array?), thisArg?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 6</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: flatMap()</h2>
+            <p>Not yet supported -> shim</p>
+            <p>Only for very special use-cases</p>
+            <p>Very little code to write</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>reduce()</h2>
+            <pre><code>array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
+            <p>
+                <b>callback</b> - the function used for testing<br>
+                &nbsp;&nbsp;<b>accumulator</b> - the result of the reducer<br>
+                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
+                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
+                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
+                <b>initialValue?</b> - the value to start the reduction with<br>
+            </p>
+            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 7</a>
+        </section>
+        <section>
+            <h2>Wrap-Up: reduce()</h2>
+            <p>Many different use cases: collect, aggregate, tally, grouping</p>
+            <p>Very little code to write</p>
+            <p>Still simple to use</p>
+        </section>
+        <section>
+            <h2>Wrap-Up:</h2>
+            <p>Very powerful</p>
+            <p>Very little code to write</p>
+            <p>Very simple to write tests for</p>
+            <p>Very simple to use</p>
+        </section>
+        <section>
+            <h2>Other helpful array functions ...</h2>
+            <p>reduceRight(fn, initialValue)</p>
+            <p>findIndex(fn)</p>
+            <p>sort(fn)</p>
+            <p>...</p>
+            <p><em>Check out and get familiar with the full array API !</em></p>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

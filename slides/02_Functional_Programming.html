@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>02 Basics | Functional Programming</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Functional Programming<br/>
+                02 Basics</h1>
+        </section>
+        <section>
+            <h2>Function</h2>
+            <p>
+                A function is a process which takes some input, called arguments, and produces some output called a
+                return value
+            </p>
+            <p>
+                <code>fn(in) => out</code>
+            </p>
+        </section>
+        <section>
+            <h2>Purpose</h2>
+            <p>(mapping) A function maps input values to output values.​</p>
+            <p>(procedure) A function may perform a sequence of steps.</p>
+            <p>(i/o) A function may communicate with other parts of the system.</p>
+        </section>
+        <section>
+            <h2>High Order Function</h2>
+            <p>A function which takes a function as an argument, returns a function, or both.</p>
+            <a href="" target="_blank">Codepen (TODO)</a>
+        </section>
+        <section>
+            <h2>A function is pure if …</h2>
+            <p>… given the same input, will always return the same output.​</p>
+            <p>… produces no side effects.​</p>
+        </section>
+        <section>
+            <h2>A pure function …</h2>
+            <p>… does not rely on any external mutable state.​</p>
+            <p>… does not mutate external state.​</p>
+            <p>A dead giveaway that a function is impure is if it makes sense to call it without using its return
+                value. For pure functions, that’s a noop.</p>
+            <a href="" target="_blank">Codepen (TODO)</a>
+        </section>
+        <section>
+            <h2>Properties & Aspects (1)</h2>
+            <p>deterministic</p>
+            <p>predictable</p>
+            <p>completely independent of outside state​</p>
+            <p>immune to bugs related to shared mutable state​</p>​
+        </section>
+        <section>
+            <h2>Properties & Aspects (2)</h2>
+            <p>great candidates for parallel processing</p>
+            <p>easy to move around, refactor and reorganize</p>
+            <p>flexible and adaptable to future changes​</p>
+            <p>very easy + safe to reuse (no state, no side-effects)​</p>​
+        </section>
+        <section>
+            <h2>Properties & Aspects (3)</h2>
+            <p>referentially transparent</p>
+            <p>= any call to a pure function can be replaced with its resulting value without changing the meaning
+                of the program​</p>
+        </section>
+        <section>
+            <h2>Famous Citations ...</h2>
+            <p><cite>... using shared state being reliant on sequences which vary depending on indeterministic
+                factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
+            </p>
+            <p><cite>non-determinism = parallel processing + mutable state</cite><br>
+                <author>--- Martin Odersky​</author>
+            </p>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

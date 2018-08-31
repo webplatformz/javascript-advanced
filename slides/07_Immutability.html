@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>07 basics | Immutability</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Immutability <br />
+            07 Basics</h1>
+        </section>
+        <section>
+            <h2>Immutability</h2>
+            <p>An immutable object is an object whose state cannot be modified after it is created.</p>
+            <a href="" target="_blank">Codepen (TODO)</a>
+        </section>
+        <section>
+            <h2>Problems with mutable state:</h2>
+            <p>Tracking mutations in code is tiresome</p>
+            <p>Code is hard(er) to read and error prone</p>
+            <p>Code is hard(er) to test and debug</p>
+            <p>It's most likely not multi-thread safe</p>
+            <p>Tracking changes and unwanted side-effects in objects is difficult and very expensive</p>
+        </section>
+        <section>
+            <h2>Trivial example</h2>
+            <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+let sortedAnimals = animals.sort();
+console.log(animals === sortedAnimals); // false</code></pre>
+        </section>
+        <section>
+            <h2>Not so trivial example</h2>
+            <pre><code>
+let data = [ 1, 2, 3, 4 ];
+let sum = 0;
+for (let index = 0; index < data.length; index++) {
+  sum += data[index];
+}
+console.log(counter === 10); // true, but always true ?</code></pre>
+        </section>
+        <section>
+            <h2>Don't do that (any more)</h2>
+            <p><strike>jQuery or any other library</strike> -> not necessary</p>
+            <p><strike>for-loop & hasOwnProperty()</strike> -> error prone, bloat-code</p>
+            <p><strike>array.slice()</strike> -> wrong intention</p>
+        </section>
+        <section>
+            <h2>Objects - Object.assign()</h2>
+            <pre><code>let animal = {
+    name: "Homer",
+    age: 2,
+    type: "hamster",
+    legs: 4
+};
+let shallowCopy = Object.assign({}, animal);
+console.log(animal === shallowCopy); // false</code></pre>
+            <h2>Arrays - [].concat()</h2>
+            <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+let shallowCopy = [].concat(animals);
+console.log(animals === shallowCopy); // false</code></pre>
+        </section>
+        <section>
+            <h2>Objects, Arrays - Destructors</h2>
+            <pre><code>let animal = {
+    name: "Homer",
+    age: 2,
+    type: "hamster",
+    legs: 4
+};
+let shallowCopy = { ...animal };
+console.log(animal === shallowCopy); // false</code></pre>
+        </section>
+        <section>
+            <h2>Be aware though</h2>
+            <p>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</p>
+            <p>Not suitable for more complex (deep) objects</p>
+            <a href="" target="_blank">Exercise - todo  1) debug some really shitty code that looks good, 1) without convenience, 1) with convenience, 1) deep copy</a>
+        </section>
+        <section>
+            <h2>Disadvantage</h2>
+            <p>Very tiny performance overhead (object creation)</p>
+            <p>Requires a lot of discipline (mutating state is so easy)</p>
+        </section>
+        <section>
+            <h2>Advantage</h2>
+            <p>Concurrency safe (multi-threading, asynchronicity, ...)</p>
+            <p>No expensive synchronization between threads</p>
+            <p>No expensive state tracking <strike>Object.observe(obj, fn)</strike></p>
+            <p>Better code quality</p>
+        </section>
+        <section>
+            <h2>Conclusion</h2>
+            <p>Different, more functional-style application design</p>
+            <p>You can assume everything immutable</p>
+            <p>It's a very simple pattern !</p>
+        </section>
+        <section>
+            <h2>Immutability</h2>
+            <p>Immutability.js</p>
+            <p>Redux</p>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
