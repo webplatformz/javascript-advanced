@@ -41,9 +41,11 @@
         </section>
         <section>
             <h2>Purpose</h2>
-            <p>(mapping) A function maps input values to output values.​</p>
-            <p>(procedure) A function may perform a sequence of steps.</p>
-            <p>(i/o) A function may communicate with other parts of the system.</p>
+            <ul>
+                <li><b>mapping</b><br/>A function maps input values to output values.​</li>
+                <li><b>procedure</b><br/>A function may perform a sequence of steps.</li>
+                <li><b>i/o</b><br/>A function may communicate with other parts of the system.</li>
+            </ul>
         </section>
         <section>
             <h2>High Order Function</h2>
@@ -52,36 +54,46 @@
         </section>
         <section>
             <h2>A function is pure if …</h2>
-            <p>… given the same input, will always return the same output.​</p>
-            <p>… produces no side effects.​</p>
+            <ul>
+                <li>… given the same input, will always return the same output.​</li>
+                <li>… produces no side effects.​</li>
+            </ul>
         </section>
         <section>
             <h2>A pure function …</h2>
-            <p>… does not rely on any external mutable state.​</p>
-            <p>… does not mutate external state.​</p>
-            <p>A dead giveaway that a function is impure is if it makes sense to call it without using its return
-                value. For pure functions, that’s a noop.</p>
+            <ul>
+                <li>… does not rely on any external mutable state.​</li>
+                <li>… does not mutate external state.​</li>
+                <li>A dead giveaway that a function is impure is if it makes sense to call it without using its return
+                    value. For pure functions, that’s a noop.</li>
+            </ul>
             <a href="" target="_blank">Codepen (TODO)</a>
         </section>
         <section>
             <h2>Properties & Aspects (1)</h2>
-            <p>deterministic</p>
-            <p>predictable</p>
-            <p>completely independent of outside state​</p>
-            <p>immune to bugs related to shared mutable state​</p>​
+            <ul>
+                <li>deterministic</li>
+                <li>predictable</li>
+                <li>completely independent of outside state​</li>
+                <li>immune to bugs related to shared mutable state​</li>​
+            </ul>
         </section>
         <section>
             <h2>Properties & Aspects (2)</h2>
-            <p>great candidates for parallel processing</p>
-            <p>easy to move around, refactor and reorganize</p>
-            <p>flexible and adaptable to future changes​</p>
-            <p>very easy + safe to reuse (no state, no side-effects)​</p>​
+            <ul>
+                <li>great candidates for parallel processing</li>
+                <li>easy to move around, refactor and reorganize</li>
+                <li>flexible and adaptable to future changes​</li>
+                <li>very easy + safe to reuse (no state, no side-effects)​</li>​
+            </ul>
         </section>
         <section>
             <h2>Properties & Aspects (3)</h2>
-            <p>referentially transparent</p>
-            <p>= any call to a pure function can be replaced with its resulting value without changing the meaning
-                of the program​</p>
+            <ul>
+                <li>referentially transparent<br/><br/>
+                = any call to a pure function can be replaced with its resulting value without changing the meaning
+                    of the program​</li>
+            </ul>
         </section>
         <section>
             <h2>Famous Citations ...</h2>
