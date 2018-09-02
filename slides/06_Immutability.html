@@ -32,67 +32,134 @@
         <section>
             <h2>Immutability</h2>
             <p>An immutable object is an object whose state cannot be modified after it is created.</p>
-            <p><a href="" target="_blank">Exercises (TODO)</a></p>
         </section>
         <section>
-            <h2>Problems with mutable state:</h2>
+            <h2>Problems with mutable state</h2>
             <ul>
                 <li>Tracking mutations in code is tiresome</li>
                 <li>Code is hard(er) to read and error prone</li>
                 <li>Code is hard(er) to test and debug</li>
-                <li>It's most likely not multi-thread safe</li>
                 <li>Tracking changes and unwanted side-effects in objects is difficult and very expensive</li>
+                <li>It's most likely not concurrency safe</li>
             </ul>
         </section>
         <section>
-            <h2>Trivial example</h2>
-            <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
-let sortedAnimals = animals.sort();
-console.log(animals === sortedAnimals); // false</code></pre>
+            <section>
+                <h2>Concurrency</h2>
+                <p>Basic aspects of concurrency</p>
+                <ul>
+                    <li>Synchronicity / Asynchronicity</li>
+                    <li>Single / Multi Threading</li>
+                </ul>
+                <p>Javascript is executed asynchronously, but still in a single-thread</p>
+            </section>
+            <section>
+                <h2>Synchronous + Single-Threaded</h2>
+                <img src="../img/singlethreaded.png">
+                <ul>
+                    <li>Shared mutable state can be regarded to be <b>safe</b></li>
+                    <li>Does not concern Javascript</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Synchronous + Multi-Threaded</h2>
+                <img src="../img/multithreaded.png">
+                <ul>
+                    <li>Shared mutable state is regarded to be <b>unsafe</b></li>
+                    <li>Does not concern Javascript</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Asynchronous + Multi-Threaded</h2>
+                <img src="../img/async-multithreaded.png">
+                <ul>
+                    <li>Shared mutable state is regarded to be <b>unsafe</b></li>
+                    <li>Does not yet concern Javascript</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Asynchronous + Single-Threaded</h2>
+                <img src="../img/async-single.png">
+                <ul>
+                    <li>Asynchronicity is a kind of concurrency !</li>
+                    <li>Recall: Mutable state. It's most likely not concurrency safe !</li>
+                    <li>Shared mutable state in Javascript is <b>unsafe</b></li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Not so trivial example</h2>
-            <pre><code>
+            <section>
+                <h2>Shared Mutable State</h2>
+            </section>
+            <section>
+                <h2>Trivial example</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+let animals = [ 'hamster', 'cat', 'mouse', 'dog' ]; // shared
+let sortedAnimals = animals.sort();
+
+console.log(animals == [ 'hamster', 'cat', 'mouse', 'dog' ]); // false, why ?
+console.log(animals === sortedAnimals); // true, why ?</code></pre>
+            </section>
+            <section>
+                <h2>Not so trivial example</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
 let data = [ 1, 2, 3, 4 ];
-let sum = 0;
+let sum = 0; // shared
 for (let index = 0; index < data.length; index++) {
   sum += data[index];
 }
-console.log(counter === 10); // true, but always true ?</code></pre>
-        </section>
-        <section>
-            <h2>Don't do that (any more)</h2>
-            <ul>
-                <li><strike>jQuery or any other library</strike> -> not necessary</li>
-                <li><strike>for-loop & hasOwnProperty()</strike> -> error prone, bloat-code</li>
-                <li><strike>array.slice()</strike> -> wrong intention</li>
-            </ul>
+
+console.log(sum === 10); // true, but always true ?</code></pre>
+            </section>
+            <section>
+                <h2>Immutability in Javascript</h2>
+                <ul>
+                    <li>Primitives are immutable by default</li>
+                    <li>There is no modifier to "lock" objects</li>
+                    <li>Immutability is done by (shallow) copying objects</li>
+                </ul>
+
+            </section>
+            <section>
+                <h2>Don't do that (any more)</h2>
+                <ul>
+                    <li><strike>jQuery or any other library</strike> = probably not necessary</li>
+                    <li><strike>for-loop & hasOwnProperty()</strike> = error prone</li>
+                    <li><strike>array.slice()</strike> = wrong intention</li>
+                </ul>
+            </section>
         </section>
         <section>
             <h2>Objects - Object.assign()</h2>
-            <pre><code>let animal = {
+            <pre><code class="hljs javascript" data-trim data-noescape>
+let animal = {
     name: "Homer",
     age: 2,
     type: "hamster",
     legs: 4
 };
+
 let shallowCopy = Object.assign({}, animal);
 console.log(animal === shallowCopy); // false</code></pre>
         </section>
         <section>
             <h2>Arrays - [].concat()</h2>
-            <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+            <pre><code class="hljs javascript" data-trim data-noescape>
+let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+
 let shallowCopy = [].concat(animals);
 console.log(animals === shallowCopy); // false</code></pre>
         </section>
         <section>
             <h2>Objects - Destructors</h2>
-            <pre><code>let animal = {
+            <pre><code class="hljs javascript" data-trim data-noescape>
+let animal = {
     name: "Homer",
     age: 2,
     type: "hamster",
     legs: 4
 };
+
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
         </section>
@@ -108,8 +175,8 @@ console.log(animals === shallowCopy); // false</code></pre>
                 <li>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</li>
                 <li>Not suitable for more complex (deep) objects</li>
             </ul>
-            <a href="" target="_blank">Exercise - todo 1) debug some really shitty code that looks good, 1) without
-                convenience, 1) with convenience, 1) deep copy</a>
+            <p><a href="" target="_blank">Exercises - todo 1) debug some really shitty code that looks good, 1) without
+                convenience, 1) with convenience, 1) deep copy</a></p>
         </section>
         <section>
             <h2>Disadvantage</h2>
@@ -145,10 +212,17 @@ console.log(animals === shallowCopy); // false</code></pre>
         <section>
             <h2>Further Readings &amp; Resources</h2>
             <ul>
-                <li><a href="http://web.mit.edu/6.005/www/fa15/classes/09-immutability/#reading_9_mutability_immutability" target="_blank">Mutability &amp; Immutability</a></li>
-                <li><a href="https://www.miles.no/blogg/tema/teknisk/why-care-about-functional-programming-part-1-immutability" target="_blank">Why care about functional programming? Immutability</a></li>
-                <li><a href="https://medium.com/@yej.arin.choi/this-is-a-post-that-summarizes-my-dive-into-immutability-in-programming-what-it-is-why-its-34cbba44f889" target="_blank">Immutability in Javascript</a></li>
-                <li><a href="http://reactkungfu.com/2015/08/pros-and-cons-of-using-immutability-with-react-js/" target="_blank">Immutability with ReactJs</a></li>
+                <li>
+                    <a href="http://web.mit.edu/6.005/www/fa15/classes/09-immutability/#reading_9_mutability_immutability"
+                       target="_blank">Mutability &amp; Immutability</a></li>
+                <li>
+                    <a href="https://www.miles.no/blogg/tema/teknisk/why-care-about-functional-programming-part-1-immutability"
+                       target="_blank">Why care about functional programming? Immutability</a></li>
+                <li>
+                    <a href="https://medium.com/@yej.arin.choi/this-is-a-post-that-summarizes-my-dive-into-immutability-in-programming-what-it-is-why-its-34cbba44f889"
+                       target="_blank">Immutability in Javascript</a></li>
+                <li><a href="http://reactkungfu.com/2015/08/pros-and-cons-of-using-immutability-with-react-js/"
+                       target="_blank">Immutability with ReactJs</a></li>
             </ul>
         </section>
         <section class="deck-slide">
