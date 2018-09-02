@@ -30,79 +30,172 @@
                 02 Basics</h1>
         </section>
         <section>
-            <h2>Function</h2>
-            <p>
-                A function is a process which takes some input, called arguments, and produces some output called a
-                return value
-            </p>
-            <p>
-                <code>fn(in) => out</code>
-            </p>
-        </section>
-        <section>
-            <h2>Purpose</h2>
+            <h2>Functional Programming</h2>
             <ul>
-                <li><b>mapping</b><br/>A function maps input values to output values.​</li>
-                <li><b>procedure</b><br/>A function may perform a sequence of steps.</li>
-                <li><b>i/o</b><br/>A function may communicate with other parts of the system.</li>
+                <li>Not actually a pattern, rather a paradigm</li>
+                <li>Based on Math &amp; backed by Math (&lambda;-theory)</li>
+                <li>But Math is not (necessarily) required</li>
             </ul>
+            <p>Don't fear FP, embrace it instead.</p>
         </section>
         <section>
-            <h2>High Order Function</h2>
+            <section>
+                <h2>Function</h2>
+                <p>
+                    A function is a process which takes some input, called arguments,
+                    and produces some output called a return value.
+                </p>
+                <p>
+                    <code>fn(in) => out</code>
+                </p>
+            </section>
+            <section>
+                <h2>Purpose of a function</h2>
+                <ul>
+                    <li><b>mapping</b> - A function maps input values to output values.​</li>
+                    <li><b>procedure</b> - A function may perform a sequence of steps.</li>
+                    <li><b>i/o</b> - A function may communicate with other parts of the system.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Functions( ) { }</h2>
+                <p>Function Declaration</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    sum(4, 9); // 13
+
+                    function sum(a, b) {
+                        return a + b;
+                    }
+
+                    sum(4, 9); // 13
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>Function Expression</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    sum(1, 3); // TypeError: undefined is not a function
+
+                    const sum = function(a, b) {
+                        return a + b;
+                    }
+
+                    sum(1, 3); // 4
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { }</h2>
+                <p>Arrow functions</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const arrowFunction = () => console.log('arrow function');
+
+                    // is almost the same as
+                    const regularFunction = function() {
+                        console.log('regular function')
+                    }
+                </code>
+                </pre>
+            </section>
+            <section>
+                <h2>Functions ( ) { } </h2>
+                <p>Functions are "first-class" objects</p>
+                <pre>
+                <code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function doThis(fn) {
+                        fn();
+                    }
+
+                    function giveMeAFunction() {
+                        return () => console.log('I am a function');
+                    }
+                </code>
+                </pre>
+            </section>
+        </section>
+        <section>
+            <h2>Higher Order Function</h2>
             <p>A function which takes a function as an argument, returns a function, or both.</p>
             <a href="" target="_blank">Codepen (TODO)</a>
         </section>
         <section>
-            <h2>A function is pure if …</h2>
-            <ul>
-                <li>… given the same input, will always return the same output.​</li>
-                <li>… produces no side effects.​</li>
-            </ul>
-        </section>
-        <section>
-            <h2>A pure function …</h2>
-            <ul>
-                <li>… does not rely on any external mutable state.​</li>
-                <li>… does not mutate external state.​</li>
-                <li>A dead giveaway that a function is impure is if it makes sense to call it without using its return
-                    value. For pure functions, that’s a noop.</li>
-            </ul>
-            <a href="" target="_blank">Codepen (TODO)</a>
-        </section>
-        <section>
-            <h2>Properties & Aspects (1)</h2>
-            <ul>
-                <li>deterministic</li>
-                <li>predictable</li>
-                <li>completely independent of outside state​</li>
-                <li>immune to bugs related to shared mutable state​</li>​
-            </ul>
-        </section>
-        <section>
-            <h2>Properties & Aspects (2)</h2>
-            <ul>
-                <li>great candidates for parallel processing</li>
-                <li>easy to move around, refactor and reorganize</li>
-                <li>flexible and adaptable to future changes​</li>
-                <li>very easy + safe to reuse (no state, no side-effects)​</li>​
-            </ul>
-        </section>
-        <section>
-            <h2>Properties & Aspects (3)</h2>
-            <ul>
-                <li>referentially transparent<br/><br/>
-                = any call to a pure function can be replaced with its resulting value without changing the meaning
-                    of the program​</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Famous Citations ...</h2>
-            <p><cite>... using shared state being reliant on sequences which vary depending on indeterministic
-                factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
-            </p>
-            <p><cite>non-determinism = parallel processing + mutable state</cite><br>
-                <author>--- Martin Odersky​</author>
-            </p>
+            <section>
+                <h2>Pure Function</h2>
+                <p>Definition</p>
+                <ul>
+                    <li>… given the same input, will always return the same output.​</li>
+                    <li>… produces no side effects.​</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Pure Function</h2>
+                <p>Definition</p>
+                <ul>
+                    <li>… does not rely on any external mutable state.​</li>
+                    <li>… does not mutate external state.​</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Impure Function</h2>
+                <p>The very opposite of a pure function</p>
+                <p>
+                    <cite>
+                        "A dead giveaway that a function is impure is if it makes sense to call it without using its
+                        return
+                        value. For pure functions, that’s a noop."
+                    </cite>
+                </p>
+                <p><a href="" target="_blank">Codepen (TODO)</a></p>
+            </section>
+            <section>
+                <h2>Why do pure functions matter ?</h2>
+            </section>
+            <section>
+                <h2>Properties of pure functions</h2>
+                <ul>
+                    <li>deterministic</li>
+                    <li>predictable</li>
+                    <li>completely independent of outside state​</li>
+                    <li>immune to bugs related to shared mutable state​</li>
+                    ​
+                </ul>
+            </section>
+            <section>
+                <h2>Properties of pure functions</h2>
+                <ul>
+                    <li>"referentially transparent"<br/><br/>
+                        = any call to a pure function can be replaced with its resulting value without changing the
+                        meaning of the program​
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <h2>Use of pure functions</h2>
+                <ul>
+                    <li>great candidates for parallel processing</li>
+                    <li>easy to move around, refactor and reorganize</li>
+                    <li>flexible and adaptable to future changes​</li>
+                    <li>very easy + safe to reuse (no state, no side-effects)​</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Famous Citation</h2>
+                <p>
+                    <cite>... using shared state being reliant on sequences which vary depending on indeterministic
+                    factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
+                </p>
+            </section>
+            <section>
+                <h2>Famous Citation</h2>
+                <p>
+                    <cite>non-determinism = parallel processing + mutable state</cite><br>
+                    <author><em>--- Martin Odersky</em>​</author>
+                </p>
+            </section>
         </section>
         <section class="deck-slide">
             <h1>Questions?</h1>

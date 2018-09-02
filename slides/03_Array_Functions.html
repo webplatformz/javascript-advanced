@@ -26,164 +26,217 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Array Functions <br />
-            03 Basics</h1>
+            <h1>Array Functions <br/>
+                03 Basics</h1>
+        </section>
+        <section>
+            <h2>Array Functions</h2>
+            <p>Core functions to operate on Arrays (API)</p>
+            <p>Array = Core entity of Javascript</p>
         </section>
         <section>
             <h2>Array Functions: Quick Recap</h2>
-            <ul>
-                <li class="half">filter()</li>
-                <li class="half">find()</li>
-                <li class="half">some()</li>
-                <li class="half">every()</li>
-                <li class="half">map()</li>
-                <li class="half">flatMap()</li>
-                <li class="half">reduce()</li>
+            <ul class="grid">
+                <li>filter()</li>
+                <li>find()</li>
+                <li>some()</li>
+                <li>every()</li>
+                <li>map()</li>
+                <li>flatMap()</li>
+                <li>reduce()</li>
             </ul>
         </section>
         <section>
-            <h2>filter()</h2>
-            <pre><code>array.filter(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 1</a>
-        </section>
-        <section>
-            <h2>Wrap-Up: filter()</h2>
+            <h2>Extension Libraries</h2>
             <ul>
-                <li>Returns a new array</li>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
+                <li>Prototype</li>
+                <li>Jquery</li>
+                <li>Underscore.js</li>
+                <li>Do it yourself utility</li>
+                <div class="tip fragment">no longer necessary - really ! => go native</div>
             </ul>
         </section>
         <section>
-            <h2>find()</h2>
-            <pre><code>array.find(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 2</a>
-        </section>
-        <section>
-            <h2>Wrap-Up: find()</h2>
+            <h2>(Native) Array Functions</h2>
             <ul>
-                <li>Returns the first match (only)</li>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
+                <li>No fishy/magic transformations of callbacks</li>
+                <li>No fishy/magic extra behaviour during iterations</li>
+                <li>Performance</li>
+                <li>ECMAScript (Standard) is evolving quickly</li>
             </ul>
         </section>
         <section>
-            <h2>some()</h2>
-            <pre><code>array.some(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 3</a>
+            <section>
+                <h2>filter()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.filter(fn(currentValue, index?, array?), thisArg?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: filter()</h2>
+                <ul>
+                    <li>Returns a new array</li>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Wrap-Up: some()</h2>
-            <ul>
-                <li>Strange naming for <i>match-any</i></li>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
-            </ul>
+            <section>
+                <h2>find()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.find(fn(currentValue, index?, array?), thisArg?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: find()</h2>
+                <ul>
+                    <li>Returns the first match (only)</li>
+                    <li>Iteration aborts after the first match</li>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>every()</h2>
-            <pre><code>array.every(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 4</a>
+            <section>
+                <h2>some()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.some(fn(currentValue, index?, array?), thisArg?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: some()</h2>
+                <ul>
+                    <li>Strange naming for <i>match-any</i></li>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Wrap-Up: every()</h2>
-            <ul>
-                <li>Strange naming for <i>match-all</i></li>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
-            </ul>
+            <section>
+                <h2>every()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.every(fn(currentValue, index?, array?), thisArg?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: every()</h2>
+                <ul>
+                    <li>Strange naming for <i>match-all</i></li>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>map()</h2>
-            <pre><code>array.map(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 5</a>
+            <section>
+                <h2>map()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.map(fn(currentValue, index?, array?), thisArg?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: map()</h2>
+                <ul>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Wrap-Up: map()</h2>
-            <ul>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
-            </ul>
+            <section>
+                <h2>flatMap()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.flatMap(fn(currentValue, index?, array?), thisArg?)
+                </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>thisArg?</b> - the element <i>this</i> is bound to<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: flatMap()</h2>
+                <ul>
+                    <li>Not yet supported -> shim / Babel</li>
+                    <li>Only for very special use-cases</li>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>flatMap()</h2>
-            <pre><code>array.flatMap(fn(currentValue, index?, array?), thisArg?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>thisArg?</b> - the element <i>this</i> is bound to<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 6</a>
+            <section>
+                <h2>reduce()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)
+            </code></pre>
+                <p>
+                    <b>callback</b> - the function used for testing<br>
+                    <b>accumulator</b> - the result of the reducer<br>
+                    <b>currentValue</b> - the element under test<br>
+                    <b>index?</b> - the index of the element under test<br>
+                    <b>array?</b> - the array being tested<br>
+                    <b>initialValue?</b> - the value to start the reduction with<br>
+                </p>
+                <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercises</a>
+            </section>
+            <section>
+                <h2>Wrap-Up: reduce()</h2>
+                <ul>
+                    <li>Many different use cases: collect, aggregate, tally, group</li>
+                    <li>Very little code to write</li>
+                    <li>Still simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Wrap-Up: flatMap()</h2>
-            <ul>
-                <li>Not yet supported -> shim</li>
-                <li>Only for very special use-cases</li>
-                <li>Very little code to write</li>
-                <li>Very simple to use</li>
-            </ul>
-        </section>
-        <section>
-            <h2>reduce()</h2>
-            <pre><code>array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)</code></pre>
-            <p>
-                <b>callback</b> - the function used for testing<br>
-                &nbsp;&nbsp;<b>accumulator</b> - the result of the reducer<br>
-                &nbsp;&nbsp;<b>currentValue</b> - the element under test<br>
-                &nbsp;&nbsp;<b>index?</b> - the index of the element under test<br>
-                &nbsp;&nbsp;<b>array?</b> - the array being tested<br>
-                <b>initialValue?</b> - the value to start the reduction with<br>
-            </p>
-            <a href="https://codesandbox.io/s/01nx4kp6n0%20/" target="_blank">Exercise 7</a>
-        </section>
-        <section>
-            <h2>Wrap-Up: reduce()</h2>
-            <ul>
-                <li>Many different use cases: collect, aggregate, tally, grouping</li>
-                <li>Very little code to write</li>
-                <li>Still simple to use</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Wrap-Up:</h2>
+            <h2>Array Functions: Wrap-Up</h2>
             <ul>
                 <li>Very powerful</li>
                 <li>Very little code to write</li>
@@ -192,14 +245,22 @@
             </ul>
         </section>
         <section>
-            <h2>Other helpful array functions ...</h2>
-            <ul>
-                <li>reduceRight(fn, initialValue)</li>
-                <li>findIndex(fn)</li>
-                <li>sort(fn)</li>
+            <h2>Array Functions: Continued ...</h2>
+            <ul class="grid">
+                <li>reduceRight()</li>
+                <li>findIndex()</li>
+                <li>sort()</li>
+                <li>copyWithin()</li>
+                <li>splice()</li>
+                <li>slice()</li>
+                <li>fill()</li>
                 <li>...</li>
             </ul>
-            <p>Check out and get familiar with the full array API !</p>
+        </section>
+        <section>
+            <h2>Array Functions: More ...</h2>
+            <p>Check out and get familiar with the full Array API !</p>
+            <p>There is more coming => ES.Next</p>
         </section>
         <section class="deck-slide">
             <h1>Questions?</h1>
@@ -222,8 +283,8 @@
             { src: '../plugin/notes/notes.js', async: true },
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });
