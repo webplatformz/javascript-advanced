@@ -26,8 +26,8 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Immutability <br />
-            07 Basics</h1>
+            <h1>Immutability <br/>
+                06 Basics</h1>
         </section>
         <section>
             <h2>Immutability</h2>
@@ -108,7 +108,8 @@ console.log(animals === shallowCopy); // false</code></pre>
                 <li>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</li>
                 <li>Not suitable for more complex (deep) objects</li>
             </ul>
-            <a href="" target="_blank">Exercise - todo  1) debug some really shitty code that looks good, 1) without convenience, 1) with convenience, 1) deep copy</a>
+            <a href="" target="_blank">Exercise - todo 1) debug some really shitty code that looks good, 1) without
+                convenience, 1) with convenience, 1) deep copy</a>
         </section>
         <section>
             <h2>Disadvantage</h2>
@@ -141,6 +142,15 @@ console.log(animals === shallowCopy); // false</code></pre>
                 <li>Redux</li>
             </ul>
         </section>
+        <section>
+            <h2>Further Readings &amp; Resources</h2>
+            <ul>
+                <li><a href="http://web.mit.edu/6.005/www/fa15/classes/09-immutability/#reading_9_mutability_immutability" target="_blank">Mutability &amp; Immutability</a></li>
+                <li><a href="https://www.miles.no/blogg/tema/teknisk/why-care-about-functional-programming-part-1-immutability" target="_blank">Why care about functional programming? Immutability</a></li>
+                <li><a href="https://medium.com/@yej.arin.choi/this-is-a-post-that-summarizes-my-dive-into-immutability-in-programming-what-it-is-why-its-34cbba44f889" target="_blank">Immutability in Javascript</a></li>
+                <li><a href="http://reactkungfu.com/2015/08/pros-and-cons-of-using-immutability-with-react-js/" target="_blank">Immutability with ReactJs</a></li>
+            </ul>
+        </section>
         <section class="deck-slide">
             <h1>Questions?</h1>
         </section>
@@ -162,8 +172,8 @@ console.log(animals === shallowCopy); // false</code></pre>
             { src: '../plugin/notes/notes.js', async: true },
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
+                    hljs.initHighlightingOnLoad();
+                }
             }
         ]
     });

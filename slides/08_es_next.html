@@ -1,0 +1,313 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>05 Overview | Upcoming Features</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>ES.Next<br/>
+                08 Overview</h1>
+        </section>
+        <section>
+            <h2>Upcoming Features: ES-2019, Stage-3</h2>
+            <ul class="grid">
+                <li>(Native) Observables</li>
+                <li>Optional Chaining Operator</li>
+                <li>Pipeline Operator</li>
+                <li>Logical Assignment Operators</li>
+                <li>Numerics</li>
+                <li>Arrays</li>
+                <li>Slice Notation</li>
+                <li>private class elements</li>
+                <li>...</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Native Observables</h2>
+            <pre><code class="hljs javascript" data-trim data-noescape>
+                    observable.observe(fnObserver)</code></pre>
+            <ul>
+                <li>Not yet available</li>
+                <li>Implemented by various frameworks (e.g RxJS)</li>
+            </ul>
+            <p>More on Observables in RxJS later in this workshop ...</p>
+        </section>
+        <section>
+            <section>
+                <h2>Optional Chaining Operator ".?"</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let street = null;
+
+                    // without chaining (current solution)
+                    street = user && user.address && user.address.street;
+
+                    // with optional chaining operator
+                    street = user?.address?.street;
+                </code></pre>
+                <p>Optional Chaining Operator ".?" for properties, expressions and function-calls</p>
+            </section>
+            <section>
+                <h2>Optional Chaining Operator ".?"</h2>
+                <ul>
+                    <li>Syntax gets slightly more cryptic</li>
+                    <li>Easier than xPath et al.</li>
+                    <li>Less repetition of common code patterns</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Pipeline Operator "|>"</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let result = null;
+
+                    // pipelining functions (current solution)
+                    result = doFn4(doFn3(doFn2(doFn1(string)));
+
+                    // with pipline operator
+                    result = string |> doFn1 |> doFn2 |> doFn3 |> doFn4;
+                </code></pre>
+                <p>Pipeline Operator for expressions, array functions, (async) function-calls</p>
+            </section>
+            <section>
+                <h2>Pipeline Operator "|>"</h2>
+                <ul>
+                    <li>Syntax gets slightly more cryptic</li>
+                    <li>Better and more natural readability</li>
+                    <li>Less repetition of common code patterns</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Logical Assignment Operators</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    // or
+                    a ||= b;
+                    a || (a = b);
+
+                    // and
+                    a &&= b;
+                    a && (a = b);
+
+                    // eventually
+                    a ??= b;
+                    a ?? (a = b);
+            </code></pre>
+                <p>Inspired by Ruby. Works exactly as in Ruby</p>
+            </section>
+            <section>
+                <h2>Logical Assignment Operators</h2>
+                <ul>
+                    <li>Syntax gets slightly more cryptic</li>
+                    <li>Less code</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Slice Notation</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                const arr = ['a', 'b', 'c', 'd'];
+
+                console.log(arr[1:3] == arr.slice(1,3)); // ['b', 'c']
+                console.log(arr[:2]  == arr.slice(0,2)); // ['a', 'b']
+                console.log(arr[2:]  == arr.slice(2,4)); // ['c', 'd']
+                console.log(arr[2:]  == arr.slice(2)); // ['c', 'd']
+
+                console.log(arr[-1:] == arr.slice(3,4)); // ['d']
+                console.log(arr[:-2] == arr.slice(0,3)); // ['c', 'd']
+            </code></pre>
+                <p>Slice Notation for arrays and objects</p>
+                <p>Inspired by Python. Works exactly as in Python</p>
+            </section>
+            <section>
+                <h2>Slice Notation</h2>
+                <ul>
+                    <li>Syntactic sugar to slice()</li>
+                    <li>Increased clarity about start &amp; end</li>
+                    <li>More convenient and natural than function-call</li>
+                    <li>Less repetition of common code patterns</li>
+                    <li>Less code</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Numerics: Groupings</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    const inhabitantsOfMunich = 1_464_301;
+                    const distanceEarthSunInKm = 149_600_000;
+                    const massOfElectronInKg = 9.109_383_56e-31;
+                    const words = 0xFAB_F00D;
+
+                    let result = Number.parseInt('123_345');
+                    console.log(result == 123456);
+
+                    let result = Number.parseFloat('0.123_456');
+                    console.log(result == 0.123456);
+                </code></pre>
+                <p>identical specification &amp; restrictions as in Java 8</p>
+            </section>
+            <section>
+                <h2>Nummerics: BigInts</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    const massOfEarthInKg = 6_000_000_000_000_000_000_000_000n;
+
+                    let bigInt = typeof 123n;
+                    console.log(bigInt == 'bitInt');
+
+                    let result = BigInt.parseInt('9007199254740993', 10);
+                    console.log(result == 9007199254740993n);
+
+                    console.log(0 == 0n); // false :(
+                </code></pre>
+                <p>identical usage as with any 'number'</p>
+            </section>
+            <section>
+                <h2>Nummerics: Grouping &amp; BigInts</h2>
+                <ul>
+                    <li>better readability of large numbers</li>
+                    <li>very large numbers</li>
+                    <li>precision of very large fractions</li>
+                </ul>
+                <p>BitInts will have a huge impact for money-related applications (financial technical sector)</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Arrays: special elements (Stage-1)</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let arr = [1, 2, 3, 4, 5, 6, 7];
+
+                    console.log(arr.last == arr[arr.length - 1]);
+                    console.log(arr.first == arr[0]);
+                </code></pre>
+                <p>Convenient access to special elements</p>
+            </section>
+            <section>
+                <h2>Arrays: special elements (Stage-1)</h2>
+                <ul>
+                    <li>Less repetition of common code patterns</li>
+                    <li>Less code</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Arrays: add/remove multiple elements (Stage-1)</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    // for loop
+                    for (let item in items) {
+                        arr.add(item);
+                    }
+
+                    arr.addAll(items);
+                    arr.addAll(...items);
+                    arr.addAll(item1, item2, ..., itemN);
+                </code></pre>
+                <p>Convenient add/remove of multiple elements</p>
+            </section>
+            <section>
+                <h2>Arrays: add/remove multiple elements</h2>
+                <ul>
+                    <li>Less repetition of common code patterns</li>
+                    <li>Less code</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>private class elements</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    class SomeClass {
+                        #xValue = 0; // private field
+                        get #x() { return #xValue; } // private getter
+                        set #x(value) { this.#xValue = value; } // private setter
+                        #someMethod(args) { ... }; // private method
+                    }</code></pre>
+                <p>prefix any class element using '#' to make it private</p>
+            </section>
+            <section>
+                <h2>private class elements</h2>
+                <ul>
+                    <li>clean and stable interfaces</li>
+                    <li>hidden changes under the hood</li>
+                </ul>
+                <p>private methods &amp; fields might have a huge impact</p>
+            </section>
+        </section>
+        <section>
+            <h2>Other upcoming features ...</h2>
+            <ul>
+                <li>Native flatMap(), flatten()</li>
+                <li>Dynamic (module) import</li>
+                <li>Moving away from global scope</li>
+                <li>Full Unicode Support in String &amp; Regexp</li>
+                <li>Static class elements</li>
+                <li>...</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://github.com/tc39/proposals" target="_blank">Proposals</a></li>
+                <li><a href="http://esnextnews.com" target="_blank">ES.Next News</a></li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Can I use this?</h2>
+                <ul>
+                    <li><a target="_blank" href="https://caniuse.com/">Caniuse.com</a></li>
+                </ul>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>

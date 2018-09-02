@@ -1,0 +1,267 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>04 Overview | Recent Features</title>
+
+    <link rel="icon" href="../img/zuehlke_logo.jpg">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/zuehlke.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="../lib/css/atom-one-dark.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+<body>
+<div class="reveal">
+    <div class="slides">
+        <section class="deck-slide">
+            <h1>Recent Features <br/>
+                04 Overview</h1>
+        </section>
+        <section>
+            <h2>Recent Features: Overview</h2>
+            <ul>
+                <li>Spread Operator</li>
+                <li>Async Functions</li>
+                <li>String API</li>
+                <li>...</li>
+            </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Spread Operator "..."</h2>
+                <p>Array destruction</p>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+let array1 = [1,2,3];
+let array2 = [4,5,6];
+
+let result = [...array1, ...array2];
+
+console.log(result); // [1,2,3,4,5,6]</code></pre>
+            </section>
+            <section>
+                <h2>Spread Operator "..."</h2>
+                <p>Array destruction</p>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+let obj1 = {a:1, b:2, c:3};
+let obj2 = {d:4, e:5, f:6};
+
+let result = {...obj1, ...obj2};
+
+console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
+            </section>
+            <section>
+                <h2>Spread Operator "..."</h2>
+                <p>Core functionalities of a Prototype-based language:</p>
+                <ul>
+                    <li>Create</li>
+                    <li>Merge</li>
+                    <li>Shallow-copy (flat/deep)</li>
+                    <li>Functions with variable arguments</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Problems solved by "..."</h2>
+                <ul class="grid">
+                    <li>lodash.js</li>
+                    <li>Underscore.js</li>
+                    <li>$.extend()</li>
+                    <li>Object.extend()</li>
+                    <li>Object.assign()</li>
+                    <li>forEach(fnCopyProperties)</li>
+                    <li>...</li>
+                </ul>
+                <div class="tip fragment">no longer necessary ! => go native, remove unnecessary dependencies</div>
+            </section>
+            <section>
+                <h2>Spread Operator "..."</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    {...obj1, ...obj2};
+                    [...array1, ...array2];
+                </code></pre>
+                <p><a href="" target="_blank">Exercises</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Spread Operator</h2>
+                <ul>
+                    <li>More intention revealing</li>
+                    <li>Less verbose coding</li>
+                    <li>No external dependencies</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Async Functions</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>async someAsyncCode() {
+    // save() is asynchronous (e.g Promise)
+    let animal = await db.save(createAnimal());
+    console.log("Sucessfully saved: " + animal);
+
+    // load() is asynchronous (e.g Promise)
+    let loaded = await db.load(animal.id);
+    console.log("Sucessfully loaded: " + loaded);
+}
+</code></pre>
+            </section>
+            <section>
+                <h2>Problems solved by Async/Await</h2>
+                <ul>
+                    <li>Busy-Wait &amp; setTimeout() Loops</li>
+                    <li>Nested Listeners</li>
+                    <li>Nested Promises</li>
+                    <li>Nested Observables</li>
+                    <li>...</li>
+                </ul>
+                <div class="tip fragment">no longer necessary ! => async/await</div>
+            </section>
+            <section>
+                <h2>Async Functions</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    async functionName(someArgs) {
+                        ...
+                        let result = await someAsyncFunction(someArgs2);
+                        ...
+                    }
+                </code></pre>
+                <p><a href="" target="_blank">Exercises</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Async Functions</h2>
+                <ul>
+                    <li>Increased readability</li>
+                    <li>Easier testing</li>
+                    <li>Less coding</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Common String-Problems</h2>
+                <ul>
+                    <li>Padding</li>
+                    <li>Trimming</li>
+                    <li>Multi-Byte Strings</li>
+                    <li>...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Padding</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    function padLeft(num, size) {
+                        var s = num+"";
+                        while (s.length < size) s = "0" + s;
+                        return s;
+                    }
+
+                    function padLeft(num, size) {
+                        var s = "000000000" + num;
+                        return s.substr(s.length - size);
+                    }
+                </code></pre>
+                <p>by Stackoverflow et al.</p>
+                <div class="tip fragment">Wtf! Noo !</div>
+            </section>
+            <section>
+                <h2>Padding</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    "1".padStart(4, "0"); // 0001
+                    "2".padEnd(4, "0"); // 2000</code></pre>
+                <p>Check out the new String API !</p>
+            </section>
+            <section>
+                <h2>Trimming</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    // trim right
+                    " abc ".replace(/^\s+/g, ''); // "abc "
+
+                    // trim left
+                    " abc ".replace(/\s+$/g, ''); // " abc"
+
+                    // trim both
+                    " abc ".replace(/^\s+/g, '').replace(/\s+$/g, ''); // "abc"</code></pre>
+                <p>by Stackoverflow et al.</p>
+                <div class="tip fragment">Wtf! Noo !</div>
+            </section>
+            <section>
+                <h2>Trimming</h2>
+                <pre><code>" abc ".trimLeft(); // "abc "
+" abc ".trimRight(); // " abc"
+" abc ".trim(); // "abc"</code></pre>
+                <p>Check out the new String API !</p>
+            </section>
+            <section>
+                <h2>Multi-byte Strings</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    // ⚠ ️Notice ...
+                    let string = '❤️❤️❤heart'; // 👈🏼 emojis !
+                    console.log(string == '\u2764\uFE0F\u2764\uFE0F\u2764heart');
+                    console.log(string.length == 10); // true ;)
+                    console.log('❤️' == '\u2764\uFE0F');</code></pre>
+                <p>encoding gets slightly bit more complicated ;)</p>
+                <p>possibilities vs consequences</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Why bother about APIs ? </h2>
+                <h2>APIs are no Patterns !</h2>
+            </section>
+            <section>
+                <h2>Recent Features</h2>
+                <ul>
+                    <li>ECMAScript is backed by Ecma TC39 committee</li>
+                    <li>Problems are known and get addressed</li>
+                    <li>Javascript is a really fast evolving language</li>
+                </ul>
+                <p>Check out the latest APIs - they probably changes since you last read them !</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Can I use this?</h2>
+                <ul>
+                    <li><a target="_blank" href="https://caniuse.com/">Caniuse.com</a></li>
+                </ul>
+            </section>
+        </section>
+        <section class="deck-slide">
+            <h1>Questions?</h1>
+        </section>
+    </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+
+<script>
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+</script>
+</body>
+</html>
