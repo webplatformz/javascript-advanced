@@ -51,7 +51,7 @@
                     <li>Synchronicity / Asynchronicity</li>
                     <li>Single / Multi Threading</li>
                 </ul>
-                <p>Javascript is executed asynchronously, but still in a single-thread</p>
+                <p>Javascript is executed asynchronously, <br/>but still in a single-thread</p>
             </section>
             <section>
                 <h2>Synchronous + Single-Threaded</h2>
@@ -66,7 +66,7 @@
                 <img src="../img/multithreaded.png">
                 <ul>
                     <li>Shared mutable state is regarded to be <b>unsafe</b></li>
-                    <li>Does not concern Javascript</li>
+                    <li>Does not concern Javascript either</li>
                 </ul>
             </section>
             <section>
@@ -74,7 +74,9 @@
                 <img src="../img/async-multithreaded.png">
                 <ul>
                     <li>Shared mutable state is regarded to be <b>unsafe</b></li>
-                    <li>Does not yet concern Javascript</li>
+                    <li>Does not concern Javascript yet <br/>
+                        <small>(Multi-Threading will be supported through WebAssembly)</small>
+                    </li>
                 </ul>
             </section>
             <section>
@@ -86,13 +88,9 @@
                     <li>Shared mutable state in Javascript is <b>unsafe</b></li>
                 </ul>
             </section>
-        </section>
-        <section>
-            <section>
-                <h2>Shared Mutable State</h2>
-            </section>
             <section>
                 <h2>Trivial example</h2>
+                <p>Sorting a list</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
 let animals = [ 'hamster', 'cat', 'mouse', 'dog' ]; // shared
 let sortedAnimals = animals.sort();
@@ -102,6 +100,7 @@ console.log(animals === sortedAnimals); // true, why ?</code></pre>
             </section>
             <section>
                 <h2>Not so trivial example</h2>
+                <p>Event Listerns etc. triggered while modifying shared state</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
 let data = [ 1, 2, 3, 4 ];
 let sum = 0; // shared
@@ -111,6 +110,8 @@ for (let index = 0; index < data.length; index++) {
 
 console.log(sum === 10); // true, but always true ?</code></pre>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Immutability in Javascript</h2>
                 <ul>
@@ -118,7 +119,6 @@ console.log(sum === 10); // true, but always true ?</code></pre>
                     <li>There is no modifier to "lock" objects</li>
                     <li>Immutability is done by (shallow) copying objects</li>
                 </ul>
-
             </section>
             <section>
                 <h2>Don't do that (any more)</h2>
@@ -128,10 +128,9 @@ console.log(sum === 10); // true, but always true ?</code></pre>
                     <li><strike>array.slice()</strike> = wrong intention</li>
                 </ul>
             </section>
-        </section>
-        <section>
-            <h2>Objects - Object.assign()</h2>
-            <pre><code class="hljs javascript" data-trim data-noescape>
+            <section>
+                <h2>Objects - Object.assign()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
 let animal = {
     name: "Homer",
     age: 2,
@@ -141,18 +140,18 @@ let animal = {
 
 let shallowCopy = Object.assign({}, animal);
 console.log(animal === shallowCopy); // false</code></pre>
-        </section>
-        <section>
-            <h2>Arrays - [].concat()</h2>
-            <pre><code class="hljs javascript" data-trim data-noescape>
+            </section>
+            <section>
+                <h2>Arrays - [].concat()</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
 let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
 
 let shallowCopy = [].concat(animals);
 console.log(animals === shallowCopy); // false</code></pre>
-        </section>
-        <section>
-            <h2>Objects - Destructors</h2>
-            <pre><code class="hljs javascript" data-trim data-noescape>
+            </section>
+            <section>
+                <h2>Objects - Destructors</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
 let animal = {
     name: "Homer",
     age: 2,
@@ -162,45 +161,55 @@ let animal = {
 
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
-        </section>
-        <section>
-            <h2>Arrays - Destructors</h2>
-            <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
-let shallowCopy = [].concat(animals);
+            </section>
+            <section>
+                <h2>Arrays - Destructors</h2>
+                <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
+
+let shallowCopy = [ ...animals ];
 console.log(animals === shallowCopy); // false</code></pre>
+            </section>
+            <section>
+                <h2>Be aware though</h2>
+                <ul>
+                    <li>Object.assign(), [].concat(), Destructors are flat shallow copies</li>
+                    <li>Not suitable for more complex (deep) entities</li>
+                </ul>
+                <p><a href="" target="_blank">Exercises (TODO)</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Immutability</h2>
+                <ul>
+                    <li>Very little code to write</li>
+                    <li>Very simple to use</li>
+                </ul>
+            </section>
         </section>
         <section>
-            <h2>Be aware though</h2>
-            <ul>
-                <li>{ ...oldObj }, Object.assign(), [].concat() are flat shallow copies</li>
-                <li>Not suitable for more complex (deep) objects</li>
-            </ul>
-            <p><a href="" target="_blank">Exercises - todo 1) debug some really shitty code that looks good, 1) without
-                convenience, 1) with convenience, 1) deep copy</a></p>
-        </section>
-        <section>
-            <h2>Disadvantage</h2>
-            <ul>
-                <li>Very tiny performance overhead (object creation)</li>
-                <li>Requires a lot of discipline (mutating state is so easy)</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Advantage</h2>
-            <ul>
-                <li>Concurrency safe (multi-threading, asynchronicity, ...)</li>
-                <li>No expensive synchronization between threads</li>
-                <li>No expensive state tracking <strike>Object.observe(obj, fn)</strike></li>
-                <li>Better code quality</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Conclusion</h2>
-            <ul>
-                <li>Different, more functional-style application design</li>
-                <li>You can assume everything immutable</li>
-                <li>It's a very simple pattern !</li>
-            </ul>
+            <section>
+                <h2>Disadvantage</h2>
+                <ul>
+                    <li>Very tiny performance overhead (object creation)</li>
+                    <li>Requires a lot of discipline (mutating state is so easy)</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Advantage</h2>
+                <ul>
+                    <li>Concurrency safe (multi-threading, asynchronicity, ...)</li>
+                    <li>No expensive synchronization between threads</li>
+                    <li>No expensive state tracking <strike>Object.observe(obj, fn)</strike></li>
+                    <li>Better code quality</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Conclusion</h2>
+                <ul>
+                    <li>Different, more functional-style application design</li>
+                    <li>You can assume everything immutable</li>
+                    <li>It's a very simple pattern !</li>
+                </ul>
+            </section>
         </section>
         <section>
             <h2>Immutability</h2>
