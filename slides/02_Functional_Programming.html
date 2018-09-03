@@ -149,11 +149,130 @@
                         value. For pure functions, that’s a noop."
                     </cite>
                 </p>
-                <p><a href="" target="_blank">Exercises (TODO)</a></p>
+                <p><a href="https://codesandbox.io/s/8z3m6wx7ll" target="_blank">Exercises</a></p>
             </section>
             <section>
-                <h2>Why do pure functions matter ?</h2>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    let a = 0;
+                    let b = 1;
+
+                    let sum = function(a, b) {
+                      return a = a + b;
+                    }
+
+                    let result = sum(a, b);
+                </code></pre>
+                <div class="tip fragment">pure =><br/>1) primitives are immutable <br/>2) assignment is still in function scope</div>
             </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    let a = 0;
+
+                    let inc = function (a) {
+                      return a++;
+                    }
+
+                </code></pre>
+                <div class="tip fragment">pure => primitives are immutable</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    var array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+
+                    let map = function (array) {
+                      for (var i = 0; i < array.length; i++) {
+                        setTimeout(() => array[i]++, 0);
+                      }
+                      return array;
+                    }
+
+                    let result = map(array);
+                </code></pre>
+                <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const immutable = { a: 1, b: 2, c: 3 };
+
+                    function mutate(object) {
+                      return object;
+                    }
+
+                    let result = mutate(immutable);
+                </code></pre>
+                <div class="tip fragment">impure => object is still mutable</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const array = [8, 4, 1, 6, 8, 0];
+
+                    function sort(list) {
+                      console.log("sorted:" + (list = list.slice().sort()));
+                      return list;
+                    }
+
+                    let result = sort(array);
+                </code></pre>
+                <div class="tip fragment">all impure => console.log is a side-effect</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    var objects = [{value:'a'},{value:'b'},{value:'c'},{value:'d'}];
+
+                    function mutate(list) {
+                      let reducer = function (accumulator, each, index) {
+                        return Object.assign({}, accumulator, each);
+                      }
+                      return list.reduce(reducer, {});
+                    }
+
+                    let result = mutate(objects);
+                </code></pre>
+                <div class="tip fragment">grayzone =><br/>- list, accumulator and each are mutable <br/>- however no argument is ever mutated</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function doNothing(fn) {
+                          return fn;
+                    }
+
+                    let result = doNothing(Math.random);
+                </code></pre>
+                <div class="tip fragment">pure => <br/>1) doNothing() is the identity-function <br/>2) Math.random (impure) is never performed</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function getDocument() {
+                      return global.window.document;
+                    }
+                    getDocument()
+
+                    let result = getDocument();
+                </code></pre>
+                <div class="tip fragment">impure => accessing external/global scope</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    function divide(dividend, divisor) {
+                      if (divisor === 0) throw new Error("Can't divide by 0.");
+                      return dividend / divisor;
+                    }
+
+                    let result = divide(1, 1);
+                </code></pre>
+                <div class="tip fragment">impure => exceptions are side-effects</div>
+            </section>
+        </section>
+        <section>
             <section>
                 <h2>Properties of pure functions</h2>
                 <ul>
