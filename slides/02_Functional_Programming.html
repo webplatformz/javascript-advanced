@@ -34,9 +34,11 @@
             <ul>
                 <li>Not actually a pattern, rather a paradigm</li>
                 <li>Based on Math &amp; backed by Math (&lambda;-theory)</li>
-                <li>But Math is not (necessarily) required</li>
+                <li>But Math is not (necessarily) required for applying it</li>
             </ul>
             <p>Don't fear FP, embrace it instead.</p>
+            <div class="tip fragment">We won't do any Math or &lambda; in this course</div>
+            <div class="tip fragment">Still, a little bit of theory is necessary ...</div>
         </section>
         <section>
             <section>
@@ -138,6 +140,8 @@
                     <li>… does not mutate external state.​</li>
                 </ul>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Impure Function</h2>
                 <p>The very opposite of a pure function</p>
@@ -162,7 +166,9 @@
 
                     let result = sum(a, b);
                 </code></pre>
-                <div class="tip fragment">pure =><br/>1) primitives are immutable <br/>2) assignment is still in function scope</div>
+                <div class="tip fragment">pure =><br/>1) primitives are immutable <br/>2) assignment is part of function
+                    scope
+                </div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -173,6 +179,7 @@
                       return a++;
                     }
 
+                    let result = inc(a);
                 </code></pre>
                 <div class="tip fragment">pure => primitives are immutable</div>
             </section>
@@ -203,7 +210,7 @@
 
                     let result = mutate(immutable);
                 </code></pre>
-                <div class="tip fragment">impure => object is still mutable</div>
+                <div class="tip fragment">1) pure => identity-function <br/>2) impure => object is mutable</div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -217,23 +224,25 @@
 
                     let result = sort(array);
                 </code></pre>
-                <div class="tip fragment">all impure => console.log is a side-effect</div>
+                <div class="tip fragment">impure => console.log is a side-effect</div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
                 <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
-                    var objects = [{value:'a'},{value:'b'},{value:'c'},{value:'d'}];
-
-                    function mutate(list) {
-                      let reducer = function (accumulator, each, index) {
-                        return Object.assign({}, accumulator, each);
-                      }
-                      return list.reduce(reducer, {});
+                    function log() {
+                      console.log("Hello World");
                     }
 
-                    let result = mutate(objects);
+                    function doSomething(fn) {
+                      if (1 === 0) {
+                        fn();
+                      }
+                      return 1;
+                    }
+
+                    let result = doSomething(log);
                 </code></pre>
-                <div class="tip fragment">grayzone =><br/>- list, accumulator and each are mutable <br/>- however no argument is ever mutated</div>
+                <div class="tip fragment">pure => doSomething() is pure despite log() being impure</div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -244,7 +253,9 @@
 
                     let result = doNothing(Math.random);
                 </code></pre>
-                <div class="tip fragment">pure => <br/>1) doNothing() is the identity-function <br/>2) Math.random (impure) is never performed</div>
+                <div class="tip fragment">pure => <br/>1) doNothing() is the identity-function <br/>2) Math.random
+                    (impure) is never performed
+                </div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -301,10 +312,18 @@
                 </ul>
             </section>
             <section>
+                <h2>Pure functions are awesome !</h2>
+                <p>How to get from an impure to a pure function ?</p>
+                <p>Is a conversion always possible ?</p>
+                <p><a href="https://codesandbox.io/s/n4489045n0" target="_blank">Exercises (homework)</a></p>
+                <div class="tip fragment">No, but most impure functions can be written to be pure</div>
+            </section>
+            <section>
                 <h2>Famous Citation</h2>
                 <p>
                     <cite>... using shared state being reliant on sequences which vary depending on indeterministic
-                    factors, the output is impossible to predict, and therefore impossible to test properly ...</cite>
+                        factors, the output is impossible to predict, and therefore impossible to test properly
+                        ...</cite>
                 </p>
             </section>
             <section>
@@ -315,6 +334,7 @@
                 </p>
             </section>
         </section>
+
         <section class="deck-slide">
             <h1>Questions?</h1>
         </section>
