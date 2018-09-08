@@ -34,14 +34,36 @@
             <p>An immutable object is an object whose state cannot be modified after it is created.</p>
         </section>
         <section>
-            <h2>Problems with mutable state</h2>
-            <ul>
-                <li>Tracking mutations in code is tiresome</li>
-                <li>Code is hard(er) to read and error prone</li>
-                <li>Code is hard(er) to test and debug</li>
-                <li>Tracking changes and unwanted side-effects in objects is difficult and very expensive</li>
-                <li>It's most likely not concurrency safe</li>
-            </ul>
+            <section>
+                <h2>Problems with mutable state</h2>
+                <ul>
+                    <li>Tracking mutations in code is tiresome</li>
+                    <li>Tracking changes and unwanted side-effects in objects is difficult and very expensive</li>
+                    <li>Code is hard(er) to read and error prone</li>
+                    <li>Code is hard(er) to test and debug</li>
+                    <li>It's most likely not concurrency safe</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Tracking changes / mutations</h2>
+                <img src="../img/compare.png">
+            </section>
+            <section>
+                <h2>Tracking changes / mutations</h2>
+                <ul>
+                    <li>don't track changes - life with side-effects</li>
+                    <li>self-made code / framework</li>
+                    <li><pre><code class="hljs javascript" data-trim data-noescape>Object.observe(obj, fn);</code></pre></li>
+                    <li>Immutability &amp; Redux</li>
+                </ul>
+                <div class="tip fragment">
+                    <ol>
+                        <li>applicable ? maybe, maybe not</li>
+                        <li>error prone, maintenance overhead</li>
+                        <li>performance overhead, still much code</li>
+                    </ol>
+                </div>
+            </section>
         </section>
         <section>
             <section>
@@ -102,8 +124,11 @@ console.log(animals === sortedAnimals); // true, why ?</code></pre>
                 <h2>Not so trivial example</h2>
                 <p>Event Listerns etc. triggered while modifying shared state</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
+// some global state
 let data = [ 1, 2, 3, 4 ];
 let sum = 0; // shared
+
+// callback-code of a listener
 for (let index = 0; index < data.length; index++) {
   sum += data[index];
 }
@@ -115,17 +140,25 @@ console.log(sum === 10); // true, but always true ?</code></pre>
             <section>
                 <h2>Immutability in Javascript</h2>
                 <ul>
-                    <li>Primitives are immutable by default</li>
-                    <li>There is no modifier to "lock" objects</li>
+                    <li>Primitive Values are immutable by default</li>
+                    <li>There is no modifier to "lock/freeze" objects</li>
                     <li>Immutability is done by (shallow) copying objects</li>
                 </ul>
             </section>
             <section>
-                <h2>Don't do that (any more)</h2>
+                <h2>Wording</h2>
+                <p>Use "value" instead of "object", because ...</p>
                 <ul>
-                    <li><strike>jQuery or any other library</strike> = probably not necessary</li>
-                    <li><strike>for-loop & hasOwnProperty()</strike> = error prone</li>
+                    <li>Object implies mutability</li>
+                    <li>Value implies immutability</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Try to avoid using</h2>
+                <ul>
                     <li><strike>array.slice()</strike> = wrong intention</li>
+                    <li><strike>for-loop & hasOwnProperty()</strike> = error prone</li>
+                    <li><strike>jQuery or any other library</strike> = probably not necessary</li>
                 </ul>
             </section>
             <section>
@@ -150,7 +183,7 @@ let shallowCopy = [].concat(animals);
 console.log(animals === shallowCopy); // false</code></pre>
             </section>
             <section>
-                <h2>Objects - Destructors</h2>
+                <h2>Objects - Spread Operator</h2>
                 <pre><code class="hljs javascript" data-trim data-noescape>
 let animal = {
     name: "Homer",
@@ -163,7 +196,7 @@ let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
             </section>
             <section>
-                <h2>Arrays - Destructors</h2>
+                <h2>Arrays - Spread Operator</h2>
                 <pre><code>let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
 
 let shallowCopy = [ ...animals ];
@@ -172,10 +205,11 @@ console.log(animals === shallowCopy); // false</code></pre>
             <section>
                 <h2>Be aware though</h2>
                 <ul>
-                    <li>Object.assign(), [].concat(), Destructors are flat shallow copies</li>
+                    <li>Object.assign(), [].concat(), Spread Operator result each in a flat shallow copy</li>
                     <li>Not suitable for more complex (deep) entities</li>
+                    <li>There is no deep shallow copy in Javascript yet</li>
                 </ul>
-                <p><a href="" target="_blank">Exercises (TODO)</a></p>
+                <p><a href="https://codesandbox.io/s/6mjp7pp5w" target="_blank">Exercises (TODO)</a></p>
             </section>
             <section>
                 <h2>Wrap-Up: Immutability</h2>
@@ -214,9 +248,29 @@ console.log(animals === shallowCopy); // false</code></pre>
         <section>
             <h2>Immutability</h2>
             <ul>
-                <li>Immutability.js</li>
+                <li>Immutable.js</li>
                 <li>Redux</li>
             </ul>
+        </section>
+        <section>
+            <section>
+                <h2>Immutable.js</h2>
+                <ul>
+                    <li>Based on the native Javascript Array/Object API, but each function returns a shallow copy</li>
+                    <li>Some new collections like: Set, OrderedSet, Map, OrderedMap, Seq(uence), Range, Repeat, ...</li>
+                    <li>Utils for deep copy, merge, compare, ...</li>
+                </ul>
+                <p><a herf="https://codesandbox.io/s/n7k69m17lp">Examples (homework)</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Immutable.js</h2>
+                <ul>
+                    <li>Very simple to use</li>
+                    <li>Convenient collections</li>
+                    <li>All native JS functions without side-effects</li>
+                    <li>Don't confuse/mix-up the APIs !</li>
+                </ul>
+            </section>
         </section>
         <section>
             <h2>Further Readings &amp; Resources</h2>
