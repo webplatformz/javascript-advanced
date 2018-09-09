@@ -173,6 +173,7 @@ let animal = {
 
 let shallowCopy = Object.assign({}, animal);
 console.log(animal === shallowCopy); // false</code></pre>
+                <p><a href="https://codepen.io" target="_blank">Quick Demo</a></p>
             </section>
             <section>
                 <h2>Arrays - [].concat()</h2>
@@ -181,6 +182,7 @@ let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
 
 let shallowCopy = [].concat(animals);
 console.log(animals === shallowCopy); // false</code></pre>
+                <p><a href="https://jsbin.com/pihepavuku/edit?js,console" target="_blank">Quick Demo</a></p>
             </section>
             <section>
                 <h2>Objects - Spread Operator</h2>
@@ -194,6 +196,7 @@ let animal = {
 
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
+                <p><a href="https://jsbin.com/sedicejaja/edit?js,console" target="_blank">Quick Demo</a></p>
             </section>
             <section>
                 <h2>Arrays - Spread Operator</h2>
@@ -201,6 +204,7 @@ console.log(animal === shallowCopy); // false</code></pre>
 
 let shallowCopy = [ ...animals ];
 console.log(animals === shallowCopy); // false</code></pre>
+                <p><a href="https://jsbin.com/qijikotide/edit?js,console" target="_blank">Quick Demo</a></p>
             </section>
             <section>
                 <h2>Be aware though</h2>
@@ -209,7 +213,7 @@ console.log(animals === shallowCopy); // false</code></pre>
                     <li>Not suitable for more complex (deep) entities</li>
                     <li>There is no deep shallow copy in Javascript yet</li>
                 </ul>
-                <p><a href="https://codesandbox.io/s/6mjp7pp5w" target="_blank">Exercises (TODO)</a></p>
+                <p><a href="https://codesandbox.io/s/ovjw3z6w25" target="_blank">Exercises (homework)</a></p>
             </section>
             <section>
                 <h2>Wrap-Up: Immutability</h2>
@@ -221,19 +225,19 @@ console.log(animals === shallowCopy); // false</code></pre>
         </section>
         <section>
             <section>
-                <h2>Disadvantage</h2>
-                <ul>
-                    <li>Very tiny performance overhead (object creation)</li>
-                    <li>Requires a lot of discipline (mutating state is so easy)</li>
-                </ul>
-            </section>
-            <section>
                 <h2>Advantage</h2>
                 <ul>
                     <li>Concurrency safe (multi-threading, asynchronicity, ...)</li>
                     <li>No expensive synchronization between threads</li>
                     <li>No expensive state tracking <strike>Object.observe(obj, fn)</strike></li>
                     <li>Better code quality</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Disadvantage</h2>
+                <ul>
+                    <li>Very tiny performance overhead (object creation)</li>
+                    <li>Requires a lot of discipline (mutating state is so easy)</li>
                 </ul>
             </section>
             <section>
@@ -260,7 +264,7 @@ console.log(animals === shallowCopy); // false</code></pre>
                     <li>Some new collections like: Set, OrderedSet, Map, OrderedMap, Seq(uence), Range, Repeat, ...</li>
                     <li>Utils for deep copy, merge, compare, ...</li>
                 </ul>
-                <p><a herf="https://codesandbox.io/s/n7k69m17lp">Examples (homework)</a></p>
+                <p><a href="https://codesandbox.io/s/n7k69m17lp" target="_blank">Examples (homework)</a></p>
             </section>
             <section>
                 <h2>Wrap-Up: Immutable.js</h2>
