@@ -180,6 +180,42 @@
                     </code>
                 </pre>
             </section>
+            <section>
+                <h3>Piping</h3>
+                <ul>
+                    <li>Chain operators together</li>
+                    <li>Each operator should be pure</li>
+                    <li>Share operator logic</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Piping #2</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        const { filter, map } from 'rxjs/operators';
+
+                        source$
+                            .pipe(
+                                filter(value => value % 2 === 0),
+                                map(value => x + x),
+                            )
+                            .subscribe(console.log)
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>RxJS Operators</h3>
+                <p>
+                    <a href="https://github.com/btroncone/learn-rxjs" target="_blank">https://github.com/btroncone/learn-rxjs</a>
+                </p>
+            </section>
+        </section>
+
+        <section>
+            <h3>Exercise Time!</h3>
+            <p>
+                <a href="https://codepen.io/r3dDoX/pen/GXGrXr/?editors=1111" target="_blank">Codepen</a>
+            </p>
         </section>
 
         <section class="deck-slide">
