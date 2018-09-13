@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>05 Basics | Reactive</title>
 
@@ -15,11 +16,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
 <body>
@@ -27,16 +28,52 @@
     <div class="slides">
         <section class="deck-slide">
             <h1>Reactive <br />
-            05 Basics</h1>
+                05 Basics</h1>
         </section>
 
         <section>
-            <h2>Reactive Programming</h2>
-            <ul>
-                <li>Propagation of change</li>
-                <li>Data Streams</li>
-                <li>Operations on them</li>
-            </ul>
+            <section>
+                <h2>Reactive Programming</h2>
+                <p>
+                    Terminology
+                </p>
+            </section>
+            <section>
+                <h2>Wikipedia</h2>
+                <blockquote cite="https://en.wikipedia.org/wiki/Reactive_programming">
+                    <p>
+                        In computing, reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change
+                    </p>
+                </blockquote>
+            </section>
+            <section>
+                <h2>Stackoverflow</h2>
+                <img src="../img/reactive/stackoverflow_question.png" />
+                <br>
+                <img src="../img/reactive/stackoverflow_answer.png" />
+            </section>
+            <section>
+                <h2>
+                    André Staltz
+                </h2>
+                <blockquote cite="https://gist.github.com/staltz/868e7e9bc2a7b8c1f754">
+                    <p>
+                        Reactive programming is programming with asynchronous data streams.
+                    </p>
+                </blockquote>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Asynchronous JavaScript</h2>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Streams</h2>
+            </section>
         </section>
 
         <section class="deck-slide">
@@ -49,22 +86,22 @@
 <script src="../js/reveal.js"></script>
 
 <script>
-    // More info https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        history: true,
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
 
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
-            {
-                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
-            }
-        ]
-    });
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      { src: '../plugin/markdown/marked.js' },
+      { src: '../plugin/markdown/markdown.js' },
+      { src: '../plugin/notes/notes.js', async: true },
+      {
+        src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
 </script>
 </body>
 </html>
