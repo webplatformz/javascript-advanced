@@ -197,7 +197,7 @@
 
                     let result = map(array);
                 </code></pre>
-                <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable</div>
+                <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable*</div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -210,7 +210,7 @@
 
                     let result = mutate(immutable);
                 </code></pre>
-                <div class="tip fragment">1) pure => identity-function <br/>2) impure => object is mutable</div>
+                <div class="tip fragment">1) pure => identity-function <br/>2) impure => object is mutable*</div>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -317,6 +317,13 @@
                 <p>Is a conversion always possible ?</p>
                 <p><a href="https://codesandbox.io/s/n4489045n0" target="_blank">Exercises (homework)</a></p>
                 <div class="tip fragment">No, but most impure functions can be written to be pure</div>
+            </section>
+            <section>
+                <h2>Shades of Purity</h2>
+                <ul>
+                    <li>Technically, there are no pure functions in a non purely functional language</li>
+                    <li>However (almost) pure is good enough for functional-oriented languages</li>
+                </ul>
             </section>
             <section>
                 <h2>Famous Citation</h2>

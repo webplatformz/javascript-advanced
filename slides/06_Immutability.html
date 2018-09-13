@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>07 basics | Immutability</title>
+    <title>06 basics | Immutability</title>
 
     <link rel="icon" href="../img/zuehlke_logo.jpg">
     <link rel="stylesheet" href="../css/reveal.css">
@@ -35,13 +35,17 @@
         </section>
         <section>
             <section>
-                <h2>Problems with mutable state</h2>
+                <h2>Problems with mutable state (1)</h2>
+                <ul>
+                    <li>Code is hard(er) to read and error prone</li>
+                    <li>Code is hard(er) to test and debug</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Problems with mutable state (2)</h2>
                 <ul>
                     <li>Tracking mutations in code is tiresome</li>
                     <li>Tracking changes and unwanted side-effects in objects is difficult and very expensive</li>
-                    <li>Code is hard(er) to read and error prone</li>
-                    <li>Code is hard(er) to test and debug</li>
-                    <li>It's most likely not concurrency safe</li>
                 </ul>
             </section>
             <section>
@@ -63,6 +67,12 @@
                         <li>performance overhead, still much code</li>
                     </ol>
                 </div>
+            </section>
+            <section>
+                <h2>Problems with mutable state (3)</h2>
+                <ul>
+                    <li>It's most likely not concurrency safe</li>
+                </ul>
             </section>
         </section>
         <section>
@@ -264,7 +274,7 @@ console.log(animals === shallowCopy); // false</code></pre>
                     <li>Some new collections like: Set, OrderedSet, Map, OrderedMap, Seq(uence), Range, Repeat, ...</li>
                     <li>Utils for deep copy, merge, compare, ...</li>
                 </ul>
-                <p><a href="https://codesandbox.io/s/n7k69m17lp" target="_blank">Examples (homework)</a></p>
+                <p><a href="https://codesandbox.io/s/n7k69m17lp" target="_blank">Demo</a> / <a href="https://codesandbox.io/s/n7k69m17lp" target="_blank">Examples (homework)</a></p>
             </section>
             <section>
                 <h2>Wrap-Up: Immutable.js</h2>
