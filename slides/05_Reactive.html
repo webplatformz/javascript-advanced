@@ -139,7 +139,46 @@
             </section>
             <section>
                 <h2>Observable</h2>
-                <p>RxJS</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>RxJS</h2>
+            </section>
+            <section>
+                <h3>Reactive Extensions</h3>
+                <ul>
+                    <li>Async programming with streams</li>
+                    <li>Many Languages: Java, C#, C++, Swift, ...</li>
+                    <li>Simply Put: Observer Pattern</li>
+                    <li>Core pattern in Angular</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Pretty much anything is a stream</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        const button = document.querySelector('.button');
+                        const click$ = rxjs.fromEvent(button, 'click');
+
+                        click$.subscribe(console.log); // log whole click event
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Pretty much anything is a stream #2</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        const source$ = rxjs.interval(1000);
+
+                        const array$ = rxjs.from([1,2,3,4,5]);
+
+                        const promise$ = rxjs.from(fetch('/foo.json'));
+
+                        const vars$ = rxjs.of('Chris', 'Stefan', 'Patrick');
+                    </code>
+                </pre>
             </section>
         </section>
 
