@@ -42,7 +42,8 @@
                 <h2>Wikipedia</h2>
                 <blockquote cite="https://en.wikipedia.org/wiki/Reactive_programming">
                     <p>
-                        In computing, reactive programming is a declarative programming paradigm concerned with data streams and the propagation of change
+                        In computing, reactive programming is a declarative programming paradigm
+                        concerned with data streams and the propagation of change
                     </p>
                 </blockquote>
             </section>
@@ -66,13 +67,79 @@
 
         <section>
             <section>
-                <h2>Asynchronous JavaScript</h2>
-            </section>
-        </section>
-
-        <section>
-            <section>
                 <h2>Streams</h2>
+                <p class="fragment" data-fragment-index="1">
+                    Let's start from the beginning
+                </p>
+            </section>
+            <section>
+                <h3>What is a Stream?</h3>
+                <figure>
+                    <img src="../img/reactive/stream.png" />
+                    <figcaption>https://codeburst.io</figcaption>
+                </figure>
+                <aside class="notes">
+                    define function which will be called asynchronously
+                    whenever an event is emitted
+                </aside>
+            </section>
+            <section>
+                <h3>Code it from the beginning</h3>
+            </section>
+            <section>
+                <h3>Setters</h3>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const ten = 10;
+                    console.log(ten);
+                </code></pre>
+                <a href="https://codepen.io/r3dDoX/pen/LJrEXj?editors=0012" target="_blank">
+                    CodePen
+                </a>
+                <aside class="notes">
+                    Show setters with vars and console.log
+                    Go to inversion of control by taking setter function
+                    show asynchronous setting with setTimeout
+                </aside>
+            </section>
+            <section>
+                <h2>Callbacks</h2>
+                <ul>
+                    <li>Asynchronous</li>
+                    <li>Inversion of control</li>
+                </ul>
+            </section>
+            <section>
+                <h3>More abstraction!</h3>
+                <a href="https://codepen.io/r3dDoX/pen/wEXWmq?editors=0011" target="_blank">
+                    CodePen
+                </a>
+                <aside class="notes">
+                    create setSetMouseMove(setMouseMove)
+                    -> stream
+                </aside>
+            </section>
+            <section>
+                <h3>What about operators?</h3>
+                <a href="https://codepen.io/r3dDoX/pen/JaZKmP?editors=0011" target="_blank">
+                    CodePen
+                </a>
+                <aside class="notes">
+                    add filter method
+                    setSetMouseMoveLeft filter(condition)(inputSetSet)
+                </aside>
+            </section>
+            <section>
+                <h3>What is this pattern?</h3>
+                <a href="https://codepen.io/r3dDoX/pen/wEXzKj?editors=0011" target="_blank">
+                    CodePen
+                </a>
+                <aside class="notes">
+                    refactor setSetMouseMove to object -> subscribe with name mouseMove$
+                </aside>
+            </section>
+            <section>
+                <h2>Observable</h2>
+                <p>RxJS</p>
             </section>
         </section>
 
