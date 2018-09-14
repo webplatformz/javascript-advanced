@@ -153,6 +153,10 @@
                     </cite>
                 </p>
                 <p><a href="https://codesandbox.io/s/8z3m6wx7ll" target="_blank">Exercises</a></p>
+                <aside class="notes">
+                    The idea of this exercise is to assess whether the given functions in the exercises are pure or impure based on the given definitions.
+                    The class should discuss in pairs for a couple of minutes and then we discuss the results in the plenum.
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -198,6 +202,9 @@
                     let result = map(array);
                 </code></pre>
                 <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable*</div>
+                <aside class="notes">
+                    (*) There is a certain grayzone when it comes to purity. There is a strict and a less-strict way of interpreting it.
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -324,6 +331,10 @@
                     <li>Technically, there are no pure functions in a non purely functional language</li>
                     <li>However (almost) pure is good enough for functional-oriented languages</li>
                 </ul>
+                <aside class="notes">
+                    In a language like Haskhell, which is truly functional, purity can be proven because of referential transparency. It's basically just a deduction of all functions until only a constant remains (mathematically fond proof). Ff not then there exists a side-effect.
+                    In all other languages which are only functionally oriented this proof is not possible and purity must be interpreted slightly less strict - but this is still good enough.
+                </aside>
             </section>
             <section>
                 <h2>Famous Citation</h2>

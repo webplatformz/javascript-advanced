@@ -246,9 +246,14 @@ console.log(animals === shallowCopy); // false</code></pre>
             <section>
                 <h2>Disadvantage</h2>
                 <ul>
-                    <li>Very tiny performance overhead (object creation)</li>
+                    <li>Performance overhead (object creation)</li>
                     <li>Requires a lot of discipline (mutating state is so easy)</li>
                 </ul>
+                <aside class="notes">
+                    Performance overhead is constant. The larger the dataset, the more negligible the overhead becomes.
+                    Computer architecture is optimized for mutating registers and memory blocks. Therefore mutations are extraordinary performant.
+                    Some languages can handle ObjectCreation more efficiently than others. E.g. Object-Creation in Smalltalk is considered free.
+                </aside>
             </section>
             <section>
                 <h2>Conclusion</h2>
