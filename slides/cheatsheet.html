@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>09 Outro</title>
+    <title>Cheatsheet</title>
 
     <link rel="icon" href="../img/zuehlke_logo.jpg">
     <link rel="stylesheet" href="../css/reveal.css">
@@ -25,13 +25,30 @@
 <body>
 <div class="reveal">
     <div class="slides">
-        <section  class="deck-slide">
-            <h1>Feedback</h1>
+        <section>
+            <h2>Indicators for Impurity</h2>
+            <ul>
+                <li>void functions</li>
+                <li>Acessing (global) mutable state (grayzone)</li>
+                <li>Date/Time functions (Date, setTimeout, setInterval, ...)</li>
+                <li>Clock-based functions (Math.random, UUIDs, ...)</li>
+                <li>Exception Handling (try-catch-finally)</li>
+                <li>I/O (console.log, file-io, ajax-calls, rest-calls, ...)</li>
+            </ul>
         </section>
         <section>
-            <h2>Give us your Feedback !</h2>
-            <p>Please, help us to make this course better next time.</p>
-            <p><a href="https://pinup.com/Hkt6KQ__Q" target="_blank">https://pinup.com/Hkt6KQ__Q</a></p>
+            <h2>Mutating Array Functions</h2>
+            <ul class="grid">
+                <li>copyWithin()</li>
+                <li>fill()</li>
+                <li>sort()</li>
+                <li>reverse()</li>
+                <li>pop()</li>
+                <li>push()</li>
+                <li>unshift()</li>
+                <li>shift()</li>
+            </ul>
+            <p>All other Array Functions are non-mutating</p>
         </section>
     </div>
 </div>

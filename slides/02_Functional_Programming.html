@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>02 Basics | Functional Programming</title>
+    <title>02 Functional Programming</title>
 
     <link rel="icon" href="../img/zuehlke_logo.jpg">
     <link rel="stylesheet" href="../css/reveal.css">
@@ -26,8 +26,7 @@
 <div class="reveal">
     <div class="slides">
         <section class="deck-slide">
-            <h1>Functional Programming<br/>
-                02 Basics</h1>
+            <h1>02 Functional Programming</h1>
         </section>
         <section>
             <h2>Functional Programming</h2>
@@ -195,7 +194,7 @@
 
                     let result = sum(value1, b);
                 </code></pre>
-                <div class="tip fragment">pure =><br/>1) primitives are immutable</div>
+                <div class="tip fragment">pure => primitives are immutable</div>
                 <aside class="notes">
                     value1 is constant
                     var b is part of function scope
@@ -393,31 +392,40 @@
                     <li>However (almost) pure is good enough for functional-oriented languages</li>
                 </ul>
                 <aside class="notes">
-                    In a language like Haskhell, which is truly functional, purity can be proven because of referential transparency. It's basically just a deduction of all functions until only a constant remains (mathematically fond proof). Ff not then there exists a side-effect.
+                    In a language like Haskhell, which is truly functional, purity can be proven because of referential transparency. It's basically just a deduction of all functions until only a
+                    constant remains (mathematically fond proof). Ff not then there exists a side-effect.
                     In all other languages which are only functionally oriented this proof is not possible and purity must be interpreted slightly less strict - but this is still good enough.
                 </aside>
             </section>
+        </section>
+        <section>
             <section>
                 <h2>Famous Citation</h2>
-                <blockquote>
+                <p>
                     <cite>"... using shared state being reliant on sequences which vary depending on indeterministic
                         factors, the output is impossible to predict, and therefore impossible to test properly
                         ..."</cite>
-                </blockquote>
+                </p>
             </section>
             <section>
                 <h2>Famous Citation</h2>
-                <blockquote>
+                <p>
                     <cite>"non-determinism = parallel processing + mutable state"</cite><br>
                     <author>Martin Odersky​</author>
-                </blockquote>
+                </p>
             </section>
         </section>
-
+        <section>
+            <h2>Resources</h2>
+            <ul>
+                <li><a href="https://hackernoon.com/javascript-and-functional-programming-pt-3-pure-functions-d572bb52e21c" target="_blank">Pure Functions</a></li>
+                <li><a href="https://www.rubypigeon.com/posts/the-pure-function-as-an-object-pfaao-pattern/" target="_blank">The pure function as an object pattern (PFAAO)</a> </li>
+                <li><a href="http://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html" target="_blank">OO vs FP</a></li>
+            </ul>
+        </section>
         <section class="deck-slide">
             <h1>Questions?</h1>
         </section>
-
     </div>
 </div>
 
@@ -431,9 +439,9 @@
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                     hljs.initHighlightingOnLoad();
