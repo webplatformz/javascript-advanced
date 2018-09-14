@@ -204,6 +204,21 @@
                 </pre>
             </section>
             <section>
+                <h3>Combining streams</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        const { concat, merge } from 'rxjs/operators';
+
+                        source$.pipe(concat(source2$));
+                        // append second stream after first completed
+
+                        source$.pipe(merge(source2$));
+                        // emit every event from both streams
+                        merge(source$, source2$); // also static
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>RxJS Operators</h3>
                 <p>
                     <a href="https://github.com/btroncone/learn-rxjs" target="_blank">https://github.com/btroncone/learn-rxjs</a>
