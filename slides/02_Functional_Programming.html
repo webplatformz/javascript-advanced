@@ -161,6 +161,49 @@
             <section>
                 <h2>Pure or impure ? Why ?</h2>
                 <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    let sum = function(a, b) {
+                      return a + b;
+                    };
+
+                    let result = sum(1, 2);
+                </code></pre>
+                <div class="tip fragment">pure => primitives are immutable</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    var value1 = 1;
+                    var value2 = 2;
+
+                    let sum = function (a, b) {
+                      return a + b;
+                    };
+
+                    let result = sum(value1, value2);
+                </code></pre>
+                <div class="tip fragment">pure => primitives are immutable</div>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
+                    const value1 = 1;
+                    var b = 2;
+
+                    let sum = function (a, b) {
+                      return a + b;
+                    };
+
+                    let result = sum(value1, b);
+                </code></pre>
+                <div class="tip fragment">pure =><br/>1) primitives are immutable</div>
+                <aside class="notes">
+                    value1 is constant
+                    var b is part of function scope
+                </aside>
+            </section>
+            <section>
+                <h2>Pure or impure ? Why ?</h2>
+                <pre><code class="hljs javascript" data-trim contenteditable data-noescape>
                     let a = 0;
                     let b = 1;
 
@@ -173,6 +216,10 @@
                 <div class="tip fragment">pure =><br/>1) primitives are immutable <br/>2) assignment is part of function
                     scope
                 </div>
+                <aside class="notes">
+                    a,b are part of function scope
+                    assignment is aprt of function scope
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -203,6 +250,7 @@
                 </code></pre>
                 <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable*</div>
                 <aside class="notes">
+                    setTimeout is a side-effect on its own - everything else does not really matter
                     (*) There is a certain grayzone when it comes to purity. There is a strict and a less-strict way of interpreting it.
                 </aside>
             </section>
@@ -218,6 +266,10 @@
                     let result = mutate(immutable);
                 </code></pre>
                 <div class="tip fragment">1) pure => identity-function <br/>2) impure => object is mutable*</div>
+                <aside class="notes">
+                    identity-function is always pure
+                    (*) object is mutable, but it isn't modified here, so we could say it is still pure (grayzone)
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -250,6 +302,9 @@
                     let result = doSomething(log);
                 </code></pre>
                 <div class="tip fragment">pure => doSomething() is pure despite log() being impure</div>
+                <aside class="notes">
+                    It can be proven that fn will never be performed here since the condition is static. Also the compiled machine code will not include the if-statement
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -263,6 +318,9 @@
                 <div class="tip fragment">pure => <br/>1) doNothing() is the identity-function <br/>2) Math.random
                     (impure) is never performed
                 </div>
+                <aside class="notes">
+                    if Math.random were performed anywhere, then the function would be impure
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -275,6 +333,9 @@
                     let result = getDocument();
                 </code></pre>
                 <div class="tip fragment">impure => accessing external/global scope</div>
+                <aside class="notes">
+                    this can be transformed into a pure one
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -322,7 +383,7 @@
                 <h2>Pure functions are awesome !</h2>
                 <p>How to get from an impure to a pure function ?</p>
                 <p>Is a conversion always possible ?</p>
-                <p><a href="https://codesandbox.io/s/n4489045n0" target="_blank">Exercises (homework)</a></p>
+                <p><a href="https://codesandbox.io/s/n4489045n0" target="_blank">Exercises | Homework</a></p>
                 <div class="tip fragment">No, but most impure functions can be written to be pure</div>
             </section>
             <section>
