@@ -41,7 +41,7 @@
         <section>
             <section>
                 <h2>Spread Operator "..."</h2>
-                <p>Array destruction</p>
+                <p>Array spreading</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
 let array1 = [1,2,3];
 let array2 = [4,5,6];
@@ -52,7 +52,7 @@ console.log(result); // [1,2,3,4,5,6]</code></pre>
             </section>
             <section>
                 <h2>Spread Operator "..."</h2>
-                <p>Array destruction</p>
+                <p>Object spreading</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
 let obj1 = {a:1, b:2, c:3};
 let obj2 = {d:4, e:5, f:6};
@@ -83,6 +83,9 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     <li>...</li>
                 </ul>
                 <div class="tip fragment">no longer necessary ! => go native, remove unnecessary dependencies</div>
+                <aside class="notes">
+                    Performance of spread not on par in all browsers
+                </aside>
             </section>
             <section>
                 <h2>Spread Operator "..."</h2>
@@ -182,6 +185,9 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     "1".padStart(4, "0"); // 0001
                     "2".padEnd(4, "0"); // 2000</code></pre>
                 <p>Check out the new String API !</p>
+                <aside class="notes">
+                    leftpad distaster
+                </aside>
             </section>
             <section>
                 <h2>Trimming</h2>
@@ -228,7 +234,7 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     <li>Problems are known and get addressed</li>
                     <li>Javascript is a really fast evolving language</li>
                 </ul>
-                <p>Check out the latest APIs - they probably changes since you last read them !</p>
+                <p>Check out the latest APIs - they probably changed since you last read them !</p>
             </section>
         </section>
         <section>
