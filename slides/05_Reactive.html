@@ -160,8 +160,10 @@
                 <h3>Pretty much anything is a stream</h3>
                 <pre>
                     <code class="hljs javascript" data-trim>
+                        import { fromEvent } from 'rxjs';
+
                         const button = document.querySelector('.button');
-                        const click$ = rxjs.fromEvent(button, 'click');
+                        const click$ = fromEvent(button, 'click');
 
                         click$.subscribe(console.log); // log whole click event
                     </code>
@@ -171,13 +173,15 @@
                 <h3>Pretty much anything is a stream #2</h3>
                 <pre>
                     <code class="hljs javascript" data-trim>
-                        const source$ = rxjs.interval(1000);
+                        import { interval, from, of } from 'rxjs';
 
-                        const array$ = rxjs.from([1,2,3,4,5]);
+                        const source$ = interval(1000);
 
-                        const promise$ = rxjs.from(fetch('/foo.json'));
+                        const array$ = from([1,2,3,4,5]);
 
-                        const vars$ = rxjs.of('Chris', 'Stefan', 'Patrick');
+                        const promise$ = from(fetch('/foo.json'));
+
+                        const vars$ = of('Chris', 'Stefan', 'Patrick');
                     </code>
                 </pre>
             </section>
@@ -205,6 +209,21 @@
                 </pre>
             </section>
             <section>
+                <h3>Piping #3</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        import { from } from 'rxjs';
+                        const { switchMap } from 'rxjs/operators';
+
+                        source$
+                            .pipe(
+                                switchMap((url) => from(fetch(url))),
+                            );
+                        // cancel inner observable on each new emission
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Combining streams</h3>
                 <pre>
                     <code class="hljs javascript" data-trim>
@@ -216,6 +235,25 @@
                         source$.pipe(merge(source2$));
                         // emit every event from both streams
                         merge(source$, source2$); // also static
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Combining streams #2</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        import { from } from 'rxjs';
+                        const { forkJoin } from 'rxjs/operators';
+
+                        source$
+                            .pipe(
+                                forkJoin(
+                                    from(fetch('/api/first')),
+                                    from(fetch('/api/second')),
+                                ),
+                            );
+                        // emit after all observables completed
+                        // emit final observable result
                     </code>
                 </pre>
             </section>
