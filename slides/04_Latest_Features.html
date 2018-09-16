@@ -32,9 +32,9 @@
             <h2>Recent Features: Overview</h2>
             <ul>
                 <li>Spread Operator</li>
+                <li>Destructuring</li>
                 <li>Async Functions</li>
                 <li>String API</li>
-                <li>...</li>
             </ul>
         </section>
         <section>
@@ -100,6 +100,40 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     <li>More intention revealing</li>
                     <li>Less verbose coding</li>
                     <li>No external dependencies</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Destructuring</h2>
+                <p>Object Destructuring</p>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let { a, b, c } = { a:1, b:2, c:3 };
+
+                    console.log(a); // 1
+                    console.log(b); // 2
+                    console.log(c); // 3
+                </code></pre>
+                <p><a href="https://codepen.io/anon/pen/wEErbL?editors=0012" target="_blank">Quick Demo</a></p>
+            </section>
+            <section>
+                <h2>Destructuring</h2>
+                <p>Object Destructuring</p>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let [a,b,c] = [1,2,3];
+
+                    console.log(a); // 1
+                    console.log(b); // 2
+                    console.log(c); // 3
+                </code></pre>
+                <p><a href="https://codepen.io/anon/pen/aaaLeL?editors=0012" target="_blank">Quick Demo</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Spread Operator</h2>
+                <ul>
+                    <li>Convenient shorthands</li>
+                    <li>Less verbose coding</li>
+                    <li>Trivial to use</li>
                 </ul>
             </section>
         </section>
