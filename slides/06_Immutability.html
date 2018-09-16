@@ -56,7 +56,9 @@
                 <ul>
                     <li>don't track changes - live with side-effects</li>
                     <li>self-made code / framework</li>
-                    <li><pre><code class="hljs javascript" data-trim data-noescape>Object.observe(obj, fn);</code></pre></li>
+                    <li>
+                        <pre><code class="hljs javascript" data-trim data-noescape>Object.observe(obj, fn);</code></pre>
+                    </li>
                     <li>Immutability &amp; Redux</li>
                 </ul>
                 <div class="tip fragment">
@@ -274,25 +276,66 @@ console.log(animals === shallowCopy); // false</code></pre>
         <section>
             <section>
                 <h2>Immutable.js</h2>
+                <p>Enable and simplify immutability in Javascript</p>
+            </section>
+            <section>
+                <h2>Immutable.js - Basics</h2>
                 <ul>
-                    <li>Based on the native Javascript Array/Object API, but each function returns a shallow copy</li>
-                    <li>Some new collections like: Set, OrderedSet, Map, OrderedMap, Seq(uence), Range, Repeat, ...</li>
-                    <li>Utils for deep copy, merge, compare, ...</li>
+                    <li>Based on the native Javascript Array/Object API</li>
+                    <li>All implementations return shallow copies</li>
+                    <li>Utils for deep-copy, merge, compare, ...</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Immutable.js - New Collections</h2>
+                <ul>
+                    <li>Set, OrderedSet</li>
+                    <li>Map, OrderedMap</li>
+                    <li>Seq(uence), Range, Repeat</li>
+                    <li>...</li>
                 </ul>
                 <p><a href="https://codesandbox.io/s/n7k69m17lp" target="_blank">Demo | Homework</a></p>
             </section>
             <section>
                 <h2>Wrap-Up: Immutable.js</h2>
                 <ul>
-                    <li>Very simple to use</li>
+                    <li>Very low-level library</li>
+                    <li>Native JS functions but without side-effects</li>
                     <li>Convenient collections</li>
-                    <li>All native JS functions without side-effects</li>
-                    <li>Don't confuse/mix-up the APIs !</li>
+                    <li>Very simple to use</li>
                 </ul>
+                <div class="tip fragment">Don't confuse/mix-up the APIs !</div>
             </section>
         </section>
         <section>
-            <h2>Further Readings &amp; Resources</h2>
+            <section>
+                <h2>Immer.js</h2>
+                <p>Simplify handling of immutable state</p>
+                <p>
+                    <small>e.g. reducers/reductions in Redux</small>
+                </p>
+            </section>
+            <section>
+                <h2>Immer.js</h2>
+                <ul>
+                    <li>"Enhancement" of Immutable.js</li>
+                    <li>Copy on write (lazy & deeply)</li>
+                    <li>Tracking & applying changes to tree-objects</li>
+                </ul>
+                <p><a href="https://github.com/mweststrate/immer" target="_blank">Try out | Homework</a></p>
+            </section>
+            <section>
+                <h2>Wrap-Up: Immer.js</h2>
+                <ul>
+                    <li>High-level library</li>
+                    <li>Less code</li>
+                    <li>Very simple to use</li>
+                </ul>
+                <div class="tip fragment">Be aware of the peculiarities !</div>
+            </section>
+        </section>
+        <section>
+            <h2>Resources</h2>
             <ul>
                 <li>
                     <a href="http://web.mit.edu/6.005/www/fa15/classes/09-immutability/#reading_9_mutability_immutability"
@@ -323,9 +366,9 @@ console.log(animals === shallowCopy); // false</code></pre>
 
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
+            {src: '../plugin/markdown/marked.js'},
+            {src: '../plugin/markdown/markdown.js'},
+            {src: '../plugin/notes/notes.js', async: true},
             {
                 src: '../plugin/highlight/highlight.js', async: true, callback: function () {
                     hljs.initHighlightingOnLoad();
