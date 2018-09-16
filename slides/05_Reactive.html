@@ -209,6 +209,21 @@
                 </pre>
             </section>
             <section>
+                <h3>Piping #3</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        import { from } from 'rxjs';
+                        const { switchMap } from 'rxjs/operators';
+
+                        source$
+                            .pipe(
+                                switchMap((url) => from(fetch(url))),
+                            );
+                        // cancel inner observable on each new emission
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Combining streams</h3>
                 <pre>
                     <code class="hljs javascript" data-trim>
@@ -220,6 +235,25 @@
                         source$.pipe(merge(source2$));
                         // emit every event from both streams
                         merge(source$, source2$); // also static
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Combining streams #2</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim>
+                        import { from } from 'rxjs';
+                        const { forkJoin } from 'rxjs/operators';
+
+                        source$
+                            .pipe(
+                                forkJoin(
+                                    from(fetch('/api/first')),
+                                    from(fetch('/api/second')),
+                                ),
+                            );
+                        // emit after all observables completed
+                        // emit final observable result
                     </code>
                 </pre>
             </section>
