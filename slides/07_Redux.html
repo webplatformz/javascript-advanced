@@ -29,20 +29,85 @@
             <h1>07 Redux</h1>
         </section>
         <section>
-            <h2>Going Redux</h2>
-            <p>We are going to build a simple application using ...</p>
-            <ul>
-                <li>array functions</li>
-                <li>pure functions</li>
-                <li>immutability</li>
-                <li>and reactivity</li>
-            </ul>
-            <p><a href="">Let's go ...</a></p>
+            <section>
+                <h2>Redux</h2>
+                <p>Simplify handling of immutable state <br/>in a <b>structured &amp; consistent</b> way</p>
+            </section>
+            <section>
+                <h2>What is it ?</h2>
+                <ul>
+                    <li>Library ?</li>
+                    <li>Framework ?</li>
+                    <li>Concept ?</li>
+                    <li>Pattern ?</li>
+                </ul>
+                <div class="tip fragment">A little bit of all !</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Going towards Redux</h2>
+            </section>
+            <section>
+                <h2>Problems of immutable state</h2>
+                <ul>
+                    <li>State can be huge &amp; complex</li>
+                    <li>Preserving immutability is fragile</li>
+                    <li>Tracking changes is complicated</li>
+                    <li>...</li>
+                </ul>
+                <div class="tip fragment">Redux is doing this for us</div>
+            </section>
+            <section>
+                <h2>Concept - Handling immutable state</h2>
+                <ul>
+                    <li>Start point -> initial state</li>
+                    <li>Protect/Encapsulate state -> store</li>
+                    <li>Applying changes -> actions</li>
+                    <li>Tracking changes -> listeners, subscribers</li>
+                </ul>
+                <div class="tip fragment">Basic aspects of Redux</div>
+            </section>
+            <section>
+                <h2>Code - Handling immutable state</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    const store = {
+                        state: {}, // state is an object
+                        listeners: [], // listeners are an array of functions
+                        dispatch: (action) => {}, // dispatch is a function
+                        subscribe: (listener) => {}, // subscribe is a function
+                        getState: () => {}, // getState is a function
+                    }
+                </code></pre>
+                <div class="tip fragment">Simplified core of Redux</div>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Redux Terminology</h2>
+                <ul>
+                    <li>Actions</li>
+                    <li>Reducers</li>
+                    <li>Store</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Actions</h2>
+            </section>
+            <section>
+                <h2>Reducers</h2>
+            </section>
+            <section>
+                <h2>Store</h2>
+            </section>
         </section>
         <section>
             <h2>Further Readings &amp; Resources</h2>
             <ul>
                 <li><a href="https://redux.js.org/" target="_blank">Redux</a></li>
+                <li><a href="https://levelup.gitconnected.com/learn-redux-by-building-redux-from-scratch-dcbcbd31b0d0" target="_blank">Redux from Scratch</a></li>
+                <li><a href="https://egghead.io/lessons/react-redux-implementing-store-from-scratch" target="_blank">React/Redux from Scratch</a></li>
+                <li><a href="https://toddmotto.com/redux-typescript-store" target="_blank">Redux/Typescript Store</a></li>
             </ul>
         </section>
         <section class="deck-slide">
