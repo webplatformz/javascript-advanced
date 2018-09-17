@@ -10,7 +10,9 @@ describe("map.set()", () => {
     let map = new Map(DATA); // create new map (~object)
     map.set('d', 99);
 
-    expect(map).toEqual(new Map(DATA));
+    // this only works in sandbox.io
+    //expect(map).toEqual(new Map(DATA));
+    expect(map.equals(new Map(DATA))).toBeTruthy();
   });
 
   it("should return a shallow copy", () => {
@@ -20,8 +22,12 @@ describe("map.set()", () => {
     expect(map === newMap).toBeFalsy(); // it really is a new object
     expect(map == newMap).toBeFalsy();
 
-    expect(map).toEqual(new Map(DATA)); // still the same
-    expect(newMap).toEqual(new Map(DATA_MODIFIED)); // the new instance is sorted
+    // this only works in sandbox.io
+    //expect(map).toEqual(new Map(DATA)); // still the same
+    expect(map.equals(new Map(DATA))).toBeTruthy(); // still the same
+    // this only works in sandbox.io
+    //expect(newMap).toEqual(new Map(DATA_MODIFIED)); // the new instance is sorted
+    expect(newMap.equals(new Map(DATA_MODIFIED))).toBeTruthy(); // the new instance is sorted
   });
 
 });

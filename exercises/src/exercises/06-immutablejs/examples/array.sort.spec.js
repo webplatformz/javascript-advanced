@@ -10,7 +10,9 @@ describe("array.sort()", () => {
     let list = new List(DATA); // create new array
     list.sort();
 
+    // this only works in sandbox.io
     expect(list).toEqual(new List(DATA));
+    expect(list.equals(new List(DATA))).toBeTruthy();
   });
 
   it("should return a shallow copy, sorted", () => {
@@ -20,8 +22,12 @@ describe("array.sort()", () => {
     expect(list === newList).toBeFalsy(); // it really is a new object
     expect(list == newList).toBeFalsy();
 
-    expect(list).toEqual(new List(DATA)); // still the same
-    expect(newList).toEqual(new List(DATA_SORTED)); // the new instance is sorted
+    // this only works in sandbox.io
+    //expect(list).toEqual(new List(DATA)); // still the same
+    expect(list.equals(new List(DATA))).toBeTruthy(); // still the same
+    // this only works in sandbox.io
+    //expect(newList).toEqual(new List(DATA_SORTED)); // the new instance is sorted
+    expect(newList.equals(new List(DATA_SORTED))).toBeTruthy(); // the new instance is sorted
     
   });
 

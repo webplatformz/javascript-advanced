@@ -1,7 +1,7 @@
 import { performWithArguments } from './exercise5.js';
 import { performWithVariableArguments } from './exercise5.js';
 
-describe("beyong create and merge", () => {
+describe("beyond create and merge", () => {
 
   it("callback with arguments", () => {
     expect(performWithArguments((a,b) => a + b, [1, 2])).toEqual(3);

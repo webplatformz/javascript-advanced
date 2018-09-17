@@ -20,8 +20,12 @@ describe("array.push()", () => {
     expect(list === newList).toBeFalsy(); // it really is a new object
     expect(list == newList).toBeFalsy();
 
-    expect(list).toEqual(new List(DATA)); // still the same
-    expect(newList).toEqual(new List(DATA_PLUS_4)); // the new object has one element more
+    // this only works in sandbox.io
+    //expect(list).toEqual(new List(DATA)); // still the same
+    expect(list.equals(new List(DATA))).toBeTruthy(); // still the same
+    // this only works in sandbox.io
+    //expect(newList).toEqual(new List(DATA_PLUS_4)); // the new object has one element more
+    expect(newList.equals(new List(DATA_PLUS_4))).toBeTruthy(); // the new object has one element more
   });
 
 });
