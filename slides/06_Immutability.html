@@ -135,16 +135,18 @@ console.log(animals === sortedAnimals); // true, why ?</code></pre>
                 <h2>Not so trivial example</h2>
                 <p>Event Listerns etc. triggered while modifying shared state</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
-// some global state
-let data = [ 1, 2, 3, 4 ];
-let sum = 0; // shared
-
-// callback-code of a listener
-for (let index = 0; index < data.length; index++) {
-  sum += data[index];
-}
-
-console.log(sum === 10); // true, but always true ?</code></pre>
+                    // some global state
+                    let data = [ 1, 2, 3, 4 ]; // shared state
+                    let sum = 0; // shared state
+                    ...
+                    listener.onMessage = (event) => { // some async code
+                        for (let index = 0; index < data.length; index++) {
+                          sum += data[index];
+                        }
+                    }
+                    // listener2-N ...
+                    ...
+                    console.log(sum === 10); // true, but always true ?</code></pre>
             </section>
         </section>
         <section>
