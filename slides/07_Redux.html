@@ -65,17 +65,18 @@
             <section>
                 <h3>Building blocks</h3>
                 <ul>
-                    <li>
-                        Store
-                        <br>
-                        -> Immutable!
-                    </li>
+                    <li>Store</li>
+                    <li>Action</li>
                     <li>Reducers</li>
-                    <li>
-                        Action
-                        <br>
-                        -> One Dispatcher
-                    </li>
+                </ul>
+            </section>
+            <section>
+                <h3>Store</h3>
+                <ul>
+                    <li>Only one global state</li>
+                    <li>Immutable</li>
+                    <li>Allows listening to state changes</li>
+                    <li>Allows dispatching new actions</li>
                 </ul>
             </section>
             <section>
@@ -90,6 +91,37 @@
                         }
                     </code>
                 </pre>
+            </section>
+            <section>
+                <h3>Action</h3>
+                <ul>
+                    <li>Object</li>
+                    <li>Type and Payload</li>
+                    <li>Gets dispatched on store</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Action</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        const action = {
+                            type: 'INIT_SPEAKERS',
+                            payload: [
+                                'Chris',
+                                'Stefan',
+                                'Patrick',
+                            ],
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Reducer</h3>
+                <ul>
+                    <li>Pure Function</li>
+                    <li>Transforms currentState to nextState</li>
+                    <li>Input is one action</li>
+                </ul>
             </section>
             <section>
                 <h3>Reducer</h3>
@@ -111,13 +143,15 @@
                 <h3>Why is it called reducer?</h3>
                 <pre class="fragment">
                     <code class="hljs javascript" data-trim data-noescape>
-                        [action1, action2, action3]
+                        const actions = [action1, action2, action3];
+
+                        actions
                             .reduce(
                                 (lastState, action) => reducer(lastState, action),
                                 initialState
                             );
 
-                        [action1, action2, action3]
+                        actions
                             .reduce(reducer, initialState);
                     </code>
                 </pre>
@@ -137,17 +171,6 @@
                     </code>
                 </pre>
             </section>
-            <section>
-                <h3>Dispatcher</h3>
-                <pre>
-                    <code class="hljs javascript" data-trim data-noescape>
-                        store.dispatch = (action) => {
-                            store.state = reducer(store.state, action);
-                            store.listeners.forEach(listener => listener());
-                        }
-                    </code>
-                </pre>
-            </section>
         </section>
         <section>
             <section>
@@ -158,7 +181,6 @@
                 <ul>
                     <li>One reducer only for the sake of simplicity</li>
                     <li>No immutability checks</li>
-                    <li></li>
                 </ul>
             </section>
             <section>
