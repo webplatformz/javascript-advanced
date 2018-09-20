@@ -66,12 +66,16 @@
                 <h3>Building blocks</h3>
                 <ul>
                     <li>
-                        One Store
+                        Store
                         <br>
                         -> Immutable!
                     </li>
                     <li>Reducers</li>
-                    <li>One Action Dispatcher</li>
+                    <li>
+                        Action
+                        <br>
+                        -> One Dispatcher
+                    </li>
                 </ul>
             </section>
             <section>
@@ -105,6 +109,21 @@
                 </pre>
             </section>
             <section>
+                <h3>Why is it called reducer?</h3>
+                <pre class="fragment">
+                    <code class="hljs javascript" data-trim data-noescape>
+                        [action1, action2, action3]
+                            .reduce(
+                                (lastState, action) => reducer(lastState, action),
+                                initialState
+                            );
+
+                        [action1, action2, action3]
+                            .reduce(reducer, initialState);
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Dispatcher</h3>
                 <pre>
                     <code class="hljs javascript" data-trim data-noescape>
@@ -128,6 +147,19 @@
                     <li>Tracking changes is complicated</li>
                 </ul>
                 <div class="tip fragment">Redux is doing this for us</div>
+            </section>
+            <section>
+                <h3>Mistakes to omit</h3>
+                <ul>
+                    <li>
+                        Not everything has to be in the redux store
+                        <ul>
+                            <li>Routing</li>
+                            <li>Component specific state</li>
+                        </ul>
+                    </li>
+                    <li>Start without and pull it in when you need it</li>
+                </ul>
             </section>
         </section>
         <section>
