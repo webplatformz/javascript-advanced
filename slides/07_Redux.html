@@ -123,6 +123,21 @@
                 </pre>
             </section>
             <section>
+                <h3>With async streams</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        import { of } from 'rxjs';
+                        import { reduce } from 'rxjs/operators';
+
+                        const actionStream = of(action1, action2, action3);
+                        const stateStream = actionStream
+                            .pipe(
+                                reduce(reducer, initialState),
+                            );
+                    </code>
+                </pre>
+            </section>
+            <section>
                 <h3>Dispatcher</h3>
                 <pre>
                     <code class="hljs javascript" data-trim data-noescape>
