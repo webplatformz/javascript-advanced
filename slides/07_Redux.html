@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
     <title>07 Redux</title>
 
@@ -15,11 +16,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-        var link = document.createElement('link');
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-        document.getElementsByTagName('head')[0].appendChild(link);
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
 <body>
@@ -31,17 +32,30 @@
         <section>
             <section>
                 <h2>Redux</h2>
-                <p>Simplify handling of immutable state <br/>in a <b>structured &amp; consistent</b> way</p>
+                <p>Bring all of it together</p>
             </section>
             <section>
-                <h2>What is it ?</h2>
+                <h2>Redux</h2>
                 <ul>
-                    <li>Library ?</li>
-                    <li>Framework ?</li>
-                    <li>Concept ?</li>
-                    <li>Pattern ?</li>
+                    <li>Pure Functions</li>
+                    <li>Destructuring & Spreading</li>
+                    <li>Observables</li>
+                    <li>Immutability</li>
                 </ul>
-                <div class="tip fragment">A little bit of all !</div>
+            </section>
+            <section>
+                <h2>What is it?</h2>
+                <ul>
+                    <li>A concept</li>
+                    <li>
+                        There are multiple libs for it:
+                        <ul>
+                            <li>redux -> universal, mostly React</li>
+                            <li>ngrx -> Angular</li>
+                            <li>...</li>
+                        </ul>
+                    </li>
+                </ul>
             </section>
         </section>
         <section>
@@ -49,65 +63,180 @@
                 <h2>Going towards Redux</h2>
             </section>
             <section>
-                <h2>Problems of immutable state</h2>
+                <h3>Building blocks</h3>
                 <ul>
-                    <li>State can be huge &amp; complex</li>
-                    <li>Preserving immutability is fragile</li>
-                    <li>Tracking changes is complicated</li>
-                    <li>...</li>
+                    <li>Store</li>
+                    <li>Action</li>
+                    <li>Reducers</li>
                 </ul>
-                <div class="tip fragment">Redux is doing this for us</div>
             </section>
             <section>
-                <h2>Concept - Handling immutable state</h2>
+                <h3>Store</h3>
                 <ul>
-                    <li>Start point -> initial state</li>
-                    <li>Protect/Encapsulate state -> store</li>
-                    <li>Applying changes -> actions</li>
-                    <li>Tracking changes -> listeners, subscribers</li>
+                    <li>Only one global state</li>
+                    <li>Immutable</li>
+                    <li>Allows listening to state changes</li>
+                    <li>Allows dispatching new actions</li>
                 </ul>
-                <div class="tip fragment">Basic aspects of Redux</div>
             </section>
             <section>
-                <h2>Code - Handling immutable state</h2>
-                <pre><code class="hljs javascript" data-trim data-noescape>
-                    const store = {
-                        state: {}, // state is an object
-                        listeners: [], // listeners are an array of functions
-                        dispatch: (action) => {}, // dispatch is a function
-                        subscribe: (listener) => {}, // subscribe is a function
-                        getState: () => {}, // getState is a function
-                    }
-                </code></pre>
-                <div class="tip fragment">Simplified core of Redux</div>
+                <h3>Store</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        const store = {
+                            state: {},
+                            dispatch: (action) => {},
+                            subscribe: (listener) => {},
+                            getState: () => {},
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Action</h3>
+                <ul>
+                    <li>Object</li>
+                    <li>Type and Payload</li>
+                    <li>Gets dispatched on store</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Action</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        const action = {
+                            type: 'INIT_SPEAKERS',
+                            payload: [
+                                'Chris',
+                                'Stefan',
+                                'Patrick',
+                            ],
+                        }
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Reducer</h3>
+                <ul>
+                    <li>Pure Function</li>
+                    <li>Transforms currentState to nextState</li>
+                    <li>Input is one action</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Reducer</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        const initialState = { ... };
+
+                        const reducer = (state = initialState, action) => {
+                            let nextState = {};
+                            // ...
+                            // Code that creates new state using the previous state and action
+                            // ...
+                            return nextState;
+                        };
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>Why is it called reducer?</h3>
+                <pre class="fragment">
+                    <code class="hljs javascript" data-trim data-noescape>
+                        const actions = [action1, action2, action3];
+
+                        actions
+                            .reduce(
+                                (lastState, action) => reducer(lastState, action),
+                                initialState
+                            );
+
+                        actions
+                            .reduce(reducer, initialState);
+                    </code>
+                </pre>
+            </section>
+            <section>
+                <h3>With async streams</h3>
+                <pre>
+                    <code class="hljs javascript" data-trim data-noescape>
+                        import { of } from 'rxjs';
+                        import { reduce } from 'rxjs/operators';
+
+                        const actionStream = of(action1, action2, action3);
+                        const stateStream = actionStream
+                            .pipe(
+                                reduce(reducer, initialState),
+                            );
+                    </code>
+                </pre>
             </section>
         </section>
         <section>
             <section>
-                <h2>Redux Terminology</h2>
+                <h2>Write our own redux</h2>
+            </section>
+            <section>
+                <h2>Notes</h2>
                 <ul>
-                    <li>Actions</li>
-                    <li>Reducers</li>
-                    <li>Store</li>
+                    <li>One reducer only for the sake of simplicity</li>
+                    <li>No immutability checks</li>
                 </ul>
             </section>
             <section>
-                <h2>Actions</h2>
+                <a href="https://codesandbox.io/s/7jx12p29x6" target="_blank">Codesandbox</a>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Pains & Gains</h2>
             </section>
             <section>
-                <h2>Reducers</h2>
+                <h3>Problems of immutable state</h3>
+                <ul>
+                    <li>State can be huge &amp; complex</li>
+                    <li>Preserving immutability is cumbersome</li>
+                    <li>Tracking changes is complicated</li>
+                </ul>
+                <div class="tip fragment">Redux is doing this for us</div>
             </section>
             <section>
-                <h2>Store</h2>
+                <h3>Mistakes to omit</h3>
+                <ul>
+                    <li>
+                        Not everything has to be in the redux store
+                        <ul>
+                            <li>Routing</li>
+                            <li>Component specific state</li>
+                        </ul>
+                    </li>
+                    <li>Start without and pull it in when you need it</li>
+                </ul>
             </section>
         </section>
         <section>
             <h2>Further Readings &amp; Resources</h2>
             <ul>
-                <li><a href="https://redux.js.org/" target="_blank">Redux</a></li>
-                <li><a href="https://levelup.gitconnected.com/learn-redux-by-building-redux-from-scratch-dcbcbd31b0d0" target="_blank">Redux from Scratch</a></li>
-                <li><a href="https://egghead.io/lessons/react-redux-implementing-store-from-scratch" target="_blank">React/Redux from Scratch</a></li>
-                <li><a href="https://toddmotto.com/redux-typescript-store" target="_blank">Redux/Typescript Store</a></li>
+                <li>
+                    <a href="https://redux.js.org/" target="_blank">
+                        Redux
+                    </a>
+                </li>
+                <li>
+                    <a href="https://levelup.gitconnected.com/learn-redux-by-building-redux-from-scratch-dcbcbd31b0d0" target="_blank">
+                        Redux from Scratch
+                    </a>
+                </li>
+                <li>
+                    <a href="https://egghead.io/lessons/react-redux-implementing-store-from-scratch" target="_blank">
+                        React/Redux from Scratch
+                    </a>
+                </li>
+                <li>
+                    <a href="https://toddmotto.com/redux-typescript-store" target="_blank">
+                        Redux/Typescript Store
+                    </a>
+                </li>
             </ul>
         </section>
         <section class="deck-slide">
@@ -120,22 +249,22 @@
 <script src="../js/reveal.js"></script>
 
 <script>
-    // More info https://github.com/hakimel/reveal.js#configuration
-    Reveal.initialize({
-        history: true,
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    history: true,
 
-        // More info https://github.com/hakimel/reveal.js#dependencies
-        dependencies: [
-            { src: '../plugin/markdown/marked.js' },
-            { src: '../plugin/markdown/markdown.js' },
-            { src: '../plugin/notes/notes.js', async: true },
-            {
-                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-                hljs.initHighlightingOnLoad();
-            }
-            }
-        ]
-    });
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      { src: '../plugin/markdown/marked.js' },
+      { src: '../plugin/markdown/markdown.js' },
+      { src: '../plugin/notes/notes.js', async: true },
+      {
+        src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
 </script>
 </body>
 </html>
