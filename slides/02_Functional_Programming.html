@@ -72,6 +72,12 @@
                     sum(4, 9); // 13
                 </code>
                 </pre>
+                <aside class="notes">
+                    <ul>
+                        <li>Quick recap of the basic definition of a function</li>
+                        <li>Point out the hoisting</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Functions ( ) { } </h2>
@@ -87,6 +93,11 @@
                     sum(1, 3); // 4
                 </code>
                 </pre>
+                <aside class="notes">
+                    <ul>
+                        <li>Declaration - No Hoisting here</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Functions ( ) { }</h2>
@@ -101,6 +112,11 @@
                     }
                 </code>
                 </pre>
+                <aside class="notes">
+                    <ul>
+                        <li>this is bound differently (see JS Fundamentals for details)</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Functions ( ) { } </h2>
@@ -116,6 +132,11 @@
                     }
                 </code>
                 </pre>
+                <aside class="notes">
+                    <ul>
+                        <li>Higher Order Function, function as argument</li>
+                    </ul>
+                </aside>
             </section>
         </section>
         <section>
@@ -153,8 +174,13 @@
                 </p>
                 <p><a href="https://codesandbox.io/s/8z3m6wx7ll" target="_blank">Exercises</a></p>
                 <aside class="notes">
-                    The idea of this exercise is to assess whether the given functions in the exercises are pure or impure based on the given definitions.
-                    The class should discuss in pairs for a couple of minutes and then we discuss the results in the plenum.
+                    <ul>
+                        <li>This is the first exercise</li>
+                        <li>Click on the link. There is nothing to be installed. Everything can be done from within the browser.</li>
+                        <li>Do not excessively refresh your browser -> Sandbox might get stuck / blocked</li>
+                        <li>The idea of this exercise is to assess whether the given functions in the exercises are pure or impure based on the given definitions.</li>
+                        <li>The class should discuss in pairs for a couple of minutes and then we discuss the results in the plenum.</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -167,6 +193,11 @@
                     let result = sum(1, 2);
                 </code></pre>
                 <div class="tip fragment">pure => primitives are immutable</div>
+                <aside class="notes">
+                    <ul>
+                        <li>trivial example for the start, nothing extraordinary here</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -181,6 +212,12 @@
                     let result = sum(value1, value2);
                 </code></pre>
                 <div class="tip fragment">pure => primitives are immutable</div>
+                <aside class="notes">
+                    <ul>
+                        <li>another trivial example for the start, nothing extraordinary here</li>
+                        <li>var is mutable, but the values is passed by value</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -196,8 +233,10 @@
                 </code></pre>
                 <div class="tip fragment">pure => primitives are immutable</div>
                 <aside class="notes">
-                    value1 is constant
-                    var b is part of function scope
+                    <ul>
+                        <li> value1 is constant</li>
+                        <li>var b is part of function scope</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -216,8 +255,11 @@
                     scope
                 </div>
                 <aside class="notes">
-                    a,b are part of function scope
-                    assignment is aprt of function scope
+                    <ul>
+                        <li>we tried to trick you</li>
+                        <li>a,b are part of function scope</li>
+                        <li>assignment to a is part of function scope</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -232,6 +274,12 @@
                     let result = inc(a);
                 </code></pre>
                 <div class="tip fragment">pure => primitives are immutable</div>
+                <aside class="notes">
+                    <ul>
+                        <li>a is part of function scope</li>
+                        <li>assignment to a is part of function scope</li>
+                    </ul>
+                </aside>
             </section>
             <section>
                 <h2>Pure or impure ? Why ?</h2>
@@ -249,8 +297,12 @@
                 </code></pre>
                 <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable*</div>
                 <aside class="notes">
-                    setTimeout is a side-effect on its own - everything else does not really matter
-                    (*) There is a certain grayzone when it comes to purity. There is a strict and a less-strict way of interpreting it.
+                    <ul>
+                        <li>setTimeout is a side-effect on its own - everything else does not really matter</li>
+                        <li>Explain the grayzone about purity. There is a strict and a less-strict way of interpreting it.</li>
+                        <li>Since we are not in a purely functional language we may stick to the less strict interpretation</li>
+                        <li>In a purely functional language this would be impure if array were mutable</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -266,8 +318,10 @@
                 </code></pre>
                 <div class="tip fragment">1) pure => identity-function <br/>2) impure => object is mutable*</div>
                 <aside class="notes">
-                    identity-function is always pure
-                    (*) object is mutable, but it isn't modified here, so we could say it is still pure (grayzone)
+                    <ul>
+                        <li>identity-function is always pure</li>
+                        <li>Grayzone: object is mutable, but it isn't modified here, so we could say it is still pure</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -302,7 +356,11 @@
                 </code></pre>
                 <div class="tip fragment">pure => doSomething() is pure despite log() being impure</div>
                 <aside class="notes">
-                    It can be proven that fn will never be performed here since the condition is static. Also the compiled machine code will not include the if-statement
+                    <ul>
+                        <li>The function is never performed</li>
+                        <li>Little side explanation about purely funcitonal languages: It can be proven that fn will never be performed here since the condition is static.</li>
+                        <li>Besides: Also the compiled machine code will not include the if-statement</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -318,7 +376,9 @@
                     (impure) is never performed
                 </div>
                 <aside class="notes">
-                    if Math.random were performed anywhere, then the function would be impure
+                    <ul>
+                        <li>if Math.random were performed anywhere, then the function would be impure</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -333,7 +393,10 @@
                 </code></pre>
                 <div class="tip fragment">impure => accessing external/global scope</div>
                 <aside class="notes">
-                    this can be transformed into a pure one
+                    <ul>
+                        <li>global state is mutable in Javascript, therefore this is impure</li>
+                        <li>Note: this could be transformed to be pure</li>
+                    </ul>
                 </aside>
             </section>
             <section>
@@ -347,6 +410,12 @@
                     let result = divide(1, 1);
                 </code></pre>
                 <div class="tip fragment">impure => exceptions are side-effects</div>
+                <aside class="notes">
+                    <ul>
+                        <li>Exceptions cause context-switch on the stack, swapping control to the exception handler</li>
+                        <li>Note: this could be transformed to be pure</li>
+                    </ul>
+                </aside>
             </section>
         </section>
         <section>
@@ -357,7 +426,6 @@
                     <li>predictable</li>
                     <li>completely independent of outside state​</li>
                     <li>immune to bugs related to shared mutable state​</li>
-                    ​
                 </ul>
             </section>
             <section>
@@ -392,9 +460,12 @@
                     <li>However (almost) pure is good enough for functional-oriented languages</li>
                 </ul>
                 <aside class="notes">
-                    In a language like Haskhell, which is truly functional, purity can be proven because of referential transparency. It's basically just a deduction of all functions until only a
-                    constant remains (mathematically fond proof). Ff not then there exists a side-effect.
-                    In all other languages which are only functionally oriented this proof is not possible and purity must be interpreted slightly less strict - but this is still good enough.
+                    <ul>
+                        <li>In a language like Haskhell, which is truly functional, purity can be proven because of referential transparency and the fact that is is based on math.</li>
+                        <li>It's basically just a deduction of all functions until only a constant remains (mathematically fond proof). If not then there exists a side-effect.</li>
+                        <li>So purely functional oriented languages can proofe the presence/absence of side-effects (and that's one major reason what makes them awesome)</li>
+                        <li>In all other languages which are only functionally oriented this proof is not possible and purity must be interpreted slightly less strict - but this is still good enough.</li>
+                    </ul>
                 </aside>
             </section>
         </section>

@@ -114,7 +114,7 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     console.log(b); // 2
                     console.log(c); // 3
                 </code></pre>
-                <p><a href="https://codepen.io/anon/pen/wEErbL?editors=0012" target="_blank">Quick Demo</a></p>
+                <p><a href="https://codepen.io/anon/pen/wEErbL?editors=0012" target="_blank">Live Demo</a></p>
             </section>
             <section>
                 <h2>Destructuring</h2>
@@ -126,10 +126,10 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     console.log(b); // 2
                     console.log(c); // 3
                 </code></pre>
-                <p><a href="https://codepen.io/anon/pen/aaaLeL?editors=0012" target="_blank">Quick Demo</a></p>
+                <p><a href="https://codepen.io/anon/pen/aaaLeL?editors=0012" target="_blank">Live Demo</a></p>
             </section>
             <section>
-                <h2>Wrap-Up: Spread Operator</h2>
+                <h2>Wrap-Up: Destructuring</h2>
                 <ul>
                     <li>Convenient shorthands</li>
                     <li>Less verbose coding</li>
@@ -140,16 +140,18 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
         <section>
             <section>
                 <h2>Async Functions</h2>
-                <pre><code class="hljs javascript" data-trim data-noescape>async someAsyncCode() {
-    // save() is asynchronous (e.g Promise)
-    let animal = await db.save(createAnimal());
-    console.log("Sucessfully saved: " + animal);
+                <p>async/await</p>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    async someAsyncCode() {
+                        // save() is asynchronous (e.g Promise)
+                        let animal = await db.save(createAnimal());
+                        console.log("Sucessfully saved: " + animal);
 
-    // load() is asynchronous (e.g Promise)
-    let loaded = await db.load(animal.id);
-    console.log("Sucessfully loaded: " + loaded);
-}
-</code></pre>
+                        // load() is asynchronous (e.g Promise)
+                        let loaded = await db.load(animal.id);
+                        console.log("Sucessfully loaded: " + loaded);
+                    }
+                </code></pre>
             </section>
             <section>
                 <h2>Problems solved by Async/Await</h2>
@@ -183,6 +185,13 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     <li>Easier testing</li>
                     <li>Less coding</li>
                 </ul>
+                <aside class="notes">
+                    <ul>
+                        <li>Tricky: do not separate async &amp; await</li>
+                        <li>async without await compiles, but not the other way round</li>
+                        <li>No hint in the ide</li>
+                    </ul>
+                </aside>
             </section>
         </section>
         <section>

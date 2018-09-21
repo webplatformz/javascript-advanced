@@ -63,6 +63,13 @@
                 <li>Performance</li>
                 <li>ECMAScript (Standard) is evolving quickly</li>
             </ul>
+            <aside class="notes">
+                <ul>
+                    <li>Array functions are so important, that we will quickly recap them</li>
+                    <li>Most are trivial, we will not spend time on them</li>
+                    <li>We will focus on reduce() since this is the most complec but also versatile one</li>
+                </ul>
+            </aside>
         </section>
         <section>
             <section>
@@ -214,7 +221,9 @@
             <section>
                 <h2>reduce()</h2>
                 <pre><code class="hljs javascript" data-trim data-noescape>
-                array.reduce(fn(accumulator, currentValue, index?, array?), initialValue?)
+                array.reduce(
+                    fn(accumulator, currentValue, index?, array?),
+                    initialValue?)
             </code></pre>
                 <p>
                     <b>callback</b> - the function used for testing<br>
@@ -229,9 +238,10 @@
             <section>
                 <h2>Wrap-Up: reduce()</h2>
                 <ul>
-                    <li>Versatility: collect, aggregate, tally, group, pipeline</li>
+                    <li>Very versatile and powerful</li>
+                    <li>Use Cases: collect, aggregate, tally, group, pipeline</li>
                     <li>Very little code to write</li>
-                    <li>Still simple to use</li>
+                    <li>Not so simple anymore</li>
                 </ul>
             </section>
         </section>
@@ -247,20 +257,20 @@
         <section>
             <h2>Array Functions: Continued ...</h2>
             <ul class="grid">
-                <li>reduceRight()</li>
-                <li>findIndex()</li>
-                <li>sort()</li>
-                <li>copyWithin()</li>
-                <li>splice()</li>
-                <li>slice()</li>
-                <li>fill()</li>
+                <li>reduceRight(...)</li>
+                <li>findIndex(...)</li>
+                <li>sort(...)</li>
+                <li>copyWithin(...)</li>
+                <li>splice(...)</li>
+                <li>slice(...)</li>
+                <li>fill(...)</li>
                 <li>...</li>
             </ul>
         </section>
         <section>
             <h2>Array Functions: More ...</h2>
             <p>Check out and get familiar with the full <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array" target="_blank">Array API</a> !</p>
-            <p>There is more coming => ES.Next</p>
+            <p>There is more coming soon => ES.Next</p>
         </section>
         <section>
             <section>
