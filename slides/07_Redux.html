@@ -16,11 +16,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName('head')[0].appendChild(link);
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
 <body>
@@ -225,7 +225,8 @@
                     </a>
                 </li>
                 <li>
-                    <a href="https://levelup.gitconnected.com/learn-redux-by-building-redux-from-scratch-dcbcbd31b0d0" target="_blank">
+                    <a href="https://levelup.gitconnected.com/learn-redux-by-building-redux-from-scratch-dcbcbd31b0d0"
+                       target="_blank">
                         Redux from Scratch
                     </a>
                 </li>
@@ -251,22 +252,22 @@
 <script src="../js/reveal.js"></script>
 
 <script>
-  // More info https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    history: true,
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
 
-    // More info https://github.com/hakimel/reveal.js#dependencies
-    dependencies: [
-      { src: '../plugin/markdown/marked.js' },
-      { src: '../plugin/markdown/markdown.js' },
-      { src: '../plugin/notes/notes.js', async: true },
-      {
-        src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-          hljs.initHighlightingOnLoad();
-        }
-      }
-    ]
-  });
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
 </script>
 </body>
 </html>

@@ -15,11 +15,11 @@
 
     <!-- Printing and PDF exports -->
     <script>
-      var link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.type = 'text/css';
-      link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
-      document.getElementsByTagName('head')[0].appendChild(link);
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
     </script>
 </head>
 <body>
@@ -47,9 +47,9 @@
             </section>
             <section>
                 <h2>Stackoverflow</h2>
-                <img src="../img/reactive/stackoverflow_question.png" />
+                <img src="../img/reactive/stackoverflow_question.png"/>
                 <br>
-                <img src="../img/reactive/stackoverflow_answer.png" />
+                <img src="../img/reactive/stackoverflow_answer.png"/>
             </section>
             <section>
                 <h2>
@@ -73,7 +73,7 @@
             <section>
                 <h3>What is a Stream?</h3>
                 <figure>
-                    <img src="../img/reactive/stream.png" />
+                    <img src="../img/reactive/stream.png"/>
                     <figcaption><a href="https://codeburst.io" target="_blank">https://codeburst.io</a></figcaption>
                 </figure>
                 <aside class="notes">
@@ -90,7 +90,8 @@
                     const ten = 10;
                     console.log(ten);
                 </code></pre>
-                <a href="https://stackblitz.com/edit/js-zmimtd?embed=1&file=index.js&hideExplorer=1&hideNavigation=1" target="_blank">
+                <a href="https://stackblitz.com/edit/js-zmimtd?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+                   target="_blank">
                     Live Code
                 </a>
                 <aside class="notes">
@@ -108,7 +109,8 @@
             </section>
             <section>
                 <h3>More abstraction!</h3>
-                <a href="https://stackblitz.com/edit/setter-abstraction?embed=1&file=index.js&hideExplorer=1&hideNavigation=1" target="_blank">
+                <a href="https://stackblitz.com/edit/setter-abstraction?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+                   target="_blank">
                     Live Code
                 </a>
                 <aside class="notes">
@@ -118,7 +120,8 @@
             </section>
             <section>
                 <h3>What about operators?</h3>
-                <a href="https://stackblitz.com/edit/setter-abstraction-filter?embed=1&file=index.js&hideExplorer=1&hideNavigation=1" target="_blank">
+                <a href="https://stackblitz.com/edit/setter-abstraction-filter?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+                   target="_blank">
                     Live Code
                 </a>
                 <aside class="notes">
@@ -128,7 +131,8 @@
             </section>
             <section>
                 <h3>What is this pattern?</h3>
-                <a href="https://stackblitz.com/edit/js-vtbmnr?embed=1&file=index.js&hideExplorer=1&hideNavigation=1" target="_blank">
+                <a href="https://stackblitz.com/edit/js-vtbmnr?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+                   target="_blank">
                     Live Code
                 </a>
                 <aside class="notes">
@@ -137,7 +141,8 @@
             </section>
             <section>
                 <h2>Observable</h2>
-                <a href="https://stackblitz.com/edit/setter-abstraction-observable?embed=1&file=index.js&hideExplorer=1&hideNavigation=1" target="_blank">
+                <a href="https://stackblitz.com/edit/setter-abstraction-observable?embed=1&file=index.js&hideExplorer=1&hideNavigation=1"
+                   target="_blank">
                     Final Example
                 </a>
             </section>
@@ -294,6 +299,15 @@
             </p>
         </section>
 
+        <section>
+            <h2>Further Readings &amp; Resources</h2>
+            <ul>
+                <li><a href="http://rxmarbles.com/" target="_blank">RX Marbles</a></li>
+                <li><a href="https://github.com/btroncone/learn-rxjs" target="_blank">Learn RxJS</a></li>
+                <li><a href="https://rxjs-dev.firebaseapp.com/" target="_blank">RxJS</a></li>
+            </ul>
+        </section>
+
         <section class="deck-slide">
             <h1>Questions?</h1>
         </section>
@@ -304,22 +318,22 @@
 <script src="../js/reveal.js"></script>
 
 <script>
-  // More info https://github.com/hakimel/reveal.js#configuration
-  Reveal.initialize({
-    history: true,
+    // More info https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+        history: true,
 
-    // More info https://github.com/hakimel/reveal.js#dependencies
-    dependencies: [
-      { src: '../plugin/markdown/marked.js' },
-      { src: '../plugin/markdown/markdown.js' },
-      { src: '../plugin/notes/notes.js', async: true },
-      {
-        src: '../plugin/highlight/highlight.js', async: true, callback: function () {
-          hljs.initHighlightingOnLoad();
-        }
-      }
-    ]
-  });
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+            { src: '../plugin/markdown/marked.js' },
+            { src: '../plugin/markdown/markdown.js' },
+            { src: '../plugin/notes/notes.js', async: true },
+            {
+                src: '../plugin/highlight/highlight.js', async: true, callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
 </script>
 </body>
 </html>
