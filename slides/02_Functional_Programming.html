@@ -251,7 +251,7 @@
 
                     let result = sum(a, b);
                 </code></pre>
-                <div class="tip fragment">pure =><br/>1) primitives are immutable <br/>2) assignment is part of function
+                <div class="tip fragment">pure => primitives are immutable <br/>- assignment is part of function
                     scope
                 </div>
                 <aside class="notes">
@@ -295,7 +295,7 @@
 
                     let result = map(array);
                 </code></pre>
-                <div class="tip fragment">impure =><br/>1) array is resized <br/>2) array is mutable*</div>
+                <div class="tip fragment">impure => setTimeout is a side-effect<br/>- array is resized <br/>- array is mutable*</div>
                 <aside class="notes">
                     <ul>
                         <li>setTimeout is a side-effect on its own - everything else does not really matter</li>
@@ -372,7 +372,7 @@
 
                     let result = doNothing(Math.random);
                 </code></pre>
-                <div class="tip fragment">pure => <br/>1) doNothing() is the identity-function <br/>2) Math.random
+                <div class="tip fragment">pure => doNothing() is the identity-function <br/>- Math.random
                     (impure) is never performed
                 </div>
                 <aside class="notes">
