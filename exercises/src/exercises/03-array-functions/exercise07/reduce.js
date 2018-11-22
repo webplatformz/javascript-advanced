@@ -6,14 +6,11 @@
 // HINT: filter(fnFilter), reduce(fnReducer)
 
 export function sum(numbers) {
-  let sum = 0;
-  for (let index in numbers) {
-    let num = numbers[index]
-    if (num && typeof num === 'number' && num !== Infinity) {
-      sum += num;
+    let sum = 0;
+    for (let index in numbers) {
+        sum += numbers[index];
     }
-  }
-  return sum;
+    return sum;
 }
 
 // Exercise: concatenating strings using reduce
@@ -24,20 +21,20 @@ export function sum(numbers) {
 // HINT: filter(fnFilter), reduce(fnReducer, initialValue)
 
 export function concat(strings, delimiter) {
-  let result = '';
-  let streamed = 0;
-  for (let index in strings) {
-    let string = strings[index];
-    if (string) {
-      if (streamed === 0) {
-        result = string;
-      } else {
-        result = result + delimiter + string;
-      }
-      streamed++;
+    let result = '';
+    let streamed = 0;
+    for (let index in strings) {
+        let string = strings[index];
+        if (string) {
+            if (streamed === 0) {
+                result = string;
+            } else {
+                result = result + delimiter + string;
+            }
+            streamed++;
+        }
     }
-  }
-  return result;
+    return result;
 }
 
 // Exercise: tallying objects using reduce
@@ -49,14 +46,12 @@ export function concat(strings, delimiter) {
 // HINT: filter(fnFilter), reduce(fnReducer, initialValue)
 
 export function tallyAnimals(animals) {
-  let tally = {};
-  for (let animal of animals) {
-    if (animal && animal.type) {
-      let value = tally[animal.type] || 0;
-      tally[animal.type] = value + 1;
+    let tally = {};
+    for (let animal of animals) {
+        let value = tally[animal.type] || 0;
+        tally[animal.type] = value + 1;
     }
-  }
-  return tally;
+    return tally;
 }
 
 
@@ -72,19 +67,16 @@ export function tallyAnimals(animals) {
 // HINT: reduce(fnReducer, initialValue)
 
 export function group(people, attributeName, collector) {
-  let result = {};
-  for (let index in people) {
-    let person = people[index];
-    if (person) {
-      let attributeValue = person[attributeName];
-      let group = result[attributeValue];
-      if (!group) {
-        group = result[attributeValue] = [];
-      }
-      let collectedValue = collector(person);
-      group.push(collectedValue);
+    let result = {};
+    for (let index in people) {
+        let person = people[index];
+        let attributeValue = person[attributeName];
+        let group = result[attributeValue];
+        if (!group) {
+            group = result[attributeValue] = [];
+        }
+        let collectedValue = collector(person);
+        group.push(collectedValue);
     }
-    
-  }
-  return result;
+    return result;
 }

@@ -7,14 +7,14 @@
 // HINT: every(fnFilter)
 
 export function allAnimalsHaveFourLegs(animals) {
-  for (let animal of animals) {
-    if (animal && hasFourLegs(animal)) {
-      return false;
+    for (let animal of animals) {
+        if (hasFourLegs(animal)) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
 function hasFourLegs(animal) {
-  return animal.legs === 4;
+    return animal.legs === 4;
 }

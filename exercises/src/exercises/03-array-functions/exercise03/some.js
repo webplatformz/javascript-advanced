@@ -7,53 +7,53 @@
 // HINT: some(fnFilter)
 
 export function hasDogOlderThan(animals, age) {
-  return findFirstDogOlderThan(animals, age) !== null;
+    return findFirstDogOlderThan(animals, age) !== null;
 }
 
 export function hasCatEqualTo(animals, age) {
-  return findFirstCatEqualTo(animals, age) !== null;
+    return findFirstCatEqualTo(animals, age) !== null;
 }
 
 export function hasHamsters(animals) {
-  for (let animal of animals) {
-    if (isHamster(animal)) {
-      return true;
+    for (let animal of animals) {
+        if (isHamster(animal)) {
+            return true;
+        }
     }
-  }
-  return false;
+    return false;
 }
 
 export function hasNoMouse(animals) {
-  for (let animal of animals) {
-    if (!isNoMouse(animal)) {
-      return false;
+    for (let animal of animals) {
+        if (!isNoMouse(animal)) {
+            return false;
+        }
     }
-  }
-  return true;
+    return true;
 }
 
 function isHamster(animal) {
-  return animal && animal.type === 'hamster';
+    return animal.type === 'hamster';
 }
 
 function isNoMouse(animal) {
-  return animal && animal.type === 'mouse';
+    return animal.type === 'mouse';
 }
 
 function findFirstDogOlderThan(animals, age) {
-  for (let animal of animals) {
-    if (animal && animal.type === 'dog' && animal.age > age) {
-      return animal;
+    for (let animal of animals) {
+        if (animal.type === 'dog' && animal.age > age) {
+            return animal;
+        }
     }
-  }
-  return null;
+    return null;
 }
 
 function findFirstCatEqualTo(animals, age) {
-  for (let animal of animals) {
-    if (animal && animal.type === 'cat' && animal.age == age) {
-      return animal;
+    for (let animal of animals) {
+        if (animal.type === 'cat' && animal.age == age) {
+            return animal;
+        }
     }
-  }
-  return null;
+    return null;
 }

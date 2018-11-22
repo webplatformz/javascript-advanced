@@ -6,11 +6,11 @@
 // HINT: filter(fnFilter)
 
 export function positiveNumbersIncludingZero(numbers) {
-  let filtered = [];
-  for (let each of numbers || []) {
-    if (each >= 0 && each !== Infinity) {
-      filtered.push(each);
+    let filtered = [];
+    for (let each of numbers || []) {
+        if (each >= 0) {
+            filtered.push(each);
+        }
     }
-  }
-  return filtered;
+    return filtered;
 }

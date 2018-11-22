@@ -7,27 +7,23 @@
 // HINT: think small, this is take only 3 lines of code
 
 export function sumInDogYears(animals) {
-  let sum = 0;
-  if (animals) {
+    let sum = 0;
     for (let index in animals) {
-      let animal = animals[index];
-      if (animal && animal.type == 'dog') {
-        sum += animal.age;
-      }
+        let animal = animals[index];
+        if (animal.type == 'dog') {
+            sum += animal.age;
+        }
     }
-  }
-  return sum;
+    return sum;
 }
 
 export function sumInHumanYears(animals) {
-  let sum = 0;
-  if (animals) {
+    let sum = 0;
     for (let index in animals) {
-      let animal = animals[index];
-      if (animal && animal.type == 'dog') {
-        sum += animal.age * 7;
-      }
+        let animal = animals[index];
+        if (animal.type == 'dog') {
+            sum += animal.age * 7;
+        }
     }
-  }
-  return sum;
+    return sum;
 }
