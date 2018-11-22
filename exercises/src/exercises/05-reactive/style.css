@@ -1,0 +1,53 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: papayawhip;
+  text-align: center;
+}
+
+header,
+main {
+  padding: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: palevioletred;
+  color: white;
+  cursor: pointer;
+}
+
+main {
+  background-color: whitesmoke;
+}
+
+#usersList {
+  padding: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+#usersList li {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.avatar {
+  padding: 10px;
+  max-width: 50px;
+  border-radius: 50%;
+}
+
+.profile-link {
+  padding: 10px;
+  color: palevioletred;
+  text-decoration: none;
+}

@@ -1,0 +1,28 @@
+start       max. time   contents
+-------------------------------------------------------------------------------
+09:00	    30m	        Introduction, Persönliches Vorstellen, Goals, Expectations, ...
+09:30	    1h	        Functional Programming
+                            12      exercise: pure or impure
+                            4       exercise: impure -> pure
+10:30	                --- PAUSE ---
+10:45	    1h 15m	    Array Functions
+                            9 1?    exercise: array functions
+12:00	    30m	        Recent Features
+                            3 2?    exercise: spread operator
+                            2       live demo: destructuring
+                            1       exercise: async/await
+12:30		            --- LUNCH ---
+13:30	    1h 30m	    Reactive Programming
+                            4       live demo
+                            1       exercise
+15:00		           --- PAUSE ---
+15:15	    40m	        Immutable
+                            4       live demo
+                            1?      homework
+                            1       live demo
+                            1?      homework
+                            1?      homework
+15:55	    25m	        Redux
+                            3       exercise
+16:20	    10/15m	    ES.Next
+16:30/35	25/30m	    Feedback-Runde

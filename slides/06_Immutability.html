@@ -131,19 +131,24 @@
                 <h2>Trivial example</h2>
                 <p>Sorting a list</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
-let animals = [ 'hamster', 'cat', 'mouse', 'dog' ]; // shared
-let sortedAnimals = animals.sort();
+                    // shared state
+                    let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
 
-console.log(animals == [ 'hamster', 'cat', 'mouse', 'dog' ]); // false, why ?
-console.log(animals === sortedAnimals); // true, why ?</code></pre>
+                    let sortedAnimals = animals.sort();
+
+                    console.log(_.isEqual(animals, [ 'hamster', 'cat', 'mouse', 'dog' ]));
+                    // false, why ?
+
+                    console.log(animals === sortedAnimals);
+                    // true, why ?</code></pre>
             </section>
             <section>
                 <h2>Not so trivial example</h2>
                 <p>Event Listerns etc. triggered while modifying shared state</p>
                 <pre><code class="hljs javascript" data-trim data-noescape>
-                    // some global state
-                    let data = [ 1, 2, 3, 4 ]; // shared state
-                    let sum = 0; // shared state
+                    // some global & shared state
+                    let data = [ 1, 2, 3, 4 ];
+                    let sum = 0;
                     ...
                     listener.onMessage = (event) => { // some async code
                         for (let index = 0; index < data.length; index++) {
@@ -188,16 +193,16 @@ console.log(animals === sortedAnimals); // true, why ?</code></pre>
             <section>
                 <h2>Objects - Object.assign()</h2>
                 <pre><code class="hljs javascript" data-trim data-noescape>
-let animal = {
-    name: "Homer",
-    age: 2,
-    type: "hamster",
-    legs: 4
-};
+                    let animal = {
+                        name: "Homer",
+                        age: 2,
+                        type: "hamster",
+                        legs: 4
+                    };
 
-let shallowCopy = Object.assign({}, animal);
-console.log(animal === shallowCopy); // false</code></pre>
-                <p><a href="https://jsbin.com/tekejukatu/edit?js,console" target="_blank">Live Demo</a></p>
+                    let shallowCopy = Object.assign({}, animal);
+                    console.log(animal === shallowCopy); // false</code></pre>
+                <p><a href="https://jsbin.com/tagiyihiti/1/edit?js,console" target="_blank">Live Demo</a></p>
             </section>
             <section>
                 <h2>Arrays - [].concat()</h2>
@@ -206,7 +211,7 @@ let animals = [ 'hamster', 'cat', 'mouse', 'dog' ];
 
 let shallowCopy = [].concat(animals);
 console.log(animals === shallowCopy); // false</code></pre>
-                <p><a href="https://jsbin.com/pihepavuku/edit?js,console" target="_blank">Live Demo</a></p>
+                <p><a href="https://jsbin.com/hazikuleyu/1/edit?js,console" target="_blank">Live Demo</a></p>
             </section>
             <section>
                 <h2>Objects - Spread Operator</h2>
@@ -220,7 +225,7 @@ let animal = {
 
 let shallowCopy = { ...animal };
 console.log(animal === shallowCopy); // false</code></pre>
-                <p><a href="https://jsbin.com/sedicejaja/edit?js,console" target="_blank">Live Demo</a></p>
+                <p><a href="https://jsbin.com/cerarehita/1/edit?js,console" target="_blank">Live Demo</a></p>
             </section>
             <section>
                 <h2>Arrays - Spread Operator</h2>
