@@ -546,9 +546,7 @@ body {
 
 .reveal .grid {
   display: grid;
-  grid-template-columns: auto auto;
-}
+  grid-template-columns: auto auto; }
 
 .reveal .slides section .grid li {
-  margin-top: 0.8em;
-}
+  margin-top: 0.8em; }
