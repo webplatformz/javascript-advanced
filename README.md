@@ -1,2 +1,2 @@
-# Practically oriented JavaScript patterns
-Practically oriented JavaScript patterns
+# JavaScript Advanced
+JavaScript Advanced
