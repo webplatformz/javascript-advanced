@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "practically-oriented-javascript-patterns",
+    "name": "javascript-advanced-exercises",
     "version": "0.0.1",
     "scripts": {
         "test": "jasmine JASMINE_CONFIG_PATH=src/jasmine.json"
