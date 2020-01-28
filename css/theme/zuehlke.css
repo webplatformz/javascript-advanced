@@ -211,6 +211,10 @@
         background-color: #5AB7DB; }
         .reveal .slides section .badge-container .badge.es5::before {
           content: 'ES5'; }
+      .reveal .slides section .badge-container .badge.es2020 {
+        background-color: #FA9B1E; }
+        .reveal .slides section .badge-container .badge.es2020::before {
+          content: 'ES2020'; }
       .reveal .slides section .badge-container .badge.do {
         background-color: #58C765; }
         .reveal .slides section .badge-container .badge.do::before {

@@ -54,6 +54,9 @@
         <section>
             <section>
                 <h2>Optional Chaining Operator ".?"</h2>
+                <div class="badge-container">
+                    <span class="badge es2020"></span>
+                </div>
                 <pre><code class="hljs javascript" data-trim data-noescape>
                     let street = null;
 
@@ -71,6 +74,32 @@
                     <li>Syntax gets slightly more cryptic</li>
                     <li>Easier than xPath et al.</li>
                     <li>Less repetition of common code patterns</li>
+                </ul>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Nullish Coalescing</h2>
+                <div class="badge-container">
+                    <span class="badge es2020"></span>
+                </div>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    let undefinedValue;
+
+                    // current solution
+                    const undefinedValue = undefinedValue || 'some default';
+                    // unexpected results with falsy values like 0, false...
+
+                    // with nullish coalescing
+                    const nullValue = undefinedValue ?? 'some default';
+                    // no other falsy values than "null" and "undefined" considered
+                </code></pre>
+            </section>
+            <section>
+                <h2>Nullish Coalescing</h2>
+                <ul>
+                    <li>Only works with "null" and "undefined"</li>
+                    <li>More syntax to learn</li>
                 </ul>
             </section>
         </section>
