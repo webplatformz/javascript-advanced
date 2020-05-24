@@ -35,6 +35,7 @@
                 <li>Destructuring</li>
                 <li>Async Functions</li>
                 <li>String API</li>
+                <li>Optional Chaining</li>
             </ul>
         </section>
         <section>
@@ -262,6 +263,47 @@ console.log(result); // {a:1, b:2, c:3, d:4, e:5, f:6}</code></pre>
                     console.log('❤️' == '\u2764\uFE0F');</code></pre>
                 <p>encoding gets slightly bit more complicated ;)</p>
                 <p>possibilities vs consequences</p>
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Optional Chaining</h2>
+            </section>
+            <section>
+                <h2>What Problem are we solving?</h2>
+                <p class="fragment">
+                    Reading the value of a property located deep within a chain of connected objects without having to expressly validate that each reference in the chain is valid
+                </p>
+            </section>
+            <section>
+                <h2>What is getting returned?</h2>
+                <p>
+                    For all nullish values, undefined is returned.
+                </p>
+            </section>
+            <section>
+                <h2>Old Patterns</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    if (someObject) {
+                        return someObject.someProperty;
+                    }
+
+                    if (someObject && someObject.someProperty) { ... }
+
+                </code></pre>
+            </section>
+            <section>
+                <h2>New Pattern</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    return someObject?.someProperty;
+                </code></pre>
+            </section>
+            <section>
+                <h2>Also works for Functions</h2>
+                <pre><code class="hljs javascript" data-trim data-noescape>
+                    someObject?.someFunction?.();
+                </code></pre>
+                <p>As with properties it will return undefined if the function wasn't found</p>
             </section>
         </section>
         <section>
