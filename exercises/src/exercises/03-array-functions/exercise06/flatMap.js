@@ -1,10 +1,3 @@
-// DO NOT MODIFY >>>
-var flatMap = require('array.prototype.flatmap');
-delete Array.prototype.flatMap;
-var shimmedFlatMap = flatMap.shim();
-// <<< DO NOT MODIFY
-
-
 // Exercise: flattening
 //
 // rewrite the flattening of the input array using functional style only
@@ -24,11 +17,8 @@ export function flatten(arrays) {
 
 // Exercise: deep flattening
 //
-// flatMap does not allow you to deeply flatten an object/array
-// 1) rewrite the depp flattening of the input array using reduce() only
-// 2) what are the differences between the classical implementation and the functional one ?
-// 3) which one is safer ?
-// 4) which one is easier to unredstand ? (compare to the musterloesung)
+// flatMap does not allow you to deeply flatten an object/array but flat does
+// 1) rewrite the deep flattening of the input array using flat()
 //
 // NOTE: you do not need to adapt the test-case
 // HINT: none :)

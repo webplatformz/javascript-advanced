@@ -13,7 +13,6 @@
         "jasmine": "^2.4.1"
     },
     "dependencies": {
-        "array.prototype.flatmap": "^1.2.1",
         "browser-env": "^3.2.5",
         "immer": "^1.6.0",
         "immutable": "^3.8.2",
