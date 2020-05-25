@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "javascript-advanced-exercises2",
+    "name": "javascript-advanced-exercises",
     "version": "0.0.1",
     "scripts": {
         "test": "jest"
