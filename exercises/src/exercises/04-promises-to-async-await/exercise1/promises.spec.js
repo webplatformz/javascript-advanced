@@ -1,5 +1,5 @@
 import { Service } from "./promises.js";
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+const TEST_TIMEOUT = 60000;
 
 describe("chaining multiple async calls using Promises", () => {
   it("should work", () => {
@@ -8,4 +8,4 @@ describe("chaining multiple async calls using Promises", () => {
     service.doSomething();
     console.log("-- done test using Promises --");
   });
-});
+}, TEST_TIMEOUT);

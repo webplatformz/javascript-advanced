@@ -1,5 +1,5 @@
 import { Service } from "./asyncawait.solution.js";
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 60000;
+const TEST_TIMEOUT = 60000;
 
 describe("chaining mutliple async calls using async/await", () => {
 
@@ -9,5 +9,4 @@ describe("chaining mutliple async calls using async/await", () => {
     await service.doSomething();
     console.log("-- done test using async/await --");
   });
-  
-});
+}, TEST_TIMEOUT);
