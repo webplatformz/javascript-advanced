@@ -14,7 +14,7 @@
     },
     "dependencies": {
         "browser-env": "^3.2.5",
-        "immer": "^1.6.0",
+        "immer": "^8.0.1",
         "immutable": "^3.8.2",
         "rx-lite": "^4.0.8"
     }
